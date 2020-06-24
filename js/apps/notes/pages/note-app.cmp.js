@@ -1,6 +1,6 @@
 import { noteService } from "../services/note-service.js";
 import noteList from "../cmps/note-list.cmp.js";
-// import noteFilter from "../cmps/note-filter.cmp.js";
+import noteFilter from "../cmps/note-filter.cmp.js";
 
 export default {
   name: "note-app",
@@ -34,6 +34,6 @@ export default {
   },
   components: {
      noteList,
-    // noteFilter,
+    noteFilter,
   },
 };

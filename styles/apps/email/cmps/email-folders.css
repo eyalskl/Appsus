@@ -1,0 +1,24 @@
+.email-folders > * {
+  width: 100%;
+  padding: 0 12px 0 26px;
+  height: 2rem;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #202124;
+}
+
+.email-folders > *:hover {
+  background-color: rgba(242, 245, 245, 0.8);
+  border-radius: 0px 200px 200px 0px;
+}
+
+.email-folders div.inbox {
+  font-weight: bold;
+}
+
+.email-folders > * span {
+  color: #5f6368;
+  margin-inline-end: 0.75rem;
+}

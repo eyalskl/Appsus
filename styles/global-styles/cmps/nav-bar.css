@@ -1,8 +1,10 @@
 .nav-bar {
-    background-color: rgb(125, 255, 249);
+    background-color: rgb(160, 160, 160);
+    border-bottom: 1px solid #000;
 }
 
 .nav-bar .main-nav a {
+    border-bottom: 1px solid #000;
     display: flex;
     align-items: center;
     justify-content: center;
