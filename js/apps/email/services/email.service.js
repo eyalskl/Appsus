@@ -21,6 +21,8 @@ function createDefaultEmails() {
     const defaultEmails = [
         {
             id: utilsService.getRandomId(),
+            folder: 'inbox',
+            isStarred: false,
             from: 'Wizz Air' ,
             subject: 'Say YES to a 30% discount', 
             body: `Your friends, family and dreams are awaiting! Say yes to flying today, and plan ahead up until Summer 2021! Here’s 30% off of all flights (yes, all of them), only available today, June 24th. Call your parents. Text your friends. Ask your partner. Share this opportunity with them, or surprise them. Book your ticket now with WIZZ!`, 
@@ -29,6 +31,8 @@ function createDefaultEmails() {
         },
         {
             id: utilsService.getRandomId(),
+            folder: 'inbox',
+            isStarred: false,
             from: 'eBay' ,
             subject: 'Eyal, new discounts up to 56%!', 
             body: `Also today in deals: Original Samsung Fast Charging Charger USB Type C Cable Galaxy S10 S9 S8 Plus`, 
@@ -37,6 +41,8 @@ function createDefaultEmails() {
         },
         {
             id: utilsService.getRandomId(),
+            folder: 'inbox',
+            isStarred: false,
             from: 'Udacity' ,
             subject: 'Use AWS Elasticache for data storage', 
             body: `Hi Eyal,
@@ -47,6 +53,8 @@ function createDefaultEmails() {
         },
         {
             id: utilsService.getRandomId(),
+            folder: 'inbox',
+            isStarred: false,
             from: 'Shoesonline' ,
             subject: 'Say YES to a 30% discount', 
             body: `הקיץ כבר כאן ☀ דגמים חדשים במבצע שאסור לפספס! | פרסומת ‎`, 
@@ -55,6 +63,8 @@ function createDefaultEmails() {
         },
         {
             id: utilsService.getRandomId(),
+            folder: 'inbox',
+            isStarred: false,
             from: 'Netflix' ,
             subject: 'Eyal, The Politician Season 2 is now on Netflix', 
             body: `This message was mailed to [eyalskl18@gmail.com] by Netflix as part of your Netflix membership. SRC: 12182_en_IL`, 
@@ -63,6 +73,8 @@ function createDefaultEmails() {
         },
         {
             id: utilsService.getRandomId(),
+            folder: 'inbox',
+            isStarred: false,
             from: 'Pornhub' ,
             subject: 'Hello Nadav, your golden membership is about to expire', 
             body: `Please renew, your are our top PORN WATHCER! we love you long time :)`, 
@@ -81,9 +93,15 @@ function getById(emailId) {
 }
 
 function removeEmail(emailId) {
-    const emailIdx = gEmails.findIndex(email => email.id === emailId);
-    gEmails.splice(emailIdx, 1);
-    utilsService.storeToStorage(EMAILS_KEY, gEmails);
+    getById(emailId)
+        .then(email => {
+            if (email.folder === 'inbox') email.folder = 'trash';
+            else if (email.folder === 'trash') {
+                const emailIdx = gEmails.findIndex(email => email.id === emailId);
+                gEmails.splice(emailIdx, 1);
+            }
+            utilsService.storeToStorage(EMAILS_KEY, gEmails);
+        })
 }
 
 function updateEmailReadStatus(emailId, isRead) {
