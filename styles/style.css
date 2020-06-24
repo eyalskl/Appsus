@@ -29,6 +29,8 @@
 
 /* CMPS */
 @import './apps/notes/cmps/note-list.css';
+@import './apps/notes/cmps/note-add.css';
+
 /* PAGES */
 @import './apps/notes/pages/note-app.css';
 

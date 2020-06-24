@@ -6,11 +6,17 @@ import {noteService} from '../services/note-service.js'
 export default {
 template: `
         <section class="flex">
-            <div class="input-container">
-                <button @click="setType('nodeText')">txt</button>
-                <button @click="setType('nodeImg')">img</button>
-                <button @click="setType('nodeTodos')">todo</button>
-                <!-- <input v-model="noteByType"/> -->
+            <div class="input-container flex">
+                <input  :placeholder="placeholderByType"  v-model="newNote.txt"/>
+                <button @click="setType('noteText')">
+                    <i class="fas fa-font"></i>
+                </button>
+                <button @click="setType('noteImg')"> 
+                    <i class="far fa-image"></i>
+                </button>
+                <button @click="setType('noteTodos')">
+                    <i class="fas fa-list"></i>
+                </button>
             </div>
             
         </section>
@@ -19,8 +25,19 @@ template: `
     
 data(){
     return{
+        noteType:null,
         newNote:null
     }  
+},
+
+computed:{
+placeholderByType(){
+    if(this.noteType==='noteImg') return 'Insert an image url...'
+    if(this.noteType==='noteTodos') return 'Insert a todo list...'
+    return `What's on your mind...`
+},
+
+
 },
   components: {
     noteImg,
@@ -28,10 +45,15 @@ data(){
     noteTodos
   },
 
-//   methods:{
-//       setType(type){
-//           this.noteByType = noteService.getNewNoteByType(type)
-//       }
+  methods:{
+      setType(type){
+          this.noteType = type;
+      }
 
-        // },
+        },
+
+        created(){
+            this.newNote = noteService.getEmptyNoteByType('noteText')
+            this.noteType = 'noteText'
+        }
 };

@@ -3,30 +3,43 @@ import { utilsService } from "../../../services/utils.service.js";
 const NOTES_KEY = "notes";
 
 var gNotes = createDefaultNotes();
-console.log('HEY');
+console.log("HEY");
 
 export const noteService = {
   createDefaultNotes,
   getDefaultNotes,
-  // getNewNoteByType
+  getEmptyNoteByType,
 };
 
 function getDefaultNotes() {
   return Promise.resolve(gNotes);
 }
 
-// function getNewNoteByType(type) {
-//   const newNote = { type, id: utilsService.getRandomId(), isPinned: false };
-//   switch (type) {
-//     case "nodeText":
-//       newNote.info = { txt: " " };
-//     case "noteImg":
-//       newNote.info = { url: "", title: "" };
-//     case "noteTodos":
-//       newNote.info = { todos: [] };
-//   }
-//   return newNote;
-// }
+function addNewNote(newNote) {
+  newNote.isPinned = true;
+  if (newNote.type === 'noteText') newNote.txt = newNote.txt;
+  if (newNote.type === 'noteImg') {
+    newNote.url= newNote.txt = newNote.url
+    newNote.title= 'New'
+}
+if(newNote.type==='noteTodos'){
+  newNote.txt = newNote.txt.split(',')
+}
+return newNote;
+}
+
+function getEmptyNoteByType(type) {
+  const newNote = { type, id: utilsService.getRandomId(), isPinned: false };
+  switch (type) {
+    case "noteText":
+      newNote.info = { txt: " " };
+    case "noteImg":
+      newNote.info = { url: "", title: "" };
+    case "noteTodos":
+      newNote.info = { todos: '' };
+  }
+  return newNote;
+}
 
 function createDefaultNotes() {
   const notes = utilsService.loadFromStorage(NOTES_KEY);
