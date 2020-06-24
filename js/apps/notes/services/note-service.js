@@ -3,6 +3,7 @@ import { utilsService } from "../../../services/utils.service.js";
 const NOTES_KEY = "notes";
 
 var gNotes = createDefaultNotes();
+console.log('HEY');
 
 export const noteService = {
   createDefaultNotes,
