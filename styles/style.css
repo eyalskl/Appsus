@@ -26,7 +26,7 @@
 /* ---------------- NOTES ---------------- */
 
 /* CMPS */
-
+@import './apps/notes/cmps/note-list.css';
 /* PAGES */
 @import './apps/notes/pages/note-app.css';
 

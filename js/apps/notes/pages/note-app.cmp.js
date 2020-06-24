@@ -1,19 +1,20 @@
 import { noteService } from "../services/note-service.js";
 import noteList from "../cmps/note-list.cmp.js";
+import noteAdd from "../cmps/note-add.cmp.js";
 // import noteFilter from "../cmps/note-filter.cmp.js";
 
 export default {
   name: "note-app",
   template: `
-    <section class="app-main note-app">
-    <!-- <note-filter @filter="setFilter"/>    -->
+    <section v-if="notes" class="app-main note-app">
+    <!-- <note-filter @filter="setFilter"/>    --> 
+    <note-add :notes="notes"/>
             <note-list :notes="notesToShow"/>  
-        <h1>Welcome to notes!</h1>    
     </section>    
     `,
   data() {
     return {
-      notes:[],
+      notes:null,
       filterBy: null,
     };
   },
@@ -34,6 +35,7 @@ export default {
   },
   components: {
      noteList,
+     noteAdd
     // noteFilter,
   },
 };

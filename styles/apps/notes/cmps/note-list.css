@@ -1,0 +1,9 @@
+.note-img{
+    width: 200px;
+    min-height: 200px;
+}
+.note-container{
+    border: solid 1px black;
+    border-radius: 8px;
+    margin: 1rem;
+}
