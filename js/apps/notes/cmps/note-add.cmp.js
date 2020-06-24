@@ -10,7 +10,7 @@ template: `
                 <button @click="setType('nodeText')">txt</button>
                 <button @click="setType('nodeImg')">img</button>
                 <button @click="setType('nodeTodos')">todo</button>
-                <input v-model="noteByType"/>
+                <!-- <input v-model="noteByType"/> -->
             </div>
             
         </section>
@@ -28,10 +28,10 @@ data(){
     noteTodos
   },
 
-  methods:{
-      setType(type){
-          this.noteByType = noteService.getNewNoteByType(type)
-      }
+//   methods:{
+//       setType(type){
+//           this.noteByType = noteService.getNewNoteByType(type)
+//       }
 
-        },
+        // },
 };

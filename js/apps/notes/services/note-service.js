@@ -7,7 +7,7 @@ var gNotes = createDefaultNotes();
 export const noteService = {
   createDefaultNotes,
   getDefaultNotes,
-  getNewNoteByType
+  // getNewNoteByType
 };
 
 function getDefaultNotes() {
