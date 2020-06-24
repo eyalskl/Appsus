@@ -10,6 +10,7 @@
     height: 80px;
     width: 80px;
     border-right: 1px solid black;
+    text-transform: uppercase;
 }
 
 .nav-bar .main-nav a:first-of-type {
