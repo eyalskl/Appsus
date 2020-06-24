@@ -1,5 +1,8 @@
 /* ----------------------- GLOBAL -----------------------*/
 
+/* FONTS */
+@import './global-styles/fonts.css' ;
+
 /* BASE STYLES */
 @import './global-styles/base.css';
 @import './global-styles/layout.css';

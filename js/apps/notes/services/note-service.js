@@ -9,6 +9,7 @@ export const noteService = {
   createDefaultNotes,
   getDefaultNotes,
   getEmptyNoteByType,
+  addNewNote,
 };
 
 function getDefaultNotes() {
@@ -16,27 +17,32 @@ function getDefaultNotes() {
 }
 
 function addNewNote(newNote) {
+  console.log(newNote)
   newNote.isPinned = true;
-  if (newNote.type === 'noteText') newNote.txt = newNote.txt;
-  if (newNote.type === 'noteImg') {
-    newNote.url= newNote.txt = newNote.url
-    newNote.title= 'New'
-}
-if(newNote.type==='noteTodos'){
-  newNote.txt = newNote.txt.split(',')
-}
-return newNote;
+  if(newNote.type==="noteText")newNote.info.txt=newNote.info.txt
+  if (newNote.type === "noteImg") {
+    newNote.info.url = newNote.info.txt ;
+    newNote.info.title = "New";
+  }
+  if (newNote.type === "noteTodos") {
+    newNote.info.todos = newNote.info.todos.split(',');
+  }
+  gNotes.push(newNote);
+  utilsService.storeToStorage(NOTES_KEY,gNotes)
 }
 
 function getEmptyNoteByType(type) {
-  const newNote = { type, id: utilsService.getRandomId(), isPinned: false };
+  const newNote = { type:type, id: utilsService.getRandomId(), isPinned: false };
   switch (type) {
     case "noteText":
-      newNote.info = { txt: " " };
+      newNote.info = { txt: "" };
+      break;
     case "noteImg":
       newNote.info = { url: "", title: "" };
+      break;
     case "noteTodos":
-      newNote.info = { todos: '' };
+      newNote.info = { todos: "" };
+      break;
   }
   return newNote;
 }
