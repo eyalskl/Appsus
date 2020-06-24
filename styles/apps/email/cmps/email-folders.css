@@ -16,9 +16,18 @@
 
 .email-folders div.inbox {
   font-weight: bold;
+  position: relative;
 }
 
-.email-folders > * span {
+/* INBOX LOGO */
+.email-folders > * span:first-of-type {
   color: #5f6368;
   margin-inline-end: 0.75rem;
+}
+
+/* UNREAD AMOUNT */
+.email-folders > * span.unread-display{
+  color: #5f6368;
+  position: absolute;
+  right: 1rem;
 }

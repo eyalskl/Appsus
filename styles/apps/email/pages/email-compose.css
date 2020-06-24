@@ -1,0 +1,38 @@
+.email-compose {
+    position: fixed;
+    bottom: 80px;
+    right: 5px;
+    width: 550px;
+    height: 500px;
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+}
+
+.email-compose div.compose-header {
+    background-color: #404040;
+    color: #f4f4f4;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.compose-header p {
+    margin-inline-start: 1rem;   
+}
+
+.compose-header button {
+    background-color: transparent;
+    color: #f4f4f4;
+    margin-inline-end: .5rem;
+}
+
+.email-compose textarea {
+    width: 100%;
+    outline: none;
+    padding-inline-start: 1rem;
+    padding-block-start: 1rem;
+}
+
+.email-compose input {
+    outline: none;
+    padding: .5rem;
+    padding-inline-start: 1rem;
+    width: 100%;
+}

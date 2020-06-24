@@ -1,41 +1,60 @@
 .email-preview {
-  background-color: rgba(255,255,255,0.902);
+  background-color: rgba(255, 255, 255, 0.902);
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
   cursor: pointer;
   color: #202124;
   border-bottom: 1px solid rgb(199, 199, 199);
-  font-size: .875rem;
+  font-size: 0.875rem;
   position: relative;
 }
 
 .email-preview:hover {
-  box-shadow: inset 1px 0 0 #dadce0, 
-              inset -1px 0 0 #dadce0,
-                    0 1px 2px 0 rgba(60, 64, 67, 0.3), 
-                    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0,
+    0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
   z-index: 1;
 }
 
 .email-preview > * {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 
-.email-preview div.from { 
-    flex: 2;
+.email-preview div.star {
+  padding-inline-start: 1rem;
+  flex: 0.5;
 }
-.email-preview div.subject { 
-    flex: 3;
+.email-preview div.from {
+  flex: 2;
 }
-.email-preview div.body { 
-    color: #5f6368;
-    flex: 4;
+.email-preview div.subject {
+  flex: 3;
 }
-.email-preview div.readAt { 
-    flex: 1;
+.email-preview div.body {
+  color: #5f6368;
+  flex: 4;
+}
+.email-preview div.readAt {
+  flex: 1;
+  padding-inline-end: 1rem;
 }
 
+.email-preview div.star button {
+  align-items: center;
+  justify-content: center;
+  background-color: inherit;
+  color: inherit;
+}
+
+.email-preview div.star button i {
+  padding: 0.45rem;
+  font-size: 1rem;
+  color: #5f6368;
+}
+.email-preview div.star button i:hover {
+  border-radius: 50%;
+  background-color: #eceaea;
+}
 
 .email-controls {
   background-color: inherit;
@@ -46,27 +65,33 @@
 }
 
 .email-controls button {
-  padding: .45rem;
+  padding: 0.45rem;
   background-color: inherit;
-  color: inherit;
+  color: #5f6368;
   font-size: 1rem;
 }
 
-.email-controls button:hover {
-  color: #202124;
+.email-preview div.star button i.fa-trash:hover {
+  color: #5f6368;
   border-radius: 50%;
-  background-color: #eceaea;
+  background-color: inherit;
 }
 
-
+.email-preview div.star button i.fa-trash {
+  color: #5f6368;
+}
 
 /* HELPERS */
 
 .read {
   font-weight: 300;
-  background-color: rgba(242,245,245,0.8);
+  background-color: rgba(242, 245, 245, 0.8);
 }
 
 .unread {
   font-weight: bold;
+}
+
+.email-preview div.star button i.starred {
+  color: #e4bb24;
 }

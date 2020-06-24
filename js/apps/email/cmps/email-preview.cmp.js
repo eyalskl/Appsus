@@ -6,6 +6,11 @@ export default {
     props: ["email"],
     template: `
         <li @mouseover="displayControls" @mouseout="hideControls" class="email-preview flex space-between align-center" :class="isRead">
+            <div class="flex star"> 
+                <button @click.stop="toggleStarred"> 
+                    <i :class="starClasses"></i> 
+                </button> 
+            </div>
             <div class="flex from"> {{ email.from }} </div>
             <div class="flex subject"> {{ email.subject }} </div>
             <div class="flex body" style="font-weight: 300"> - {{ emailBodyShortText }}... </div>
@@ -38,12 +43,20 @@ export default {
         setReadTitle() {
             if (this.email.isRead) return 'Mark as unread'
             else return 'Mark as read'
+        },
+        starClasses() {
+            if (this.email.folder === 'trash') return 'fas fa-trash';
+            if (this.email.isStarred) return 'fas fa-star starred'
+            else return 'far fa-star'
+        },
+        notInTrash() {
+            return this.email.folder !== 'trash';
         }
     },
     methods: {
         toggleRead() {
             this.email.isRead = !this.email.isRead
-            emailService.updateEmailReadStatus(this.email.id, this.email.isRead);
+            emailService.updateEmailProp(this.email.id, 'isRead', this.email.isRead);
         },
         displayControls() {
             this.showControls = true;
@@ -53,6 +66,11 @@ export default {
         },
         deleteEmail(emailIdx) {
             emailService.removeEmail(emailIdx);
+        },
+        toggleStarred() {
+            if (this.email.folder === 'trash') return;
+            this.email.isStarred = !this.email.isStarred
+            emailService.updateEmailProp(this.email.id, 'isStarred', this.email.isStarred);
         }
     }
 

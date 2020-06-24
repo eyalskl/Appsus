@@ -6,7 +6,8 @@ export const emailService = {
     createDefaultEmails,
     getDefaultEmails,
     removeEmail,
-    updateEmailReadStatus
+    updateEmailProp,
+    getUnreadAmount
 }
 
 var gEmails = createDefaultEmails();
@@ -104,13 +105,20 @@ function removeEmail(emailId) {
         })
 }
 
-function updateEmailReadStatus(emailId, isRead) {
+function updateEmailProp(emailId, prop, value) {
     let emailToEdit;
     getById(emailId)
         .then(email => {
             emailToEdit = email
-            emailToEdit.isRead = isRead;
+            emailToEdit[prop] = value;
             utilsService.storeToStorage(EMAILS_KEY, gEmails);
         })
+}
 
+function getUnreadAmount() {
+    var count = 0;
+    gEmails.forEach(email => {
+        if (!email.isRead && email.folder !== 'trash') count++
+    })
+    return count;
 }
