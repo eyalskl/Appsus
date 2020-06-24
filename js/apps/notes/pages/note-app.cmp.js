@@ -34,7 +34,7 @@ export default {
   },
   components: {
      noteList,
-     noteAdd
+    //  noteAdd
     // noteFilter,
   },
 };
