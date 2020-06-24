@@ -1,0 +1,22 @@
+.nav-bar {
+    background-color: rgb(125, 255, 249);
+}
+
+.nav-bar .main-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(231, 255, 126);
+    height: 80px;
+    width: 80px;
+    border-right: 1px solid black;
+}
+
+.nav-bar .main-nav a:first-of-type {
+    border-left: 1px solid black;
+}
+
+.main-nav .router-link-exact-active {
+    color: #000;
+    box-shadow: inset 0px -6px 0px rgb(255, 255, 255);
+}

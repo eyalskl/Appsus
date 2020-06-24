@@ -1,0 +1,39 @@
+/* ----------------------- GLOBAL -----------------------*/
+
+/* BASE STYLES */
+@import './global-styles/base.css';
+@import './global-styles/layout.css';
+
+/* HELPERS */
+@import './global-styles/helpers.css';
+
+/* CMPS */
+
+/* PAGES */
+@import './global-styles/pages/home-page.css';
+@import './global-styles/cmps/app-footer.css';
+@import './global-styles/cmps/nav-bar.css';
+
+/*-------------------- APPS STYLING--------------------- */
+
+/* ---------------- EMAIL ---------------- */
+
+/* CMPS */
+
+/* PAGES */
+@import './apps/email/pages/email-app.css';
+
+/* ---------------- NOTES ---------------- */
+
+/* CMPS */
+
+/* PAGES */
+@import './apps/notes/pages/notes-app.css';
+
+
+/* ---------------- BOOKS ---------------- */
+
+/* CMPS */
+
+/* PAGES */
+/* @import './apps/books/pages/book-app.css'; */
