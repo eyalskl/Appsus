@@ -19,7 +19,7 @@
 /* ---------------- EMAIL ---------------- */
 
 /* CMPS */
-
+@import './apps/email/cmps/email-preview.css';
 /* PAGES */
 @import './apps/email/pages/email-app.css';
 
