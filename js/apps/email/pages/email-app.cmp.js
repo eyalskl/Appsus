@@ -6,7 +6,7 @@ import emailFolders from '../cmps/email-folders.cmp.js';
 export default {
     name: 'email-app',
     template: `
-    <section v-if="emails" class="app-main email-app flex">
+    <section v-if="emails" class="email-app flex">
         <email-folders @folderUpdate="setFolderDisplay"> </email-folders>
         <email-list :emails="emailsToShow"> </email-list>
         <router-view/>
@@ -21,6 +21,7 @@ export default {
     computed: {
         emailsToShow() {
             if (this.folderToShow === 'starred') return this.emails.filter(email => email.isStarred === true && email.folder !== 'trash')
+            if (this.folderToShow === 'sent') return this.emails.filter(email => email.isSent === true && email.folder !== 'trash')
             return this.emails.filter(email => email.folder === this.folderToShow)
         }
     },

@@ -16,9 +16,10 @@ new Vue({
     template: `
         <div>
         
-        <nav-bar class="nav-bar"> </nav-bar>
+ 
 
         <main class="app-main">
+        
             <router-view />
         </main>
         

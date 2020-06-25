@@ -1,3 +1,5 @@
+import { emailService } from "../services/email.service.js";
+
 export default {
     name: 'email-compose',
     template: `
@@ -17,7 +19,7 @@ export default {
                 <input type="text" name="composeSubject" v-model="emailToSend.subject" placeholder="Subject">    
             </div>
             <div class="compose-body"> 
-                <textarea rows="19" type="text" v-model="emailToSend.body" name="composeSubject"/>    
+                <textarea rows="15" type="text" v-model="emailToSend.body" name="composeSubject"/>    
             </div>
             <div class="compose-footer flex space-between align-center"> 
                 <button :disabled="!isValid" title="Send" @click.stop="sendNewMail"> Send </button>
@@ -29,9 +31,8 @@ export default {
     data() {
         return {
             minimizedMode: false,
-            isValid: false,
             emailToSend: {
-                from: 'eyalskl18@gmail.com',
+                fromEmail: 'Nadav-Eyal@gmail.com',
                 to: '',
                 subject: '',
                 body: ''
@@ -46,8 +47,8 @@ export default {
             this.minimizedMode = !this.minimizedMode;
         },
         sendNewMail() {
-            console.log('hey');
-            
+            emailService.sendNewMail(this.emailToSend)
+            this.$router.back();
         }
     },
     computed: {
@@ -59,6 +60,9 @@ export default {
             if (this.minimizedMode) return 'fa-window-maximize'
             else return 'fa-window-minimize'
         },
+        isValid() {
+            return !!this.emailToSend.to && !!this.emailToSend.subject
+        }
     }
 
 }

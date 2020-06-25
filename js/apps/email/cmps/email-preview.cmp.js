@@ -3,7 +3,7 @@ import { emailService } from "../services/email.service.js";
 
 export default {
     name: 'email-preview',
-    props: ["email"],
+    props: ['email'],
     template: `
         <section class="email-preview">
             <li @click="openEmailPeek" @mouseover="displayControls" @mouseout="hideControls" class="email-preview flex space-between align-center" :class="isRead">
@@ -76,7 +76,7 @@ export default {
         descClass() {
             if (!this.showPeek) return 'hide';
             else return '';
-        }
+        },
     },
     methods: {
         toggleRead() {
