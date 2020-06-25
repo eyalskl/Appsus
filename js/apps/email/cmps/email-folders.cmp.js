@@ -4,7 +4,7 @@ import { emailService } from '../services/email.service.js';
 export default {
     template: `
         <section class="email-folders flex column">
-            <router-link to="/compose"> <i class="fas fa-plus"></i> Compose </router-link>
+            <router-link class="send-email-btn" to="compose"> <i class="fas fa-plus"></i> Compose </router-link>
             <div @click="setFolder('inbox')" class="inbox">
                 <span> <i class="fas fa-inbox"></i> </span> 
                 Inbox
@@ -13,6 +13,10 @@ export default {
             <div @click="setFolder('starred')" class="starred">
                 <span> <i class="fas fa-star"></i> </span>
                 Starred
+            </div>
+            <div @click="setFolder('sent')" class="sent">
+                <span> <i class="fas fa-share-square"></i> </span>
+                Sent
             </div>
             <div @click="setFolder('trash')" class="deleted">
                 <span> <i class="fas fa-trash"></i> </span>
