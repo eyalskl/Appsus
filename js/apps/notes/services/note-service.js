@@ -10,6 +10,7 @@ export const noteService = {
     getDefaultNotes,
     getEmptyNoteByType,
     addNewNote,
+    deleteNote,
 };
 
 function getDefaultNotes() {
@@ -28,6 +29,12 @@ function addNewNote(newNote) {
         newNote.info.todos = newNote.info.todos.split(",");
     }
     gNotes.push(newNote);
+    utilsService.storeToStorage(NOTES_KEY, gNotes);
+}
+
+function deleteNote(noteId) {
+    var idx = gNotes.findIndex((note) => note.id === noteId);
+    gNotes.splice(idx, 1);
     utilsService.storeToStorage(NOTES_KEY, gNotes);
 }
 

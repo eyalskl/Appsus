@@ -2,6 +2,7 @@ import noteImg from "./note-img.cmp.js";
 import noteVideo from "./note-video.cmp.js";
 import noteText from "./note-text.cmp.js";
 import noteTodos from "./note-todos.cmp.js";
+import { noteService } from "../services/note-service.js";
 
 export default {
     props: ['note'],
@@ -28,7 +29,7 @@ export default {
             <button> 
                 <i class="fas fa-edit"></i>
             </button> 
-            <button> 
+            <button @click="deleteNote(note.id)"> 
                 <i class="fas fa-trash"></i>
             </button> 
         </div>
@@ -55,6 +56,9 @@ export default {
         setBgc(color) {
             this.noteBgc.backgroundColor = color;
             this.openColorsMenu = false;
+        },
+        deleteNote(id) {
+            noteService.deleteNote(id)
         }
 
 

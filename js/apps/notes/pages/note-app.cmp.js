@@ -4,38 +4,38 @@ import noteAdd from "../cmps/note-add.cmp.js"
 // import noteFilter from "../cmps/note-filter.cmp.js";
 
 export default {
-  name: "note-app",
-  template: `
-    <section v-if="notes" class="app-main notes-app">
+    name: "note-app",
+    template: `
+    <section v-if="notes" class="notes-app">
     <!-- <note-filter @filter="setFilter"/>    --> 
     <note-add :notes="notes"/>
             <note-list :notes="notesToShow"/>  
     </section>    
     `,
-  data() {
-    return {
-      notes:null,
-      filterBy: null,
-    };
-  },
-  computed: {
-    notesToShow() {
-      return this.notes;
+    data() {
+        return {
+            notes: null,
+            filterBy: null,
+        };
     },
-  },
-  methods: {
-    setFilter(filterBy) {
-      this.filterBy = filterBy;
+    computed: {
+        notesToShow() {
+            return this.notes;
+        },
     },
-  },
-  created() {
-    noteService.getDefaultNotes()
-    .then(notes => this.notes = notes);
-    
-  },
-  components: {
-     noteList,
-     noteAdd
-    // noteFilter,
-  },
+    methods: {
+        setFilter(filterBy) {
+            this.filterBy = filterBy;
+        },
+    },
+    created() {
+        noteService.getDefaultNotes()
+            .then(notes => this.notes = notes);
+
+    },
+    components: {
+        noteList,
+        noteAdd
+        // noteFilter,
+    },
 };
