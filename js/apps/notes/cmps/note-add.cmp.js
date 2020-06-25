@@ -1,14 +1,14 @@
 import noteImg from "./note-img.cmp.js";
 import noteText from "./note-text.cmp.js";
 import noteTodos from "./note-todos.cmp.js";
-import addTodos from "./add-todo.cmp.js"
 import { noteService } from "../services/note-service.js";
 export default {
-  template: `
+    template: `
         <section class="flex">
             <div class="input-container flex wrap">
                 <input  :placeholder="placeholderByType" @keyup.enter.prevent="addNote(newNote)"  v-model="newNote.info.txt"/>
-                <button v-if="noteType==='noteTodos'" @click="todosAmount++">+</button>
+                <input v-if="noteType==='noteTodos'" v-for="input in todosAmount" @keyup.enter.prevent="todosAmount++"></input>
+                <button v-if="noteType==='noteTodos'" @click="addNote(newNote)">done</button>
                 <add-todos v-if="todosAmount>1" :todosAmount="todosAmount"/>
                 <button @click="setType('noteText')">
                     <i class="fas fa-font"></i>
@@ -24,42 +24,41 @@ export default {
         </section>
     `,
 
-  data() {
-    return {
-      noteType: null,
-      newNote: null,
-      anotherLine: false,
-      todosAmount:1
-    };
-  },
-  computed: {
-    placeholderByType() {
-      if (this.noteType === "noteImg") return "Insert an image url...";
-      if (this.noteType === "noteTodos") return "Insert a todo list...";
-      return `Take a note...`;
+    data() {
+        return {
+            noteType: null,
+            newNote: null,
+            anotherLine: false,
+            todosAmount: 1
+        };
     },
-  },
-  methods: {
-    setType(type) {
-      this.noteType = type;
-      this.newNote = noteService.getEmptyNoteByType(type);
+    computed: {
+        placeholderByType() {
+            if (this.noteType === "noteImg") return "Insert an image url...";
+            if (this.noteType === "noteTodos") return "Insert a todo list...";
+            return `Take a note...`;
+        },
     },
-    addNote(newNote) {
-      noteService.addNewNote(newNote);
-      this.newNote=noteService.getEmptyNoteByType(this.noteType);
+    methods: {
+        setType(type) {
+            this.noteType = type;
+            this.newNote = noteService.getEmptyNoteByType(type);
+        },
+        addNote(newNote) {
+            noteService.addNewNote(newNote);
+            this.newNote = noteService.getEmptyNoteByType(this.noteType);
+        },
+
     },
 
-  },
+    components: {
+        noteImg,
+        noteText,
+        noteTodos,
+    },
 
-  components: {
-    noteImg,
-    noteText,
-    noteTodos,
-    addTodos
-  },
-
-  created() {
-    this.newNote = noteService.getEmptyNoteByType("noteText");
-    this.noteType = "noteText";
-  },
+    created() {
+        this.newNote = noteService.getEmptyNoteByType("noteText");
+        this.noteType = "noteText";
+    },
 };
