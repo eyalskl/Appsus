@@ -1,24 +1,25 @@
 export default {
-    name:'noteText',
+    name: 'noteText',
     template: `
-          <div>
+          <div class="note-desc">
             <h3>{{info.txt}}</h3>
+            <i class="fas fa-font note-type"></i>
 </div>
           `,
     props: ["info"],
     data() {
-      return {
-        val: ""
-      };
+        return {
+            val: ""
+        };
     },
     methods: {
-    //   reportVal() {
-    //     this.$emit("setVal", this.val);
-    //   }
+        //   reportVal() {
+        //     this.$emit("setVal", this.val);
+        //   }
     },
     computed: {
-    //   listId() {
-    //     return "list" + this._uid;
-    //   }
+        //   listId() {
+        //     return "list" + this._uid;
+        //   }
     }
-  };
+};
