@@ -6,7 +6,7 @@ import noteAdd from "../cmps/note-add.cmp.js"
 export default {
   name: "note-app",
   template: `
-    <section v-if="notes" class="app-main note-app">
+    <section v-if="notes" class="app-main notes-app">
     <!-- <note-filter @filter="setFilter"/>    --> 
     <note-add :notes="notes"/>
             <note-list :notes="notesToShow"/>  

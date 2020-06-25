@@ -1,38 +1,11 @@
-.send-email-btn {
-  border: 1px solid rgb(187, 187, 187);
-  margin: 1rem;
-  width: 150px;
-  padding: 1.5rem;
-  border-radius: 999px;
-  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
-    0 1px 3px 1px rgba(60, 64, 67, 0.149);
-}
-
-.send-email-btn:hover {
-  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
-    0 4px 8px 3px rgba(60, 64, 67, 0.149);
-  background-color: #fafafb;
-  border-radius: 999px;
-  color: black;
-  font-weight: bold;
-}
-
-.send-email-btn {
-  color: rgb(85, 85, 85);
-}
-
-.send-email-btn i {
-  margin-inline-end: 1rem;
-  font-size: 1.25rem;
-}
-
 .email-compose {
+  background-color: white;
   z-index: 1;
   position: fixed;
   bottom: 80px;
   right: 5px;
-  width: 476px;
-  height: 500px;
+  width: 400px;
+  height: 470px;
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
     0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
 }
@@ -79,6 +52,8 @@
   outline: none;
   border: none;
   padding: 1rem;
+  font-family: roboto;
+
 }
 
 .email-compose input {
@@ -89,10 +64,13 @@
   padding-block-start: 0.75rem;
   padding-block-end: 0.75rem;
   width: 100%;
+  font-family: roboto;
+
 }
 
 .compose-footer {
-  margin-bottom: 0;
+  padding: .5rem;
+  background-color: #fff;
 }
 
 .compose-footer button:first-of-type {
@@ -120,4 +98,32 @@
 .compose-footer button:last-of-type:hover {
   color: black;
   background-color: rgb(238, 238, 238);
+}
+
+
+.send-email-btn {
+  border: 1px solid rgb(187, 187, 187);
+  color: rgb(59, 59, 59);
+  font-weight: 600;
+  margin: 1rem;
+  border: none;
+  width: 150px;
+  font-size: .9rem;
+  padding: 1.5rem 1.5rem 1.5rem 1rem;
+  border-radius: 999px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
+              0 1px 3px 1px rgba(60, 64, 67, 0.149);
+}
+
+.send-email-btn:hover {
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
+              0 4px 8px 3px rgba(60, 64, 67, 0.149);
+  background-color: #fafafb;
+  border-radius: 999px;
+  color: black;
+  font-weight: bold;
+}
+
+.send-email-btn img {
+  margin-inline-end: .75rem;
 }
