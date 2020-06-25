@@ -1,13 +1,13 @@
-.note-img{
+.note-img {
     width: 200px;
     min-height: 200px;
 }
-.note-container{
+
+.note-container {
     color: #202124;
     font-size: 14px;
     line-height: 19px;
     min-height: 100px;
-    padding: 4px 16px 12px 16px;
     border: 1px solid rgb(199, 199, 199);
     background-color: #fff;
     border-radius: 5px;
@@ -16,7 +16,11 @@
     align-self: flex-start;
     line-break: anywhere;
 }
-.note-container:hover{
-    box-shadow:  1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.149);
+
+.note-container:hover {
+    box-shadow: 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
 }
 
+.note-desc {
+    padding-bottom: 1rem;
+}

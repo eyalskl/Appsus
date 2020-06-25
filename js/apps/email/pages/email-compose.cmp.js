@@ -1,25 +1,68 @@
+import { emailService } from "../services/email.service.js";
+
 export default {
-    name: 'email',
+    name: 'email-compose',
     template: `
-        <div class="email-compose flex column">
-            <div class="compose-header flex space-between"> 
+        <div class="email-compose flex column" :class="minimized">
+            <div @click.stop="minimize" class="compose-header flex space-between align-center"> 
                 <p> New Message </p> 
-                <button @click="backToEmail"> X </button>
+                <div class="header-controls flex">
+                    <button @click.stop="minimize" title="Minimize"> <i class="far" :class="minimizedIcon"></i> </button>
+                    <button @click="backToEmail" title="Save and close"> <i class="fas fa-times"></i> </button>
+                </div>
             </div>
+            <section v-show="!minimizedMode">
             <div class="compose-to"> 
-                <input type="email" name="composeTo" placeholder="To">    
+                <input type="email" ref="emailInput" v-model="emailToSend.to" name="composeTo" placeholder="To">    
             </div>
             <div class="compose-subject"> 
-                <input type="text" name="composeSubject" placeholder="Subject">    
+                <input type="text" name="composeSubject" v-model="emailToSend.subject" placeholder="Subject">    
             </div>
             <div class="compose-body"> 
-                <textarea rows="24" type="text" name="composeSubject"/>    
+                <textarea rows="15" type="text" v-model="emailToSend.body" name="composeSubject"/>    
             </div>
+            <div class="compose-footer flex space-between align-center"> 
+                <button :disabled="!isValid" title="Send" @click.stop="sendNewMail"> Send </button>
+                <button @click="backToEmail" title="Discard draft"> <i class="fas fa-trash"></i> </button>
+            </div>
+            </section>
         </div>
     `,
+    data() {
+        return {
+            minimizedMode: false,
+            emailToSend: {
+                fromEmail: 'Nadav-Eyal@gmail.com',
+                to: '',
+                subject: '',
+                body: ''
+            }
+        }
+    },
     methods: {
         backToEmail() {
             this.$router.back();
+        },
+        minimize() {
+            this.minimizedMode = !this.minimizedMode;
+        },
+        sendNewMail() {
+            emailService.sendNewMail(this.emailToSend)
+            this.$router.back();
+        }
+    },
+    computed: {
+        minimized() {
+            if (this.minimizedMode) return 'minimized';
+            else return '';
+        },
+        minimizedIcon() {
+            if (this.minimizedMode) return 'fa-window-maximize'
+            else return 'fa-window-minimize'
+        },
+        isValid() {
+            return !!this.emailToSend.to && !!this.emailToSend.subject
         }
     }
+
 }

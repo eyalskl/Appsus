@@ -6,6 +6,18 @@
     min-height: calc(100vh - 160px);
 }
 
+.email-nav {
+    height: 80px;
+}
+
+.email-app, .notes-app  {
+    min-height: calc(100vh - 80px);
+}
+.email-main {
+    min-height: calc(100vh - 160px);
+}
+
+
 .main-footer {
     height: 80px;
 }

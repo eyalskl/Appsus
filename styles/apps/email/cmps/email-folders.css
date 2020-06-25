@@ -1,5 +1,9 @@
+.email-folders {
+  border-right: 1px solid rgb(204, 204, 204);
+}
+
 .email-folders > * {
-  width: 100%;
+  width: 97.5%;
   padding: 0 12px 0 26px;
   height: 2rem;
   font-size: 0.875rem;
@@ -7,6 +11,7 @@
   align-items: center;
   cursor: pointer;
   color: #202124;
+  border-radius: 0px 200px 200px 0px;
 }
 
 .email-folders > *:hover {
@@ -30,4 +35,15 @@
   color: #5f6368;
   position: absolute;
   right: 1rem;
+}
+
+
+.email-folders div.inbox-v, .email-folders div.inbox-v span {
+  background-color: rgba(255, 96, 96, 0.151);
+  color: rgb(255, 88, 88);
+}
+
+.email-folders div.sent-v, .email-folders div.starred-v, .email-folders div.trash-v {
+  background-color: rgba(242, 245, 245, 0.8);
+  font-weight: 700;
 }
