@@ -1,8 +1,9 @@
-.note-img{
+.note-img {
     width: 200px;
     min-height: 200px;
 }
-.note-container{
+
+.note-container {
     color: #202124;
     font-size: 14px;
     line-height: 19px;
@@ -16,7 +17,19 @@
     align-self: flex-start;
     line-break: anywhere;
 }
-.note-container:hover{
-    box-shadow:  1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.149);
+
+.note-container:hover {
+    box-shadow: 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
 }
 
+.done {
+    text-decoration: line-through;
+}
+
+.todo-task {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    align-items: center;
+}

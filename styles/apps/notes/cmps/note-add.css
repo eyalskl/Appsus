@@ -1,24 +1,31 @@
-.input-container input{
+.input-container input {
     border: none;
     outline: 0;
     color: #80868b;
     font-weight: 600;
     min-width: 420px;
-    
 }
+
 .input-container {
     background-color: #fff;
     padding: 1rem;
     margin-block-start: 1rem;
     margin: 1rem auto;
-    box-shadow: 1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.149);
+    box-shadow: 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
     border-radius: 8px;
 }
-.input-container button:not(:last-of-type){
 
+.input-container button:not(:last-of-type) {
     margin-inline-end: 0.5rem;
 }
-.input-container button{
+
+.input-container button {
     background-color: transparent;
     font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+.input-container button:hover {
+    border-radius: 50%;
+    background-color: #eceaea;
 }
