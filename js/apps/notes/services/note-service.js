@@ -17,22 +17,27 @@ function getDefaultNotes() {
 }
 
 function addNewNote(newNote) {
-    console.log(newNote)
+    console.log(newNote);
     newNote.isPinned = true;
-    if (newNote.type === "noteText") newNote.info.txt = newNote.info.txt
+    if (newNote.type === "noteText") newNote.info.txt = newNote.info.txt;
     if (newNote.type === "noteImg") {
         newNote.info.url = newNote.info.txt;
         newNote.info.title = "New";
     }
     if (newNote.type === "noteTodos") {
-        newNote.info.todos = newNote.info.todos.split(',');
+        newNote.info.todos = newNote.info.todos.split(",");
     }
     gNotes.push(newNote);
-    utilsService.storeToStorage(NOTES_KEY, gNotes)
+    utilsService.storeToStorage(NOTES_KEY, gNotes);
 }
 
 function getEmptyNoteByType(type) {
-    const newNote = { type: type, id: utilsService.getRandomId(), isPinned: false, style: { backgroundColor: "#000" } };
+    const newNote = {
+        type: type,
+        id: utilsService.getRandomId(),
+        isPinned: false,
+        style: { backgroundColor: "#000" },
+    };
     switch (type) {
         case "noteText":
             newNote.info = { txt: "" };
@@ -81,6 +86,19 @@ function createDefaultNotes() {
                 todos: [
                     { txt: "Do that", doneAt: null },
                     { txt: "Do this", doneAt: 187111111 },
+                ],
+                style: {
+                    backgroundColor: "#00d",
+                },
+            },
+        },
+        {
+            type: "noteVideo",
+            id: utilsService.getRandomId(),
+            isPinned: false,
+            info: {
+                todos: [
+                    { url: "https://www.youtube.com/watch?v=jofNR_WkoCE", title: "new" },
                 ],
                 style: {
                     backgroundColor: "#00d",
