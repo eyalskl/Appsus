@@ -1,0 +1,11 @@
+.done {
+    text-decoration: line-through;
+}
+
+.todo-task {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    align-items: center;
+}

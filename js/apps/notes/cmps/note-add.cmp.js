@@ -8,7 +8,6 @@ export default {
             <div class="input-container flex wrap">
                 <input  :placeholder="placeholderByType" @keyup.enter.prevent="addNote(newNote)"  v-model="newNote.info.txt"/>
                 <input v-if="noteType==='noteTodos'" v-for="input in todosAmount" @keyup.enter.prevent="todosAmount++"></input>
-                <button v-if="noteType==='noteTodos'" @click="addNote(newNote)">done</button>
                 <add-todos v-if="todosAmount>1" :todosAmount="todosAmount"/>
                 <button @click="setType('noteText')">
                     <i class="fas fa-font"></i>
