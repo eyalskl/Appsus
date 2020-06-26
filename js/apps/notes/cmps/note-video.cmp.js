@@ -2,7 +2,7 @@ export default {
     name: 'noteVideo',
     template: `
         <div class="note-desc">
-        <iframe width="200" height="240" :src="formattedUrl"/>
+        <iframe width="240" :src="formattedUrl"/>
         </iframe>
             <h2>{{info.title}}</h2>
             <i class="fab fa-youtube note-type"></i>

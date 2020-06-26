@@ -5,10 +5,10 @@ export default {
     props: ["notes"],
     template: `
         <div class="main-notes-container" v-if="notes">
-            <ul  class="note-container" v-for="note in notes">
-              <note-preview :note="note"/>            
-            </ul>
-</div>
+            <div  class="note-container" v-for="note in notes">
+            <note-preview :note="note"/>            
+            </div>
+        </div>
     `,
 
 
