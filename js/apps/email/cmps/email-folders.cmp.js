@@ -5,6 +5,7 @@ export default {
     template: `
         <section class="email-folders flex column">
             <router-link class="send-email-btn" to="compose"> <img src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png"/> Compose </router-link>
+            <router-view />
             <div @click="setFolder('inbox')" class="inbox" :class="highlightInbox">
                 <span> <i class="fas fa-inbox"></i> </span> 
                 Inbox

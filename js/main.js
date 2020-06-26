@@ -15,16 +15,10 @@ new Vue({
     router: myRouter,
     template: `
         <div>
-        
- 
-
-        <main class="app-main">
-        
-            <router-view />
-        </main>
-        
-        <app-footer class="main-footer"></app-footer>
-
+            <main class="app-main">
+                <router-view />
+            </main>
+            <app-footer class="main-footer"> </app-footer>
         </div>
         `,
     data: {
