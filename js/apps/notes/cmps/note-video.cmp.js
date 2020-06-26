@@ -1,25 +1,46 @@
 export default {
     name: 'noteVideo',
     template: `
-        <div class="note-desc">
+    <div>
+        <div v-if="!isEdit" class="note-desc">
         <iframe width="240" :src="formattedUrl"/>
         </iframe>
             <h2>{{info.title}}</h2>
             <i class="fab fa-youtube note-type"></i>
         </div>
+        <div v-else>
+            <input @input="changeSrc"/>
+        </div>
+</div>
           `,
-    props: ["info"],
+    props: {
+        info: {
+            type: Object,
+            default: () => ({}),
+            required: true,
+        },
+        isEdit: {
+            type: Boolean,
+            default: false,
+        },
+    },
     data() {
         return {
+            url: this.info.url || '',
             val: "",
         };
     },
-
+    mounted() {
+        // var player = new MediaElementPlayer('#player1');
+    },
     computed:{
         formattedUrl(){
             console.log(this.info)
-            return this.info.url.replace('watch?v=' , 'embed/')
-        }
+            return this.url.replace('watch?v=' , 'embed/')
+        },
+        changeSrc(value) {
+            this.url = value; 
+        },
     }
 
 };

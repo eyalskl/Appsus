@@ -15,7 +15,9 @@
     margin: 1rem;
     width: 240px;
     align-self: flex-start;
-    line-break: anywhere;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
     page-break-inside: avoid;
     position: relative;
 }

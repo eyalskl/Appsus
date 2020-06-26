@@ -3,6 +3,15 @@
     padding: 4px 16px 12px 16px;
     min-height: 100px;
 } */
+.prev-container{
+    min-height: 140px;
+}
+iframe {
+    border-width: 0px;
+    border-style: none;
+    border-color: none;
+    border-image: none;
+}
 
 .note-controls {
     position: absolute;
@@ -51,3 +60,4 @@
     min-height: 200px;
     min-width: -webkit-fill-available;
 }
+

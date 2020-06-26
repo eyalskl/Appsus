@@ -8,7 +8,7 @@ export default {
     template: `
         <section class="flex">
             <div class="input-container flex wrap">
-                <input v-show="(noteType!=='noteTodos')" :placeholder="placeholderByType" @keyup.enter.prevent="addNote(newNote)"  v-model="newNote.info.txt"/>
+                <input v-show="(noteType!=='noteTodos')" :placeholder="PLACE_HOLDERS[noteType] || 'Take a note...' " @keyup.enter.prevent="addNote(newNote)"  v-model="newNote.info.txt"/>
                 <todosEdit v-if="(noteType==='noteTodos')"></todosEdit>
                 <button @click="setType('noteText')">
                     <i class="fas fa-font"></i>
@@ -32,15 +32,12 @@ export default {
             noteType: 'noteText',
             newNote: null,
             anotherLine: false,
+            PLACE_HOLDERS: {
+                noteImg: 'Insert an image url...',
+                noteTodos: 'Insert a todo list...',
+                noteVideo: 'Insert a Youtube Link...',
+            }
         };
-    },
-    computed: {
-        placeholderByType() {
-            if (this.noteType === "noteImg") return "Insert an image url...";
-            if (this.noteType === "noteTodos") return "Insert a todo list...";
-            if (this.noteType === "noteVideo") return "Insert a Youtube Link...";
-            return `Take a note...`;
-        },
     },
     methods: {
         setType(type) {

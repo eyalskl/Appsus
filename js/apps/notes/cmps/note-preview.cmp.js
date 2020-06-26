@@ -7,8 +7,8 @@ import { noteService } from "../services/note-service.js";
 export default {
     props: ['note'],
     template: `
-    <div :style="noteBgc" ref="container" @mouseover="displayControls" @mouseout="hideControls" >
-        <component :is="note.type" :info="note.info" :key="note.id"></component>
+    <div class="prev-container" :style="noteBgc" ref="container" @mouseover="displayControls" @mouseout="hideControls" >
+        <component :isEdit="isEdit" :is="note.type" :info="note.info" :key="note.id"></component>
         <div v-if="colorsMenu" class="colors-container">
             <span :style="{backgroundColor:'#fff'}" title="deafult" @click.stop="setBgc('#fff')"></span>
             <span :style="{backgroundColor:'#ff8888'}" title="red" @click.stop="setBgc('#ff8888')"></span>
@@ -27,7 +27,7 @@ export default {
                 <button @click.stop="toggleColorsMenu"> 
                     <i class="fas fa-palette"></i>
                 </button> 
-                <button> 
+                <button @click="changeEdit"> 
                     <i class="fas fa-edit"></i>
                 </button> 
                 <button @click="deleteNote(note.id)"> 
@@ -40,12 +40,16 @@ export default {
         return {
             controls: false,
             colorsMenu: false,
+            isEdit: false,
             noteBgc: { backgroundColor: '#fff' }
         }
     },
     methods: {
         displayControls() {
             this.controls = true;
+        },
+        changeEdit() {
+            this.isEdit = !this.isEdit
         },
         hideControls() {
             this.controls = false;
@@ -56,7 +60,7 @@ export default {
         },
         setBgc(color) {
             this.noteBgc.backgroundColor = color;
-            this.openColorsMenu = false;
+            this.colorsMenu = false;
         },
         deleteNote(id) {
             noteService.deleteNote(id)

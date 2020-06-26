@@ -18,7 +18,6 @@ function getDefaultNotes() {
 }
 
 function addNewNote(newNote) {
-  console.log(newNote);
   newNote.isPinned = true;
   if (newNote.type === "noteText") newNote.info.txt = newNote.info.txt;
   if (newNote.type === "noteImg") {
@@ -61,12 +60,17 @@ function getEmptyNoteByType(type) {
 }
 
 function addTodoNote(todos){
+   const todosArr = todos.map(todo=>{ 
+   return {txt :todo , doneAt :null}
+  })
   const todoNote = {
-    type: 'todoNote',
+    type: 'noteTodos',
     id: utilsService.getRandomId(),
     isPinned: true,
     style: { backgroundColor: "#000" },
-    todos
+    info:{
+    todos: todosArr
+    }
   }
   gNotes.push(todoNote);
   utilsService.storeToStorage(NOTES_KEY, gNotes);

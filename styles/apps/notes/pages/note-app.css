@@ -3,7 +3,7 @@
 }
 
 .main-notes-container {
-    column-count: 5;
-    height: calc(100vh - 180px);
+    column-count: 6;
+    /* height: calc(100vh - 180px); */
     column-gap: 3rem;
 }

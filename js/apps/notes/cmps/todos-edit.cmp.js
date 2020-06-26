@@ -1,12 +1,13 @@
 
 import { noteService } from '../services/note-service.js';
-
+import noteTodos from "./note-todos.cmp.js";
 
 export default {
   template: `
     <div class="todos-container flex column">
-        <input v-for="(input,idx) in inputAmount" @keyup.enter="addNote(todos)" ref="idx" type="text" v-model="todos"/>
-         <button @click="anotherInput(inputAmount-1)">+Item</button>
+        <input
+        @change="log" 
+        @keydown.once="inputAmount++" :key="idx" v-for="(input,idx) in inputAmount" @keyup.enter="addNote(todos)" ref="idx" type="text" v-model="todos[idx]"/>
     </div>
     
     `,
@@ -18,16 +19,18 @@ export default {
   },
     methods:
     {
-        anotherInput(idx){
-        this.inputAmount++
-        this.$refs.idx[idx].focus()
-        },
+        
         addNote(todos){
-            noteService.addNewNote(todos)
+            noteService.addTodoNote(todos)
+            this.$refs
+        },
+        log(event) {
+            console.log(event);       
         }
+
     },
 
-    created(){
-       
+    components:{
+       noteTodos
     }
 };

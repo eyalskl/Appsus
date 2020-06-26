@@ -17,11 +17,10 @@ export default {
             val: "",
         };
     },
-    computed: {},
+    computed: {},   
     methods: {
         addLinethrough(todo) {
-            if (todo.doneAt > 0) todo.doneAt = null;
-            else todo.doneAt = Date.now();
+            todo.doneAt > 0 ? todo.doneAt = null : todo.doneAt = true; 
         },
     }
 
