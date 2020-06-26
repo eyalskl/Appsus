@@ -25,7 +25,5 @@ export default {
         },
 
     },
-    destroyed() {
-        console.log(1)
-    }
+
 };
