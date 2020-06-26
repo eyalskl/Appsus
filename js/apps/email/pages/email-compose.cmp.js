@@ -47,6 +47,7 @@ export default {
             this.minimizedMode = !this.minimizedMode;
         },
         sendNewMail() {
+            console.log('this.emailToSend:', this.emailToSend)
             emailService.sendNewMail(this.emailToSend)
             this.$router.back();
         }

@@ -1,5 +1,6 @@
-import { emailService } from "../services/email.service.js";
+import { emailService } from '../services/email.service.js';
 
+import emailPeek from './email-peek.cmp.js'
 
 export default {
     name: 'email-preview',
@@ -22,23 +23,12 @@ export default {
                     <button @click.stop="deleteEmail(email.id)" title="Delete"> <i class="fas fa-trash"></i> </button>
                 </div>
             </li>
-            <li class="email-peek flex column" :class="descClass">
-                <div class="peek-header flex space-between">
-                    <h3 class="peek-subject"> {{ email.subject }} </h3>
-                    <div class=peek-controls>
-                        <router-link :to="'/email/' + email.id"> <i class="fas fa-expand"></i> </router-link>
-                        <button @click.stop="deleteEmail(email.id)" title="Delete"> <i class="fas fa-trash"></i> </button>
-                    </div>
-                </div>
-                <p class="peek-from"> {{ email.from }} <span> <{{ email.fromEmail }}> </span> </p>
-                <p class="peek-body"> {{ email.body }} </p>
-            </li>
+            <email-peek v-if="email.isPeeked" :email="email"> </email-peek>
         </section>
         `,
     data() {
         return {
             showControls: false,
-            showPeek: false
         }
     },
     computed: {
@@ -98,10 +88,12 @@ export default {
             emailService.updateEmailProp(this.email.id, 'isStarred', this.email.isStarred);
         },
         openEmailPeek() {
-            this.showPeek = !this.showPeek
+            this.email.isPeeked = !this.email.isPeeked
             this.email.isRead = true;
             emailService.updateEmailProp(this.email.id, 'isRead', this.email.isRead);
         }
+    },
+    components: {
+        emailPeek
     }
-
 }

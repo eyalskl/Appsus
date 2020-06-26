@@ -40,6 +40,7 @@
 
 @import './apps/email/pages/email-app.css';
 @import './apps/email/pages/email-compose.css';
+@import './apps/email/pages/email-desc.css';
 
 /* ---------------- NOTES ---------------- */
 

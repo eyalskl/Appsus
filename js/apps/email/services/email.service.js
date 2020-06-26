@@ -8,7 +8,9 @@ export const emailService = {
     removeEmail,
     updateEmailProp,
     getUnreadAmount,
-    sendNewMail
+    sendNewMail,
+    clearPeeked,
+    getById
 }
 
 var gEmails = createDefaultEmails();
@@ -31,7 +33,8 @@ function createDefaultEmails() {
             subject: 'Say YES to a 30% discount', 
             body: `Your friends, family and dreams are awaiting! Say yes to flying today, and plan ahead up until Summer 2021! Here’s 30% off of all flights (yes, all of them), only available today, June 24th. Call your parents. Text your friends. Ask your partner. Share this opportunity with them, or surprise them. Book your ticket now with WIZZ!`, 
             isRead: true, 
-            sentAt : 1592994373656
+            sentAt : 1592994373656,
+            isPeeked: false
         },
         {
             id: utilsService.getRandomId(),
@@ -43,7 +46,8 @@ function createDefaultEmails() {
             subject: 'Eyal, new discounts up to 56%!', 
             body: `Also today in deals: Original Samsung Fast Charging Charger USB Type C Cable Galaxy S10 S9 S8 Plus`, 
             isRead: false, 
-            sentAt : 1593067934570
+            sentAt : 1593067934570,
+            isPeeked: false
         },
         {
             id: utilsService.getRandomId(),
@@ -57,7 +61,8 @@ function createDefaultEmails() {
 
             Given the explosive growth of the cloud computing industry in the past several ye‍ars, companies of all sizes are in desperate need of professionals with cloud computing skills to fill a variety of roles from Cloud Developer to Cloud Dev Ops Engineer or Cloud Architect. Now is the time to break into the cloud computing field with Udacity!`, 
             isRead: false, 
-            sentAt : 1592994373656
+            sentAt : 1592994373656,
+            isPeeked: false
         },
         {
             id: utilsService.getRandomId(),
@@ -69,7 +74,8 @@ function createDefaultEmails() {
             subject: 'Say YES to a 30% discount', 
             body: `הקיץ כבר כאן ☀ דגמים חדשים במבצע שאסור לפספס! | פרסומת ‎`, 
             isRead: false, 
-            sentAt : 1593097934570
+            sentAt : 1593097934570,
+            isPeeked: false
         },
         {
             id: utilsService.getRandomId(),
@@ -81,7 +87,8 @@ function createDefaultEmails() {
             subject: 'Eyal, The Politician Season 2 is now on Netflix', 
             body: `This message was mailed to [eyalskl18@gmail.com] by Netflix as part of your Netflix membership. SRC: 12182_en_IL`, 
             isRead: true, 
-            sentAt : 1592994373656
+            sentAt : 1592994373656,
+            isPeeked: false
         },
         {
             id: utilsService.getRandomId(),
@@ -93,7 +100,8 @@ function createDefaultEmails() {
             subject: 'Hello Nadav, your golden membership is about to expire', 
             body: `Please renew, your are our top PORN WATHCER! we love you long time :)`, 
             isRead: true, 
-            sentAt : 1593067134570
+            sentAt : 1593067134570,
+            isPeeked: false
         },
 
     ];
@@ -137,13 +145,21 @@ function getUnreadAmount() {
 }
 
 function sendNewMail(email) {
-    email.id = utilsService.getRandomId(),
-    email.folder = 'inbox',
-    email.isStarred = false,
-    email.isSent = true,
-    email.from = 'Eyal' ,
-    email.isRead = false, 
-    email.sentAt = Date.now()
-    gEmails.push(email)
+    console.log('email:', email)
+    email.id = utilsService.getRandomId();
+    email.folder = 'inbox';
+    email.isStarred = false;
+    email.isSent = true;
+    email.from = 'Eyal';
+    email.isRead = false; 
+    email.sentAt = Date.now();
+    email.isPeeked = false;
+    gEmails.unshift(email);
+    console.log('email:', email)
+    utilsService.storeToStorage(EMAILS_KEY, gEmails);
+}
+
+function clearPeeked() {
+    gEmails.forEach(mail => mail.isPeeked = false);
     utilsService.storeToStorage(EMAILS_KEY, gEmails);
 }
