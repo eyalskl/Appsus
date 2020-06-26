@@ -29,7 +29,7 @@ export default {
 
     data() {
         return {
-            noteType: null,
+            noteType: 'noteText',
             newNote: null,
             anotherLine: false,
             todosAmount: 1
@@ -65,6 +65,6 @@ export default {
 
     created() {
         this.newNote = noteService.getEmptyNoteByType("noteText");
-        this.noteType = "noteText";
+        
     },
 };

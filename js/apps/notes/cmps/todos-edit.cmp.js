@@ -1,20 +1,21 @@
 
 import { noteService } from '../services/note-service.js';
 
+
 export default {
-    props:['newNote'],
   template: `
     <div class="todos-container flex column">
-        <input v-for="(input,idx) in inputAmount" @keyup.enter="addNote(newNote)" ref="idx" type="text" v-model="newNote.info.txt"/>
+        <input v-for="(input,idx) in inputAmount" @keyup.enter="addNote(newNote)" ref="idx" type="text" v-model="todoNote.info.todos"/>
          <button @click="anotherInput(inputAmount-1)">+Item</button>
     </div>
     
     `,
   data() {
     return {
-        inputAmount:2
+        inputAmount:2,
+        todoNote:null
     }
-},
+  },
     methods:
     {
         anotherInput(idx){
@@ -24,5 +25,9 @@ export default {
         addNote(todoNote){
             noteService.addNewNote(todoNote)
         }
+    },
+
+    created(){
+        this.todoNote = noteService.getEmptyNoteByType('noteTodos')
     }
 };

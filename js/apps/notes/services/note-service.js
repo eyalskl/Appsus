@@ -56,7 +56,7 @@ function getEmptyNoteByType(type) {
       newNote.info = { url: "", title: "" };
       break;
     case "noteTodos":
-      newNote.info = { todos: "" };
+      newNote.info = { todos: [] };
       break;
     case "noteVideo":
       newNote.info = { url: "", title: "" };
@@ -87,7 +87,7 @@ function createDefaultNotes() {
       info: {
         url: "https://i.imgur.com/D25S0Fy.jpg",
         title: "Me playing Mi",
-      },
+      },  
       style: {
         backgroundColor: "#00d",
       },
