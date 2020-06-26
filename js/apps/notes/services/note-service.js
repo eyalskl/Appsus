@@ -10,6 +10,7 @@ export const noteService = {
   getEmptyNoteByType,
   addNewNote,
   deleteNote,
+  addTodoNote
 };
 
 function getDefaultNotes() {
@@ -27,9 +28,6 @@ function addNewNote(newNote) {
   if (newNote.type === "noteVideo") {
     newNote.info.url = newNote.info.txt;
     newNote.info.title = "New";
-  }
-  if (newNote.type === "noteTodos") {
-    newNote.info.todos = newNote.info.todos.split(",");
   }
   gNotes.push(newNote);
   utilsService.storeToStorage(NOTES_KEY, gNotes);
@@ -55,14 +53,23 @@ function getEmptyNoteByType(type) {
     case "noteImg":
       newNote.info = { url: "", title: "" };
       break;
-    case "noteTodos":
-      newNote.info = { todos: "" };
-      break;
     case "noteVideo":
       newNote.info = { url: "", title: "" };
       break;
   }
   return newNote;
+}
+
+function addTodoNote(todos){
+  const todoNote = {
+    type: 'todoNote',
+    id: utilsService.getRandomId(),
+    isPinned: true,
+    style: { backgroundColor: "#000" },
+    todos
+  }
+  gNotes.push(todoNote);
+  utilsService.storeToStorage(NOTES_KEY, gNotes);
 }
 
 function createDefaultNotes() {
@@ -87,7 +94,7 @@ function createDefaultNotes() {
       info: {
         url: "https://i.imgur.com/D25S0Fy.jpg",
         title: "Me playing Mi",
-      },
+      },  
       style: {
         backgroundColor: "#00d",
       },

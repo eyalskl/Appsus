@@ -5,7 +5,7 @@ export default {
               <li class="todo-task" v-for="(todo,idx) in info.todos" @click.prevent="addLinethrough(todo)"  :class="{done:todo.doneAt}">
                 <p>{{todo.txt}}
                   </p>
-                    <input type="checkbox" v-model="checked">
+                    <input type="checkbox" @click.stop="addLinethrough(todo)" v-model="todo.doneAt">
                 </li>
                 <i class="fas fa-list note-type"></i> 
             </ul>
@@ -15,7 +15,6 @@ export default {
     data() {
         return {
             val: "",
-            checked:false
         };
     },
     computed: {},
@@ -24,7 +23,6 @@ export default {
             if (todo.doneAt > 0) todo.doneAt = null;
             else todo.doneAt = Date.now();
         },
-
-    },
+    }
 
 };

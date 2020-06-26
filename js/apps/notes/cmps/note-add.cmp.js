@@ -9,7 +9,7 @@ export default {
         <section class="flex">
             <div class="input-container flex wrap">
                 <input v-show="(noteType!=='noteTodos')" :placeholder="placeholderByType" @keyup.enter.prevent="addNote(newNote)"  v-model="newNote.info.txt"/>
-                <todosEdit v-if="(noteType==='noteTodos')" :todoNote="newNote"></todosEdit>
+                <todosEdit v-if="(noteType==='noteTodos')"></todosEdit>
                 <button @click="setType('noteText')">
                     <i class="fas fa-font"></i>
                 </button>
@@ -19,7 +19,7 @@ export default {
                 <button @click="setType('noteVideo')">
                   <i class="fab fa-youtube"></i>
                 </button>
-                <button @click="setType('noteTodos')">
+                <button @click="noteType='noteTodos'">
                     <i class="fas fa-list"></i>
                 </button>
             </div>
@@ -29,10 +29,9 @@ export default {
 
     data() {
         return {
-            noteType: null,
+            noteType: 'noteText',
             newNote: null,
             anotherLine: false,
-            todosAmount: 1
         };
     },
     computed: {
@@ -65,6 +64,6 @@ export default {
 
     created() {
         this.newNote = noteService.getEmptyNoteByType("noteText");
-        this.noteType = "noteText";
+        
     },
 };

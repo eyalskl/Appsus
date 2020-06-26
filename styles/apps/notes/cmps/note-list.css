@@ -1,13 +1,14 @@
 .note-img {
     width: 200px;
     min-height: 200px;
+    max-inline-size: -webkit-fill-available;
 }
 
 .note-container {
     color: #202124;
     font-size: 14px;
     line-height: 19px;
-    min-height: 100px;
+    min-height: 140px;
     border: 1px solid rgb(199, 199, 199);
     background-color: #fff;
     border-radius: 8px;
@@ -16,6 +17,7 @@
     align-self: flex-start;
     line-break: anywhere;
     page-break-inside: avoid;
+    position: relative;
 }
 
 .note-container:hover {
@@ -23,5 +25,5 @@
 }
 
 .note-desc {
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
 }
