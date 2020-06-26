@@ -1,5 +1,69 @@
 .email-desc {
-    background-color: yellow;
+    background-color: rgb(255, 255, 255);
     height: calc(100vh - 160px);
     width: 100vw;
+    padding: 1rem;
+}
+
+.email-desc button.back-btn  {
+    color: #5f6368;
+    background-color: inherit;
+    align-self: flex-start;
+    font-size: 1rem;
+    padding: .5rem;
+}
+
+.email-desc button.back-btn:hover {
+    color: #000;
+    border-radius: 900px;
+    background-color: rgba(240, 240, 240, 0.836);
+}
+
+.email-desc div.desc-header {
+    margin-block-start: 1rem;
+    border-bottom: 1px solid rgb(206, 206, 206);
+    padding-bottom: 1rem;
+}
+
+.desc-controls button {
+    color: #5f6368;
+    background-color: inherit;
+    font-size: 1rem;
+    padding: .5rem;
+}
+
+.desc-controls button:hover {
+    color: #000;
+    border-radius: 900px;
+    background-color: rgba(240, 240, 240, 0.836);
+}
+
+.email-desc p.desc-from {
+    font-weight: bold;
+}
+.email-desc p.desc-from span {
+    font-weight: 300;
+    color: #a5a5a5;
+}
+
+.email-desc .from-container {
+    margin-block-start: 1rem;
+}
+
+.desc-body {
+    padding: 0 4rem;
+}
+
+.email-desc .from-container div.user-logo {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    /* text-shadow: 1px 1px 1px black; */
+    border-radius: 999px;
+    padding: 1.25rem;
+    font-size: 1.25rem;
+    margin-inline-end: 1rem;
 }

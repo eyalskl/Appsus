@@ -1,0 +1,72 @@
+.reviews h3 {
+    color: rgb(255, 255, 255);
+    font-size: 1.3rem;
+    background-color: rgb(83, 83, 83);
+    padding: 1rem;
+    width: 50%;
+    margin: 1rem auto;
+    border-radius: 50px;
+    cursor: default;
+}
+
+
+.reviews li:first-of-type {
+    border-top: 1px solid #000;
+    padding-top: .5rem;
+}
+
+.reviews li {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #000;
+    padding-bottom: 1rem;
+}
+
+.reviews li button {
+    float: right;
+    font-size: .8rem;
+    padding: .35rem;
+    background-color: rgb(255, 85, 85);
+    font-family: 'Jura', sans-serif;
+    color: white;
+}
+
+.reviews li button:hover {
+    background-color: rgb(255, 53, 53);
+}
+
+.review-add .add-btn, .form-review button {
+    margin: 1rem 0;
+    width: 100%;
+    padding: .5rem;
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Jura', sans-serif;
+    border: none;
+    background-color: rgb(49, 49, 49);
+}
+
+.form-review {
+    align-items: center;
+    font-family: 'Jura', sans-serif;
+}
+
+
+
+.form-review input, .form-review select, .form-review textarea {
+    font-family: 'Jura', sans-serif;
+    padding: .5rem;
+}
+
+
+.form-review >*:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.stars-container i:first-of-type {
+    margin-inline-start: .5rem;
+}
+
+.stars-container i {
+    cursor: pointer;
+    color: #e4bb24;
+}

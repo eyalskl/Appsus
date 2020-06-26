@@ -1,4 +1,5 @@
 import { emailService } from '../services/email.service.js';
+import { utilsService } from '../../../services/utils.service.js';
 
 import emailFilter from '../cmps/email-filter.cmp.js'
 import emailFolders from '../cmps/email-folders.cmp.js'
@@ -7,20 +8,32 @@ export default {
     name: 'email-desc',
     template: `
         <section class="email-app flex column">
-            <email-filter></email-filter>
+            <email-filter @click.native="back"> </email-filter>
             <div class="flex">
-                <email-folders></email-folders>
+                <email-folders @click.native="back"> </email-folders>
+
                 <div v-if="email" class="email-desc flex column">
-                    <button @click="back"> <i class="fas fa-arrow-left"></i> </button>
+                    <button class="back-btn" @click="back">
+                         <i class="fas fa-arrow-left"></i> 
+                    </button>
                     <div class="desc-header flex space-between">
                         <h1 class="desc-subject"> {{ email.subject }} </h1>
-                    <div class=desc-controls>
-                        <button @click.stop="deleteEmail(email.id)" title="Delete"> <i class="fas fa-trash"></i> </button>
+                        <div class="desc-controls">
+                            <button @click.stop="deleteEmail(email.id)" title="Delete"> 
+                                <i class="fas fa-trash"></i> 
+                            </button>
+                        </div>
                     </div>
+                    <div class="from-container flex align-center">
+                        <div :style="{ backgroundColor : randomBgc }" class="user-logo"> {{ firstLetterFrom }} </div>
+                        <p class="desc-from">
+                             {{ email.from }} 
+                             <span> <{{ email.fromEmail }}> </span> 
+                        </p>
+                    </div>
+                    <p class="desc-body"> {{ email.body }} </p>
                 </div>
-                <p class="desc-from"> {{ email.from }} <span> <{{ email.fromEmail }}> </span> </p>
-                <p class="desc-body"> {{ email.body }} </p>
-                </div>
+                
             </div>
         </section>
     `,
@@ -45,6 +58,14 @@ export default {
             this.back()
         },
     },
+    computed: {
+        firstLetterFrom() {
+            return this.email.from.slice(0,1)
+        },
+        randomBgc() {
+            return utilsService.getRandomColor()
+        }
+    },
     created() {
         this.loadEmail()
       },
@@ -54,7 +75,7 @@ export default {
         },
     },
     components: {
-            emailFilter,
-            emailFolders
+        emailFilter,
+        emailFolders
     },
 }

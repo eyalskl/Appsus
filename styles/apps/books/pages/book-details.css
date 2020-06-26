@@ -1,0 +1,107 @@
+.book-details-container {
+  padding: 0 2rem;
+}
+
+.book-details-container a {
+  align-self: center;
+  background-color: rgb(49, 45, 45);
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: 1px solid black;
+  border-radius: 15px;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.book-details-container a:hover {
+  background-color: rgb(29,29,29);
+}
+
+.book-details {
+  background-color: rgba(252, 252, 252, 0.83);
+  padding: 1rem;
+  width: 40%;
+  min-width: 350px;
+  margin: 2rem auto;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  font-family: "Jura", sans-serif;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+  0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+
+}
+
+.book-details button.close {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgb(49, 45, 45);
+  color: white;
+  font-family: "Jura", sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 1px solid black;
+  transition: 0.3s;
+}
+
+
+.book-details button:hover {
+  background-color: rgb(29, 28, 28);
+}
+
+.book-details h2 {
+  display: inline-block;
+  text-transform: capitalize;
+  margin: 0;
+  font-size: 2rem;
+}
+
+.book-details img.thumbnail {
+  width: 35%;
+  align-self: center;
+  margin-top: 1rem;
+  border: 1px solid black;
+}
+
+.book-details span.category {
+  background-color: #6c757d;
+  color: white;
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  margin: 2.5px;
+  margin-top: 5px;
+  cursor: default;
+}
+
+
+
+.book-details p {
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+}
+
+.sale {
+  height: 75px;
+  margin: 0;
+  padding: 0;
+}
+
+.price {
+  font-size: 1.25rem;
+}
+
+.expensive {
+  color: red;
+}
+
+.cheap {
+  color: rgb(0, 156, 0);
+}

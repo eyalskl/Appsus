@@ -21,6 +21,9 @@ export default {
             emailService.removeEmail(emailIdx);
         },
     },
+    destroyed() {
+        this.email.isPeeked = false;
+    },
     created() {
         emailService.clearPeeked();
         this.email.isPeeked = true

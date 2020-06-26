@@ -5,8 +5,8 @@
 .email-preview li.email-preview {
   background-color: rgba(255,255,255,0.902);
   width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
   cursor: pointer;
   color: #202124;
   border-bottom: 1px solid rgb(199, 199, 199);
@@ -32,14 +32,14 @@
   flex: 0.5;
 }
 .email-preview div.from {
-  flex: 2;
+  flex: 1;
 }
 .email-preview div.subject {
   flex: 3;
 }
 .email-preview div.body {
   color: #5f6368;
-  flex: 4;
+  flex: 6;
 }
 .email-preview div.sentAt {
   flex: 1;

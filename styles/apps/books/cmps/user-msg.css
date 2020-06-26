@@ -1,0 +1,71 @@
+.user-msg {
+    background-color: #fff;
+    text-align: left;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: 'Jura', sans-serif;
+    position: fixed;
+    width: 25%;
+    min-width: 375px;
+    top: 15px;
+    right: 15px;
+    border-radius: 20px;
+    border: 3px solid black;
+    z-index: 1;
+}
+
+.user-msg button {
+    float: right;
+}
+
+.user-msg h3 {
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.user-msg p {
+    text-transform: capitalize;
+}
+
+.success {
+    border-color: rgb(48, 175, 48);
+}
+
+.success h3 {
+    color: rgb(48, 175, 48);
+}
+
+.success button {
+    background-color: rgb(48, 175, 48);
+    color: white;
+    border: none;
+    text-transform: capitalize;
+    padding: .5rem .7rem;
+    border-radius: 50px;
+    transition: .3s;
+}
+
+.success button:hover {
+    background-color: rgb(41, 150, 41);
+}
+.removed {
+    border-color: rgb(255, 73, 73);
+}
+
+.removed h3 {
+    color: rgb(255, 73, 73);
+}
+
+.removed button {
+    background-color: rgb(255, 73, 73);
+    color: white;
+    border: none;
+    text-transform: capitalize;
+    padding: .5rem .7rem;
+    border-radius: 50px;
+    transition: .3s;
+}
+
+.removed button:hover {
+    background-color: rgb(226, 55, 55);
+}

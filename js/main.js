@@ -1,11 +1,12 @@
 // SERVICES
-import { utilsService } from './services/utils.service.js'
-import { eventBus } from './services/event-bus.service.js'
+import { utilsService } from './services/utils.service.js';
+import { eventBus } from './services/event-bus.service.js';
 //ROUTER
 import { myRouter } from "./routes.js";
 // COMPONENTS
-import navBar from './cmps/nav-bar.cmp.js'
-import appFooter from './cmps/app-footer.cmp.js'
+import navBar from './cmps/nav-bar.cmp.js';
+import appFooter from './cmps/app-footer.cmp.js';
+import userMsg from './apps/books/cmps/user-msg.cmp.js';
 
 
 
@@ -15,6 +16,7 @@ new Vue({
     router: myRouter,
     template: `
         <div>
+            <user-msg :msgData="userMsgData" />
             <main class="app-main">
                 <router-view />
             </main>
@@ -22,7 +24,11 @@ new Vue({
         </div>
         `,
     data: {
-        
+        userMsgData: {
+            isVisible: false,
+            txt: '',   
+            type:'' 
+        }
     },
     computed: {
     
@@ -31,10 +37,13 @@ new Vue({
     
     },
     created() {
-    
+        eventBus.$on('show-msg', (data) => {
+            this.userMsgData = data;
+        });
     },
     components: {
         navBar,
-        appFooter
+        appFooter,
+        userMsg
     },
 })

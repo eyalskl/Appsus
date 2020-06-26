@@ -4,7 +4,7 @@ const EMAILS_KEY = 'emails'
 
 export const emailService = {
     createDefaultEmails,
-    getDefaultEmails,
+    getEmails,
     removeEmail,
     updateEmailProp,
     getUnreadAmount,
@@ -15,7 +15,7 @@ export const emailService = {
 
 var gEmails = createDefaultEmails();
 
-function getDefaultEmails() {
+function getEmails() {
     return Promise.resolve(gEmails);
 }
 
@@ -139,23 +139,22 @@ function updateEmailProp(emailId, prop, value) {
 function getUnreadAmount() {
     var count = 0;
     gEmails.forEach(email => {
-        if (!email.isRead && email.folder !== 'trash') count++
+        if (!email.isRead && email.folder !== 'trash' && email.folder !== 'drafts') count++
     })
     return count;
 }
 
-function sendNewMail(email) {
-    console.log('email:', email)
+function sendNewMail(email, folder) {
     email.id = utilsService.getRandomId();
-    email.folder = 'inbox';
+    if (folder === 'inbox') email.isSent = true;
+    else email.isSent = false;
+    email.folder = folder;
     email.isStarred = false;
-    email.isSent = true;
     email.from = 'Eyal';
     email.isRead = false; 
     email.sentAt = Date.now();
     email.isPeeked = false;
     gEmails.unshift(email);
-    console.log('email:', email)
     utilsService.storeToStorage(EMAILS_KEY, gEmails);
 }
 

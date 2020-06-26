@@ -60,9 +60,13 @@
 
 
 /* CMPS */
-
+@import './apps/books/cmps/app-header.css';
+@import './apps/books/cmps/book-desc.css';
+@import './apps/books/cmps/book-filter.css';
+@import './apps/books/cmps/book-preview.css';
+@import './apps/books/cmps/review-add.css';
+@import './apps/books/cmps/user-msg.css';
 
 /* PAGES */
-
-
-/* @import './apps/books/pages/book-app.css'; */
+@import './apps/books/pages/add-book.css';
+@import './apps/books/pages/book-details.css';

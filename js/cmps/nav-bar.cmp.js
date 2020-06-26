@@ -7,7 +7,7 @@
             </div>
             <div class="main-nav flex">
                 <router-link to="/"> Home </router-link>
-                <!-- <router-link to="/books"> Book Shop </router-link> -->
+                <router-link to="/book"> Books </router-link>
                 <router-link to="/email"> Email </router-link>
                 <router-link to="/notes"> Notes </router-link>
             </div>
