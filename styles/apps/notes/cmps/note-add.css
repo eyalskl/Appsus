@@ -30,5 +30,6 @@
     background-color: #eceaea;
 }
 .add-notes{
-    border-bottom: 1px solid rgb(204, 204, 204);  
+      margin-inline-start: 20rem;
+      align-self: center;
 }

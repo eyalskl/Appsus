@@ -8,9 +8,12 @@ export default {
     name: "note-app",
     template: `
     <section v-if="notes" class="notes-app">
+        <div class="filter-add-container flex">
+            
             <note-filter @setFilterBy="setFilter"/>  
             <note-add :notes="notes" class="add-notes"/>
-                <div class="flex">  
+            </div>   
+            <div class="flex">  
             <note-list :notes="notesToShow"/>  
             <side-bar> </side-bar>
             <router-view />
