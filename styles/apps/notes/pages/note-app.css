@@ -1,9 +1,11 @@
 .notes-app {
     background-color: white;
+
 }
 
 .main-notes-container {
     column-count: 6;
-    /* height: calc(100vh - 180px); */
+    height: calc(100vh - 180px);
     column-gap: 3rem;
+    margin-block-start: 1rem;
 }
