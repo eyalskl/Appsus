@@ -6,9 +6,8 @@ export default {
   template: `
     <li class="book-preview flex column">
         <h4> {{ book.title }} - {{ formattedPrice }} </h4>
-        <p v-for="author in book.authors">by {{author}} </p>
+        <p> by {{book.authors[0]}} </p>
         <img :src="book.thumbnail" alt="This book has no image to display"/>
-        <!-- <router-link :to="'/book/' + book.id"> Details </router-link>  -->
     </li>
     `,
   computed: {

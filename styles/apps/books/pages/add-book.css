@@ -10,6 +10,7 @@
     font-weight: bold;
     transition: .7s;
     margin-inline-start: 1rem;
+    outline: none;
 }
 
 .add-search-bar {
@@ -36,25 +37,30 @@
 }
 
 .add-book li {
-    background-color: rgba(49, 45, 45, 0.9);
+    background-color: rgba(226, 226, 226, 0.9);
     width: 25%;
     max-width: 250px;
     min-width: 200px;
+    height: 200px;
     padding: 1rem;
     margin: 1rem;
     border-radius: 20px;
     cursor: pointer;
     font-family: 'Jura', sans-serif;
-    color: white;
-    transition: .6s;  
-    justify-content: space-between;
+    color: rgb(0, 0, 0);
+    transition: .6s;
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+    transition: .5s;
+    text-align: center;
 }
 
 .add-book li button {
     width: 100%;
     padding: 1rem;
     font-size: 1rem;
-    background-color: #fff;
+    background-color: rgb(71, 71, 71);
+    color: rgb(231, 231, 231);
     border: none;
     border-radius: 999px;
 }
@@ -75,7 +81,7 @@
 
 
 .add-book li:hover {
-    background-color: rgba(0, 0, 0, 0.829);
+    background-color: rgba(204, 204, 204, 0.829);
 }
 
 button.back-to-book-list {

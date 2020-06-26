@@ -1,0 +1,23 @@
+.side-bar {
+    background-color: rgb(255, 255, 255);
+    width: 3rem;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: .5rem;
+    border-left: 1px solid rgb(202, 202, 202);
+}
+
+.side-bar > * {
+    margin-block-end: 2rem;
+    color: rgb(41, 38, 38);
+}
+
+.side-bar .side-books {
+    text-shadow: 3px 3px 1px rgb(119, 255, 137);
+}
+.side-bar .side-email {
+    text-shadow: 3px 3px 1px rgb(255, 88, 88);
+}
+.side-bar .side-notes {
+    text-shadow: 3px 3px 1px #f4b506;
+}

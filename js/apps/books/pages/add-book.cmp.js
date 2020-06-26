@@ -16,7 +16,7 @@ export default {
                 <ul class="clean-list flex wrap justify-center">
                     <li class="flex column" v-for="book in googleBooks">
                         <h4> {{ book.volumeInfo.title }} </h4>
-                        <p v-for="author in book.volumeInfo.authors"> {{ author }} </p>
+                        <p> {{ book.volumeInfo.authors[0] }} </p>
                         <button @click.stop="addBook(book)"> Add to my List </button>
                     </li>
                 </ul>

@@ -1,15 +1,19 @@
 "use strict";
+import { bookService } from "../services/book.service.js";
 
 import bookList from "../cmps/book-list.cmp.js";
 import bookFilter from "../cmps/book-filter.cmp.js";
+import sideBar from '../../../cmps/side-bar.cmp.js';
 
-import { bookService } from "../services/book.service.js";
 
 export default {
   template: `
-    <main class="app-main book-app">
+    <main class="app-main book-app flex column">
         <book-filter @filtered="setFilter" /> 
+    <div class="flex">
         <book-list :books="booksToShow"/>
+        <side-bar> </side-bar>        
+        </div>
     </main>
     `,
   data() {
@@ -17,10 +21,6 @@ export default {
       books: [],
       filterBy: null,
     };
-  },
-  components: {
-    bookFilter,
-    bookList
   },
   computed: {
     booksToShow() {
@@ -44,4 +44,9 @@ export default {
     bookService.getBooks()
       .then(books => this.books = books);
   },
+  components: {
+    bookFilter,
+    bookList,
+    sideBar
+  }
 };
