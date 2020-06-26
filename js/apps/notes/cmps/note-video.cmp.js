@@ -10,6 +10,7 @@ export default {
         </div>
         <div v-else>
             <input @input="changeSrc"/>
+            <button></button>
         </div>
 </div>
           `,
