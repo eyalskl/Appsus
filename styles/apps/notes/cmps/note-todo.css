@@ -9,3 +9,6 @@
     width: 200px;
     align-items: center;
 }
+.todos-container input{
+    border-block-end: 1px solid black;
+}

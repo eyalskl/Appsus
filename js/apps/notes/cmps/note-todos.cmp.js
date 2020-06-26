@@ -5,7 +5,7 @@ export default {
               <li class="todo-task" v-for="(todo,idx) in info.todos" @click.prevent="addLinethrough(todo)"  :class="{done:todo.doneAt}">
                 <p>{{todo.txt}}
                   </p>
-                  <input type="checkbox"/>
+                    <input type="checkbox" v-model="checked">
                 </li>
                 <i class="fas fa-list note-type"></i> 
             </ul>
@@ -15,6 +15,7 @@ export default {
     data() {
         return {
             val: "",
+            checked:false
         };
     },
     computed: {},

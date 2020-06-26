@@ -27,10 +27,8 @@ new Vue({
 
         </div>
         `,
-    data() {
-        return {
-    
-        };
+    data: {
+        
     },
     computed: {
     

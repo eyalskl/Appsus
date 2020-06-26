@@ -15,6 +15,7 @@
     width: 240px;
     align-self: flex-start;
     line-break: anywhere;
+    page-break-inside: avoid;
 }
 
 .note-container:hover {

@@ -1,19 +1,23 @@
 import noteImg from "./note-img.cmp.js";
 import noteText from "./note-text.cmp.js";
 import noteTodos from "./note-todos.cmp.js";
+import noteVideo from "./note-video.cmp.js";
+import todosEdit from "./todos-edit.cmp.js"
 import { noteService } from "../services/note-service.js";
 export default {
     template: `
         <section class="flex">
             <div class="input-container flex wrap">
-                <input  :placeholder="placeholderByType" @keyup.enter.prevent="addNote(newNote)"  v-model="newNote.info.txt"/>
-                <input v-if="noteType==='noteTodos'" v-for="input in todosAmount" @keyup.enter.prevent="todosAmount++"></input>
-                <add-todos v-if="todosAmount>1" :todosAmount="todosAmount"/>
+                <input v-show="(noteType!=='noteTodos')" :placeholder="placeholderByType" @keyup.enter.prevent="addNote(newNote)"  v-model="newNote.info.txt"/>
+                <todosEdit v-if="(noteType==='noteTodos')" :todoNote="newNote"></todosEdit>
                 <button @click="setType('noteText')">
                     <i class="fas fa-font"></i>
                 </button>
                 <button @click="setType('noteImg')"> 
                     <i class="far fa-image"></i>
+                </button>
+                <button @click="setType('noteVideo')">
+                  <i class="fab fa-youtube"></i>
                 </button>
                 <button @click="setType('noteTodos')">
                     <i class="fas fa-list"></i>
@@ -35,6 +39,7 @@ export default {
         placeholderByType() {
             if (this.noteType === "noteImg") return "Insert an image url...";
             if (this.noteType === "noteTodos") return "Insert a todo list...";
+            if (this.noteType === "noteVideo") return "Insert a Youtube Link...";
             return `Take a note...`;
         },
     },
@@ -54,6 +59,8 @@ export default {
         noteImg,
         noteText,
         noteTodos,
+        noteVideo,
+        todosEdit
     },
 
     created() {

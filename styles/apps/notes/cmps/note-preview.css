@@ -22,3 +22,15 @@
     bottom: 0;
     font-size: 1.3rem;
 }
+.colors-container{
+    position: absolute;
+    width: 100px;
+    border: 1px solid black;
+}
+.colors-container span{
+    height: 26px;
+    width: 26px;
+    margin: 2px;
+    background-color: cornflowerblue;
+    border-radius: 50%;
+}

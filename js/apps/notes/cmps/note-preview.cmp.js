@@ -15,17 +15,17 @@ export default {
             </button> 
             <button @click.stop="toggleColorsMenu"> 
                 <i class="fas fa-palette"></i>
-                    <div v-if="colorsMenu" class="colors-container flex">
-                     <span title="deafult" @click.stop="setBgc('#fff')">default</span>
-                     <span title="red" @click.stop="setBgc('#ff8888')">red</span>
-                     <span title="yellow" @click.stop="setBgc('#fffd88')">yellow</span>
-                     <span title="green" @click.stop="setBgc('#92ff88')">green</span>
-                     <span title="teal" @click.stop="setBgc('#88ffe1')">teal</span>
-                     <span title="lightblue" @click.stop="setBgc('#88cfff')">lightblue</span>
-                     <span title="darkblue" @click.stop="setBgc('#3452ff')"></span>
-                     <span title="purple" @click.stop="setBgc('#fa75ff')"></span>
-                    </div>
             </button> 
+            <div v-if="colorsMenu" class="colors-container">
+                     <span title="deafult" @click.stop="setBgc('#fff')">.</span>
+                     <span title="red" @click.stop="setBgc('#ff8888')">.</span>
+                     <span title="yellow" @click.stop="setBgc('#fffd88')">.</span>
+                     <span title="green" @click.stop="setBgc('#92ff88')">.</span>
+                     <span title="teal" @click.stop="setBgc('#88ffe1')">.</span>
+                     <span title="lightblue" @click.stop="setBgc('#88cfff')">.</span>
+                     <span title="darkblue" @click.stop="setBgc('#3452ff')">.</span>
+                     <span title="purple" @click.stop="setBgc('#fa75ff')">.</span>
+                    </div>
             <button> 
                 <i class="fas fa-edit"></i>
             </button> 

@@ -2,11 +2,10 @@ export default {
     name: 'noteVideo',
     template: `
         <div class="note-desc">
-        <video controls="true">
-        <source :src="info.url" type="video/mp4" />
-        </video>
+        <iframe width="200" height="240" :src="formattedUrl"/>
+        </iframe>
             <h2>{{info.title}}</h2>
-            <i class="far fa-image note-type"></i>
+            <i class="fab fa-youtube note-type"></i>
         </div>
           `,
     props: ["info"],
@@ -15,7 +14,12 @@ export default {
             val: "",
         };
     },
-    created() {
-        this.info.url
+
+    computed:{
+        formattedUrl(){
+            console.log(this.info)
+            return this.info.url.replace('watch?v=' , 'embed/')
+        }
     }
+
 };
