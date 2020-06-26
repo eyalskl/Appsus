@@ -33,13 +33,8 @@
 }
 
 .date-title-sort select {
-<<<<<<< HEAD
-    margin-inline-start: .5rem;
-    padding: .6rem 1rem;
-=======
     margin-inline-start: .25rem;
     padding: .4rem 1rem;
->>>>>>> d65f66c75701f4882128d95b7bb6902ef14f6fad
     font-family: roboto;
 }
 
