@@ -15,13 +15,13 @@
 @import './global-styles/helpers.css';
 
 /* CMPS */
-
+@import './global-styles/cmps/app-footer.css';
+@import './global-styles/cmps/nav-bar.css';
+@import './global-styles/cmps/side-bar.css';
 
 /* PAGES */
 
 @import './global-styles/pages/home-page.css';
-@import './global-styles/cmps/app-footer.css';
-@import './global-styles/cmps/nav-bar.css';
 
 /*-------------------- APPS STYLING--------------------- */
 
@@ -60,7 +60,6 @@
 
 
 /* CMPS */
-@import './apps/books/cmps/app-header.css';
 @import './apps/books/cmps/book-desc.css';
 @import './apps/books/cmps/book-filter.css';
 @import './apps/books/cmps/book-preview.css';

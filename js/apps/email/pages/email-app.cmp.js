@@ -1,11 +1,12 @@
+// SERVICES
 import { emailService } from '../services/email.service.js';
 import { utilsService } from '../../../services/utils.service.js';
 import { eventBus } from '../../../services/event-bus.service.js'
-
-
+// CMPS
 import emailList from '../cmps/email-list.cmp.js';
 import emailFolders from '../cmps/email-folders.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js';
+import sideBar from '../../../cmps/side-bar.cmp.js';
 
 export default {
     name: 'email-app',
@@ -17,6 +18,7 @@ export default {
         <div class="email-main flex">
             <email-folders @folderUpdate="setFolderDisplay"> </email-folders>
             <email-list :emails="emailsToShow"> </email-list>
+            <side-bar> </side-bar>
             <router-view />
         </div>
     </section>
@@ -92,6 +94,7 @@ export default {
     components: {
         emailFolders,
         emailList,
-        emailFilter
+        emailFilter,
+        sideBar
     }
 }
