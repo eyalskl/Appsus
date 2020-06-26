@@ -10,6 +10,10 @@ export const noteService = {
     getDefaultNotes,
     getEmptyNoteByType,
     addNewNote,
+<<<<<<< HEAD
+=======
+    deleteNote,
+>>>>>>> d65f66c75701f4882128d95b7bb6902ef14f6fad
 };
 
 function getDefaultNotes() {
@@ -17,14 +21,21 @@ function getDefaultNotes() {
 }
 
 function addNewNote(newNote) {
+<<<<<<< HEAD
     console.log(newNote)
     newNote.isPinned = true;
     if (newNote.type === "noteText") newNote.info.txt = newNote.info.txt
+=======
+    console.log(newNote);
+    newNote.isPinned = true;
+    if (newNote.type === "noteText") newNote.info.txt = newNote.info.txt;
+>>>>>>> d65f66c75701f4882128d95b7bb6902ef14f6fad
     if (newNote.type === "noteImg") {
         newNote.info.url = newNote.info.txt;
         newNote.info.title = "New";
     }
     if (newNote.type === "noteTodos") {
+<<<<<<< HEAD
         newNote.info.todos = newNote.info.todos.split(',');
     }
     gNotes.push(newNote);
@@ -33,6 +44,27 @@ function addNewNote(newNote) {
 
 function getEmptyNoteByType(type) {
     const newNote = { type: type, id: utilsService.getRandomId(), isPinned: false, style: { backgroundColor: "#000" } };
+=======
+        newNote.info.todos = newNote.info.todos.split(",");
+    }
+    gNotes.push(newNote);
+    utilsService.storeToStorage(NOTES_KEY, gNotes);
+}
+
+function deleteNote(noteId) {
+    var idx = gNotes.findIndex((note) => note.id === noteId);
+    gNotes.splice(idx, 1);
+    utilsService.storeToStorage(NOTES_KEY, gNotes);
+}
+
+function getEmptyNoteByType(type) {
+    const newNote = {
+        type: type,
+        id: utilsService.getRandomId(),
+        isPinned: false,
+        style: { backgroundColor: "#000" },
+    };
+>>>>>>> d65f66c75701f4882128d95b7bb6902ef14f6fad
     switch (type) {
         case "noteText":
             newNote.info = { txt: "" };
@@ -87,6 +119,22 @@ function createDefaultNotes() {
                 },
             },
         },
+<<<<<<< HEAD
+=======
+        {
+            type: "noteVideo",
+            id: utilsService.getRandomId(),
+            isPinned: false,
+            info: {
+                todos: [
+                    { url: "https://www.youtube.com/watch?v=jofNR_WkoCE", title: "new" },
+                ],
+                style: {
+                    backgroundColor: "#00d",
+                },
+            },
+        },
+>>>>>>> d65f66c75701f4882128d95b7bb6902ef14f6fad
     ];
     utilsService.storeToStorage(NOTES_KEY, defaultNotes);
     return defaultNotes;

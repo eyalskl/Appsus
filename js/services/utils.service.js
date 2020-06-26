@@ -5,7 +5,8 @@ export const utilsService = {
     loadFromStorage,
     getRandomInt,
     getRandomId,
-    formatCurrency
+    formatCurrency,
+    compareValues
 }
 
 function storeToStorage(key, value) {
@@ -35,4 +36,17 @@ function formatCurrency(lang, currencyCode, price) {
         style: 'currency',
         currency: currencyCode,
       }).format(price);
+}
+
+function compareValues(key, order = 'asc') {
+    return function innerSort(a, b) {
+        const x = (typeof a[key] === 'string') ? a[key].toUpperCase() : a[key];
+        const y = (typeof b[key] === 'string') ? b[key].toUpperCase() : b[key];
+        let comparison = 0;
+        if (x > y) comparison = 1;
+        else if (x < y) comparison = -1;
+        return (
+            (order === 'desc') ? (comparison * -1) : comparison
+        );
+    };
 }
