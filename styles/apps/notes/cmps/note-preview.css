@@ -1,9 +1,8 @@
-.note-details {
+/* .note-details {
     width: 100%;
     padding: 4px 16px 12px 16px;
     min-height: 100px;
-    position: relative;
-}
+} */
 
 .note-controls {
     position: absolute;
@@ -24,13 +23,31 @@
 }
 .colors-container{
     position: absolute;
-    width: 100px;
-    border: 1px solid black;
+    width: 109px;
+    height: 110px;
+    border: 1px solid #0000004f;
+    z-index: 1;
+    background-color: #fff;
+    right: 80px;
+    bottom: 25px;
+    padding: 5px;
+    box-shadow: inset 0 0 1px 0px black;
 }
-.colors-container span{
+
+.colors-container >*{
+    display: inline-block;
     height: 26px;
     width: 26px;
     margin: 2px;
     background-color: cornflowerblue;
     border-radius: 50%;
+    border: 1px solid #00000026;
+}
+.colors-container span:hover{
+    border: 1px solid #000000;
+}
+
+.note-img {
+    min-height: 200px;
+    min-width: -webkit-fill-available;
 }

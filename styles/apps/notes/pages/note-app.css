@@ -5,5 +5,5 @@
 .main-notes-container {
     column-count: 5;
     height: calc(100vh - 180px);
-    column-gap: 10rem;
+    column-gap: 3rem;
 }
