@@ -14,7 +14,8 @@ export default {
             <div class="flex">  
                 <div class="flex column">
                     <note-add :notes="notes" class="add-notes"/>
-                    <note-list :notes="notesToShow"/>  
+                    <note-list :notes="pinnedNotesToShow"/>  
+                    <note-list :notes="unpinnedNotesToShow"/>  
                 </div>
                 <side-bar> </side-bar>
             </div>
@@ -27,10 +28,16 @@ export default {
         };
     },
     computed: {
-        notesToShow() {
-            if(!this.filterBy) return this.notes
-            return this.notes.filter(note=> note.type === this.filterBy)
+        pinnedNotesToShow() {
+            if(!this.filterBy) return this.notes.filter(note => note.isPinned)
+            var fiilterdNotes = this.notes.filter(note=> note.type === this.filterBy)
+            return fiilterdNotes.filter(note => note.isPinned)
         },
+        unpinnedNotesToShow() {
+            if(!this.filterBy) return this.notes.filter(note => !note.isPinned)
+            var fiilterdNotes = this.notes.filter(note=> note.type === this.filterBy)
+            return fiilterdNotes.filter(note => !note.isPinned)
+        }
     },
     methods: {
         setFilter(filterBy) {
