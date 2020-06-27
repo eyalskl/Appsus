@@ -175,7 +175,7 @@ function createDefaultNotes() {
       id: utilsService.getRandomId(),
       isPinned: true,
       info: {
-        url: "https://media1.giphy.com/media/ZrmS4umDX5bI4/giphy.webp?cid=ecf05e47b38ced560ea33660436c4bf7192f25a4703f787c&rid=giphy.webphttps://media1.giphy.com/media/KupdfnqWwV7J6/200.webp?cid=ecf05e474ff9dac04ece86bdaa8499b2d11ec5f7cb214fa1&rid=200.webp",
+        url: "https://media1.giphy.com/media/KupdfnqWwV7J6/200.webp?cid=ecf05e476b45197e2e76db9a96b6f033bf9b2f7863f8cd12&rid=200.webp",
         title: "When Yaron chooses me for Code Review",
       },  
       backgroundColor: "#fffd88",

@@ -47,6 +47,9 @@
     .input-container{
         width: 350px;
     }
+    .input-container input{
+        min-width: 1px;
+    }
 }
 @media (max-width:420px){
     .input-container{
@@ -55,4 +58,5 @@
     .search-notes   {
         width: 300px;
     }
+    
 }

@@ -31,3 +31,10 @@
 .note-filter{
     height: 80px;
 }
+
+@media(max-width:500px){
+    .main-notes-container{
+    justify-content: center;
+    }
+
+}

@@ -3,7 +3,7 @@ export default {
   template: `
     <div>
         <div v-if="!edit" class="note-desc">
-            <iframe width="240" :src="formattedUrl"/>
+            <iframe width="240" :src="formattedUrl" />
             </iframe>
             <h2>{{info.title}}</h2>
             <i class="fab fa-youtube note-type"></i>
