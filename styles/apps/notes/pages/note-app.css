@@ -9,12 +9,16 @@
     margin-block-end: 7.5rem;
 }
 
-.main-notes-container h3 {
+.main-notes-container > h3 {
     text-transform: uppercase;
     padding-inline-start: 1rem;
 }
 
-.main-notes-container h3.others {
+.main-notes-container > h3.pinned {
+    width: 100%;
+}
+
+.main-notes-container > h3.others {
     border-top: 1px solid rgb(173, 173, 173);
     width: 100%;
     padding-top: 1rem;

@@ -12,10 +12,10 @@ export default {
                 <note-filter @setFilterBy="setFilter"/>  
             </div>   
             <div class="flex">  
-                <div class="flex column">
-                    <note-add :notes="notes" class="add-notes"/>
-                    <note-list :notes="pinnedNotesToShow"/>  
-                    <note-list :notes="unpinnedNotesToShow"/>  
+                <div class="flex notes-app-w column">
+                        <note-add :notes="notes" class="add-notes"/>
+                        <note-list :notes="pinnedNotesToShow"/>  
+                        <note-list :notes="unpinnedNotesToShow"/>  
                 </div>
                 <side-bar> </side-bar>
             </div>
@@ -46,7 +46,7 @@ export default {
         },
     },
     created() {
-        noteService.getDefaultNotes()
+        noteService.getNotes()
             .then(notes => this.notes = notes);
             console.log(this.filterBy)
             

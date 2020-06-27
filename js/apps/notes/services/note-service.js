@@ -5,20 +5,36 @@ const NOTES_KEY = "notes";
 var gNotes = createDefaultNotes();
 
 export const noteService = {
-  createDefaultNotes,
-  getDefaultNotes,
-  getEmptyNoteByType,
-  addNewNote,
-  deleteNote,
-  addTodoNote
+    getNotes,
+    getEmptyNoteByType,
+    addNewNote,
+    deleteNote,
+    addTodoNote,
+    updateNoteProp,
+    getById
 };
 
-function getDefaultNotes() {
+function getNotes() {
   return Promise.resolve(gNotes);
 }
 
+function getById(noteId) {
+  const note = gNotes.find(note => note.id === noteId);
+  return Promise.resolve(note);
+}
+
+function updateNoteProp(noteId, prop, value) {
+  let noteToEdit;
+  getById(noteId)
+      .then(note => {
+          noteToEdit = note
+          noteToEdit[prop] = value;
+          utilsService.storeToStorage(NOTES_KEY, gNotes);
+      })
+}
+
 function addNewNote(newNote) {
-  newNote.isPinned = true;
+  newNote.isPinned = false;
   switch(newNote.type){
     case "noteImg":
       newNote.info.url = newNote.info.txt;
@@ -44,7 +60,7 @@ function getEmptyNoteByType(type) {
     type: type,
     id: utilsService.getRandomId(),
     isPinned: false,
-    style: { backgroundColor: "#000" },
+    backgroundColor: "#fffd88",
   };
   switch (type) {
     case "noteText":
@@ -67,10 +83,10 @@ function addTodoNote(todos){
   const todoNote = {
     type: 'noteTodos',
     id: utilsService.getRandomId(),
-    isPinned: true,
-    style: { backgroundColor: "#000" },
-    info:{
-    todos: todosArr
+    isPinned: false,
+    backgroundColor: "#fffd88",
+    info: {
+      todos: todosArr
     }
   }
   gNotes.push(todoNote);
@@ -88,9 +104,7 @@ function createDefaultNotes() {
       info: {
         txt: "Fullstack Me Baby!",
       },
-      style: {
-        backgroundColor: "#00d",
-      },
+      backgroundColor: "#fffd88",
     },
     {
       type: "noteImg",
@@ -100,9 +114,7 @@ function createDefaultNotes() {
         url: "https://i.imgur.com/D25S0Fy.jpg",
         title: "Me playing Mi",
       },  
-      style: {
-        backgroundColor: "#00d",
-      },
+      backgroundColor: "#fffd88",
     },
     {
       type: "noteTodos",
@@ -113,10 +125,8 @@ function createDefaultNotes() {
           { txt: "Do that", doneAt: null },
           { txt: "Do this", doneAt: 187111111 },
         ],
-        style: {
-          backgroundColor: "#00d",
-        },
       },
+      backgroundColor: "#fffd88",
     },
     {
       type: "noteVideo",
@@ -126,9 +136,7 @@ function createDefaultNotes() {
         url: "https://www.youtube.com/watch?v=jofNR_WkoCE",
         title: "new",
       },
-      style: {
-        backgroundColor: "#00d",
-      },
+    backgroundColor: "#fffd88",
     },
   ];
   utilsService.storeToStorage(NOTES_KEY, defaultNotes);
