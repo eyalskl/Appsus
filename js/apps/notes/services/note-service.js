@@ -5,13 +5,15 @@ const NOTES_KEY = "notes";
 var gNotes = createDefaultNotes();
 
 export const noteService = {
-    getNotes,
-    getEmptyNoteByType,
-    addNewNote,
-    deleteNote,
-    addTodoNote,
-    updateNoteProp,
-    getById
+  getNotes,
+  getEmptyNoteByType,
+  addNewNote,
+  deleteNote,
+  addTodoNote,
+  updateNoteProp,
+  getById,
+  updateTodoNote,
+  cloneNote
 };
 
 function getNotes() {
@@ -19,23 +21,44 @@ function getNotes() {
 }
 
 function getById(noteId) {
-  const note = gNotes.find(note => note.id === noteId);
+  const note = gNotes.find((note) => note.id === noteId);
   return Promise.resolve(note);
 }
 
 function updateNoteProp(noteId, prop, value) {
   let noteToEdit;
-  getById(noteId)
-      .then(note => {
-          noteToEdit = note
-          noteToEdit[prop] = value;
-          utilsService.storeToStorage(NOTES_KEY, gNotes);
-      })
+  getById(noteId).then((note) => {
+    noteToEdit = note;
+    noteToEdit[prop] = value;
+    utilsService.storeToStorage(NOTES_KEY, gNotes);
+  });
+}
+
+function updateTodoNote(noteId, todosArr) {
+  let noteToEdit;
+  getById(noteId).then((note) => {
+    noteToEdit = note;
+    const newInfo = {
+      todos: []
+    }
+      newInfo.todos = todosArr.map(todo => {return {txt:todo , doneAt : null}})
+    noteToEdit.info = newInfo 
+    utilsService.storeToStorage(NOTES_KEY, gNotes);
+  });
+}
+
+
+function cloneNote(note){
+  const newClone = JSON.parse(JSON.stringify(note))
+  newClone.id = utilsService.getRandomId()
+  gNotes.push(newClone)
+  utilsService.storeToStorage(NOTES_KEY , gNotes)
+
 }
 
 function addNewNote(newNote) {
   newNote.isPinned = false;
-  switch(newNote.type){
+  switch (newNote.type) {
     case "noteImg":
       newNote.info.url = newNote.info.txt;
       newNote.info.title = "New";
@@ -76,19 +99,19 @@ function getEmptyNoteByType(type) {
   return newNote;
 }
 
-function addTodoNote(todos){
-   const todosArr = todos.map(todo=>{ 
-   return {txt :todo , doneAt :null}
-  })
+function addTodoNote(todos) {
+  const todosArr = todos.map((todo) => {
+    return { txt: todo, doneAt: null };
+  });
   const todoNote = {
-    type: 'noteTodos',
+    type: "noteTodos",
     id: utilsService.getRandomId(),
     isPinned: false,
     backgroundColor: "#fffd88",
     info: {
-      todos: todosArr
-    }
-  }
+      todos: todosArr,
+    },
+  };
   gNotes.push(todoNote);
   utilsService.storeToStorage(NOTES_KEY, gNotes);
 }
@@ -113,7 +136,7 @@ function createDefaultNotes() {
       info: {
         url: "https://i.imgur.com/D25S0Fy.jpg",
         title: "Me playing Mi",
-      },  
+      },
       backgroundColor: "#fffd88",
     },
     {
@@ -136,7 +159,7 @@ function createDefaultNotes() {
         url: "https://www.youtube.com/watch?v=jofNR_WkoCE",
         title: "new",
       },
-    backgroundColor: "#fffd88",
+      backgroundColor: "#fffd88",
     },
   ];
   utilsService.storeToStorage(NOTES_KEY, defaultNotes);

@@ -24,6 +24,7 @@
 .input-container button {
     background-color: transparent;
     font-size: 1.2rem;
+    height: 35px;
     padding: 0.5rem;
     color: #80868b;
 }
@@ -35,4 +36,18 @@
 }
 .add-notes{
       align-self: center;
+}
+
+@media (max-width:720px){
+    .input-container{
+        width: 350px;
+    }
+}
+@media (max-width:420px){
+    .input-container{
+        width: 250px;
+    }
+    .search-notes   {
+        width: 300px;
+    }
 }

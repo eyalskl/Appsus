@@ -30,8 +30,5 @@ export default {
           appFooter
       }
   }
-<<<<<<< HEAD
-=======
   
   
->>>>>>> bb1c9bab61de72bebe6da3b6f7f4a9ac7dd4e2a2

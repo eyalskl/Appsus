@@ -1,6 +1,3 @@
-.note-edit {
-
-}
 
 .note-edit input {
     padding: .75rem;
@@ -14,6 +11,8 @@
     padding: .5rem;
     background-color: inherit;
     border: 1px solid black;
+    box-shadow: 2px 2px 4px black;
+
     border-radius: 999px;
     margin-block-start: .5rem;
     transition: .5s;
@@ -22,4 +21,22 @@
 
 .note-edit button:hover {
     box-shadow: 2px 2px 5px black;
+}
+
+.todo-edit input { 
+    margin: .5rem;
+    padding: .5rem;
+    border-radius: 999px;
+    outline: none;
+    border: 1px solid black;
+}
+
+.todo-edit button {
+    padding: .5rem;
+    background-color: inherit;
+    box-shadow: 2px 2px 4px black;
+    border-radius: 10px;
+    margin: .5rem;
+    text-transform: capitalize;
+    border: 1px solid black;
 }

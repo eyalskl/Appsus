@@ -18,6 +18,8 @@ export default {
   methods: {
     addNote(todos) {
       noteService.addTodoNote(todos);
+      this.todos = [];
+      this.inputAmount = 1;
     },
   },
 

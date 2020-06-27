@@ -8,7 +8,7 @@ export default {
                     <i class="fas fa-font note-type"></i>
                 </div>
                 <div v-else class="note-edit flex column align-center">
-                    <input v-model="txt" type="text" />
+                    <input v-model="txt" @keyup.enter="confirmEdit" type="text" />
                     <button @click.stop="confirmEdit"> Confirm </button>
                 </div>
         </div>

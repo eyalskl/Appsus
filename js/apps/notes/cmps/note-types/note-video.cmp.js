@@ -9,7 +9,7 @@ export default {
             <i class="fab fa-youtube note-type"></i>
         </div>
          <div v-else class="note-edit flex column align-center">
-             <input type="text" v-model="url">
+             <input type="text" @keyup.enter="confirmEdit" v-model="url">
              <button @click="confirmEdit">confirm</button>
          </div>
     </div>

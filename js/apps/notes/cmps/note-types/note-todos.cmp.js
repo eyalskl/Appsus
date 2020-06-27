@@ -10,10 +10,10 @@ export default {
                 </li>
                 <i class="fas fa-list note-type"></i> 
             </ul>
-            <div v-else class="flex column align-center">
+            <div v-else class="flex column flex-start todo-edit">
              <input v-for="(todo,idx) in todos" type="text" v-model="todos[idx]">
              <button @click="addTodo">Add Todo</button>
-             <button @click="confirmEdit">confirm</button>
+             <button @click="confirmEdit" @keyup.enter="confirmEdit">confirm</button>
             </div>
     </div>
             `,
@@ -33,7 +33,7 @@ export default {
       todo.doneAt > 0 ? (todo.doneAt = null) : (todo.doneAt = true);
     },
     confirmEdit() {
-      this.$emit("doneEditTodos", false, this.info.todos);
+      this.$emit("doneEditTodo", false, this.todos);
     },
     addTodo(){
         this.todos.push('')
