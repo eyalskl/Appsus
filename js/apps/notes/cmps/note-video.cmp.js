@@ -9,7 +9,7 @@ export default {
             <i class="fab fa-youtube note-type"></i>
         </div>
          <div v-else class="note-edit">
-             <input type="text"
+             <input type="text" v-model="url">
              <button @click="confrimEdit">confirm</button>
          </div>
     </div>
@@ -22,7 +22,7 @@ export default {
     },
     methods: {
         confrimEdit(){
-            this.$emit()
+           this.$emit('doneEdit' , false , this.url)
         }
     },
     computed:{
