@@ -70,13 +70,15 @@ export default {
         togglePinned() {
             this.note.isPinned = !this.note.isPinned
             noteService.updateNoteProp(this.note.id, 'isPinned', this.note.isPinned)
+        },
 
-        }
     },
     computed: {
         noteColor() {
             return { backgroundColor: this.note.backgroundColor }
         }
+    },
+    created() {
     },
     components: {
         noteImg,
