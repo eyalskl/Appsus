@@ -12,17 +12,12 @@ export default {
                 <note-filter @setFilterBy="setFilter"/>  
             </div>   
             <div class="flex">  
-<<<<<<< HEAD
-            <note-list :notes="notesToShow"/>  
-            <side-bar> </side-bar>
- 
-=======
                 <div class="flex column">
                     <note-add :notes="notes" class="add-notes"/>
-                    <note-list :notes="notesToShow"/>  
+                    <note-list :notes="pinnedNotesToShow"/>  
+                    <note-list :notes="unpinnedNotesToShow"/>  
                 </div>
                 <side-bar> </side-bar>
->>>>>>> 3f3199e509aafa2418c805b3aca5998d599e5ba3
             </div>
         </section>    
     `,
@@ -34,9 +29,18 @@ export default {
     },
     computed: {
         notesToShow() {
-            if(!this.filterBy) return this.notes
-            return this.notes.filter(note=> note.type === this.filterBy)
+
         },
+        pinnedNotesToShow() {
+            if(!this.filterBy) return this.notes.filter(note => note.isPinned)
+            var fiilterdNotes = this.notes.filter(note=> note.type === this.filterBy)
+            return fiilterdNotes.filter(note => note.isPinned)
+        },
+        unpinnedNotesToShow() {
+            if(!this.filterBy) return this.notes.filter(note => !note.isPinned)
+            var fiilterdNotes = this.notes.filter(note=> note.type === this.filterBy)
+            return fiilterdNotes.filter(note => !note.isPinned)
+        }
     },
     methods: {
         setFilter(filterBy) {
