@@ -16,7 +16,7 @@ export default {
             <div class="flex">  
             <note-list :notes="notesToShow"/>  
             <side-bar> </side-bar>
-            <router-view />
+ 
             </div>
     </section>    
     `,

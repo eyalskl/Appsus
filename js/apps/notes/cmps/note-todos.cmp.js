@@ -1,7 +1,7 @@
 export default {
     name: "noteTodos",
     template: `
-            <ul class="clean-list note-desc">
+            <ul class="clean-list todo-container note-desc">
               <li class="todo-task" v-for="(todo,idx) in info.todos" @click.prevent="addLinethrough(todo)"  :class="{done:todo.doneAt}">
                 <p>{{todo.txt}}
                   </p>

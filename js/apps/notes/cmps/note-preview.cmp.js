@@ -7,8 +7,8 @@ import { noteService } from "../services/note-service.js";
 export default {
     props: ['note'],
     template: `
-    <div class="prev-container" :style="noteBgc" ref="container" @mouseover="displayControls" @mouseout="hideControls" >
-        <component :isEdit="isEdit" :is="note.type" :info="note.info" :key="note.id"></component>
+    <div v-if="!editMode" class="prev-container" :style="noteBgc" ref="container" @mouseover="displayControls" @mouseout="hideControls" >
+        <component :is="note.type" :info="note.info" :isEdit="editMode" :key="note.id"></component>
         <div v-if="colorsMenu" class="colors-container">
             <span :style="{backgroundColor:'#fff'}" title="deafult" @click.stop="setBgc('#fff')"></span>
             <span :style="{backgroundColor:'#ff8888'}" title="red" @click.stop="setBgc('#ff8888')"></span>
@@ -27,35 +27,37 @@ export default {
                 <button @click.stop="toggleColorsMenu"> 
                     <i class="fas fa-palette"></i>
                 </button> 
-                <button @click="changeEdit"> 
+                <button @click="toggleEdit"> 
                     <i class="fas fa-edit"></i>
                 </button> 
                 <button @click="deleteNote(note.id)"> 
                      <i class="fas fa-trash"></i>
                 </button> 
             </div>
+            
     </div>
 `,
     data() {
         return {
             controls: false,
             colorsMenu: false,
-            isEdit: false,
-            noteBgc: { backgroundColor: '#fff' }
+            noteBgc: { backgroundColor: '#fff' },
+            editMode:false
         }
     },
     methods: {
         displayControls() {
             this.controls = true;
         },
-        changeEdit() {
-            this.isEdit = !this.isEdit
-        },
+
         hideControls() {
             this.controls = false;
         },
         toggleColorsMenu() {
             this.colorsMenu = !this.colorsMenu
+        },
+        toggleEdit(){
+            this.editMode = !this.editMode
 
         },
         setBgc(color) {

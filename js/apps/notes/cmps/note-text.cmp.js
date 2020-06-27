@@ -1,7 +1,7 @@
 export default {
     name: 'noteText',
     template: `
-          <div class="note-desc">
+          <div class="note-desc text-container">
             <h3>{{info.txt}}</h3>
             <i class="fas fa-font note-type"></i>
 </div>

@@ -5,6 +5,7 @@
 } */
 .prev-container{
     min-height: 140px;
+    border-radius: 8px;
 }
 iframe {
     border-width: 0px;
@@ -59,5 +60,8 @@ iframe {
 .note-img {
     min-height: 200px;
     min-width: -webkit-fill-available;
+}
+.text-container{
+    padding:1rem
 }
 
