@@ -28,17 +28,21 @@ export default {
     },
     computed: {
         notesToShow() {
-            return this.notes;
+            if(!this.filterBy) return this.notes
+            return this.notes.filter(note=> note.type === this.filterBy)
         },
     },
     methods: {
         setFilter(filterBy) {
             this.filterBy = filterBy;
+           
         },
     },
     created() {
         noteService.getDefaultNotes()
             .then(notes => this.notes = notes);
+            console.log(this.filterBy)
+            
 
     },
     components: {

@@ -19,14 +19,15 @@ function getDefaultNotes() {
 
 function addNewNote(newNote) {
   newNote.isPinned = true;
-  if (newNote.type === "noteText") newNote.info.txt = newNote.info.txt;
-  if (newNote.type === "noteImg") {
-    newNote.info.url = newNote.info.txt;
-    newNote.info.title = "New";
-  }
-  if (newNote.type === "noteVideo") {
-    newNote.info.url = newNote.info.txt;
-    newNote.info.title = "New";
+  switch(newNote.type){
+    case "noteImg":
+      newNote.info.url = newNote.info.txt;
+      newNote.info.title = "New";
+      break;
+    case "noteVideo":
+      newNote.info.url = newNote.info.txt;
+      newNote.info.title = "New";
+      break;
   }
   gNotes.push(newNote);
   utilsService.storeToStorage(NOTES_KEY, gNotes);

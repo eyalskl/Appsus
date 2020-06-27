@@ -21,7 +21,7 @@ export default {
             <span :style="{backgroundColor:'#6d3cba'}" title="purple" @click.stop="setBgc('#6d3cba')"></span>
         </div>
             <div v-show="controls"  class="note-controls">
-                <button> 
+                <button @click="note.isPinned=!note.isPinned"> 
                     <i class="fas fa-thumbtack"></i>
                 </button> 
                 <button @click.stop="toggleColorsMenu"> 

@@ -22,7 +22,7 @@ export default {
         
         addNote(todos){
             noteService.addTodoNote(todos)
-            this.$refs
+            
         },
         log(event) {
             console.log(event);       

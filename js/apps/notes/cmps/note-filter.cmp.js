@@ -10,10 +10,11 @@ export default {
             <div class="note-title-sort">
                 <label for="filterByWhat"> Filter by
                     <select id="filterByWhat" @change="setFilterBy">
+                        <option value=""> Show all </option>
                         <option value="noteText"> Text </option>
                         <option value="noteTodos"> Todos </option>
                         <option value="noteImg"> Images </option>
-                        <option value="noteVideos"> Video </option>
+                        <option value="noteVideo"> Video </option>
                     </select>
                 </label>
             </div>
