@@ -6,7 +6,7 @@ import { myRouter } from "./routes.js";
 // COMPONENTS
 import navBar from './cmps/nav-bar.cmp.js';
 import appFooter from './cmps/app-footer.cmp.js';
-import userMsg from './apps/books/cmps/user-msg.cmp.js';
+import userMsg from './cmps/user-msg.cmp.js';
 
 
 
