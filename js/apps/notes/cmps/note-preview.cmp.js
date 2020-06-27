@@ -7,8 +7,8 @@ import { noteService } from "../services/note-service.js";
 export default {
     props: ['note'],
     template: `
-    <div v-if="!editMode" class="prev-container" :style="noteColor" ref="container" @mouseover="displayControls" @mouseout="hideControls" >
-        <component :is="note.type" :info="note.info" :editMode="editMode" :key="note.id"></component>
+    <div class="prev-container" :style="noteColor" ref="container" @mouseover="displayControls" @mouseout="hideControls" >
+        <component :is="note.type" :info="note.info" :edit="editMode" :key="note.id"></component>
         <div v-if="colorsMenu" class="colors-container">
             <span :style="{backgroundColor:'#fffd88'}" title="deafult" @click.stop="setBgc('#fffd88')"></span>
             <span :style="{backgroundColor:'#ff8888'}" title="red" @click.stop="setBgc('#ff8888')"></span>
