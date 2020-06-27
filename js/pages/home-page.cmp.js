@@ -15,4 +15,32 @@ export default {
           navBar
       }
   }
+//   <nav>
+//         <a href="#">Appsus</a>
+//         <div class="bla">
+//         <a href="#">Books</a>
+//         <a href="#">Notes</a>
+//         <a href="#">Email</a>
+//     </div>
+//     </nav>
+//     <div class="container">
+//         <h1>"Today a SUS , Tomorrow Appsus"</h1>
+        
+//         <div class="bird-container bird-container--one">
+//             <div class="bird bird--one"></div>
+//         </div>
+        
+//         <div class="bird-container bird-container--two">
+//             <div class="bird bird--two"></div>
+//         </div>
+        
+//         <div class="bird-container bird-container--three">
+//             <div class="bird bird--three"></div>
+//         </div>
+        
+//         <div class="bird-container bird-container--four">
+//             <div class="bird bird--four"></div>
+//         </div>
+        
+//     </div>  
   
