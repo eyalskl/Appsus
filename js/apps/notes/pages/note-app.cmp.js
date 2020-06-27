@@ -3,7 +3,7 @@ import noteList from "../cmps/note-list.cmp.js";
 import noteAdd from "../cmps/note-add.cmp.js"
 import noteFilter from "../cmps/note-filter.cmp.js";
 import sideBar from "../../../cmps/side-bar.cmp.js"
-import noteEdit from "../cmps/note-edit.cmp.js"
+
 
 export default {
     name: "note-app",
@@ -61,6 +61,6 @@ export default {
         noteAdd,
         noteFilter,
         sideBar,
-        noteEdit
+
     },
 };
