@@ -8,10 +8,11 @@
 
 .input-container {
     background-color: #fff;
-    padding: 1rem;
-    margin-block-start: 1rem;
+    padding: .45rem;
+    padding-inline-start: 1rem;
     margin: 1rem auto;
-    box-shadow: 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+    box-shadow: 1px 2px 0 rgba(60, 64, 67, 0.302), 
+                0 1px 3px 1px rgba(60, 64, 67, 0.149);
     border-radius: 8px;
 }
 
@@ -23,13 +24,14 @@
     background-color: transparent;
     font-size: 1.2rem;
     padding: 0.5rem;
+    color: #80868b;
 }
 
 .input-container button:hover{
     border-radius: 2000px;
+    color: #202524;
     background-color: #eceaea;
 }
 .add-notes{
-      margin-inline-start: 20rem;
       align-self: center;
 }

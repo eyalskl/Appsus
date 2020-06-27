@@ -7,18 +7,24 @@ import sideBar from "../../../cmps/side-bar.cmp.js"
 export default {
     name: "note-app",
     template: `
-    <section v-if="notes" class="notes-app">
-        <div class="filter-add-container flex">
-            
-            <note-filter @setFilterBy="setFilter"/>  
-            <note-add :notes="notes" class="add-notes"/>
+        <section v-if="notes" class="notes-app">
+            <div class="filter-add-container flex">
+                <note-filter @setFilterBy="setFilter"/>  
             </div>   
             <div class="flex">  
+<<<<<<< HEAD
             <note-list :notes="notesToShow"/>  
             <side-bar> </side-bar>
  
+=======
+                <div class="flex column">
+                    <note-add :notes="notes" class="add-notes"/>
+                    <note-list :notes="notesToShow"/>  
+                </div>
+                <side-bar> </side-bar>
+>>>>>>> 3f3199e509aafa2418c805b3aca5998d599e5ba3
             </div>
-    </section>    
+        </section>    
     `,
     data() {
         return {
