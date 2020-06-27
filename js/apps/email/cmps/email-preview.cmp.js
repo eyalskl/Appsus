@@ -1,4 +1,5 @@
 import { emailService } from '../services/email.service.js';
+import { eventBus } from '../../../services/event-bus.service.js'
 
 import emailPeek from './email-peek.cmp.js'
 
@@ -81,6 +82,13 @@ export default {
         },
         deleteEmail(emailIdx) {
             emailService.removeEmail(emailIdx);
+            var txt = (this.email.folder !== 'trash') ? 'The email was moved to trash' : 'The email is permenantly deleted!';
+            eventBus.$emit('show-msg', {
+                isVisible: true,
+                txt,   
+                type:'removed-email',
+                showFor: 2000
+            })
         },
         toggleStarred() {
             if (this.email.folder === 'trash') return;
@@ -88,9 +96,14 @@ export default {
             emailService.updateEmailProp(this.email.id, 'isStarred', this.email.isStarred);
         },
         openEmailPeek() {
-            this.email.isPeeked = !this.email.isPeeked
-            this.email.isRead = true;
-            emailService.updateEmailProp(this.email.id, 'isRead', this.email.isRead);
+            if (this.email.folder !== 'drafts') {
+                this.email.isPeeked = !this.email.isPeeked
+                this.email.isRead = true;
+                emailService.updateEmailProp(this.email.id, 'isRead', this.email.isRead);
+            } else {
+                const mail = this.email
+                this.$router.push(`compose?to=${mail.to}&subject=${mail.subject}&body=${mail.body}`)
+            }
         }
     },
     components: {

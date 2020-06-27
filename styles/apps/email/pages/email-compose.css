@@ -3,8 +3,8 @@
   z-index: 1;
   position: fixed;
   bottom: 80px;
-  right: 5px;
-  width: 400px;
+  right: 3rem;
+  width: 450px;
   height: 470px;
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
     0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
@@ -14,6 +14,15 @@
   height: 50px;
   width: 275px;
 }
+.email-compose.expanded textarea {
+  height: 40em;
+}
+
+.email-compose.expanded {
+  height: calc(100vh - 160px);
+  width: calc(100vw - 247px);
+}
+
 
 .email-compose div.compose-header {
   padding-top: 0;

@@ -11,7 +11,31 @@
     right: 15px;
     border-radius: 20px;
     border: 3px solid black;
-    z-index: 1;
+    z-index: 2;
+    cursor: default;
+}
+
+.user-msg.sent, .user-msg.removed-email {
+    left: 1rem;
+    background-color: #000;
+    color: white;
+    height: 100px;
+}
+
+.user-msg.sent i {
+    color: rgb(44, 212, 2);
+}
+
+.user-msg.removed-email i {
+    color: red;
+}
+
+.user-msg.sent button, .user-msg.removed-email button {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: none;
+    padding: .2rem .4rem;
+    transition: .3s;
 }
 
 .user-msg button {

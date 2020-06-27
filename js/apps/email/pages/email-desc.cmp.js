@@ -1,5 +1,6 @@
 import { emailService } from '../services/email.service.js';
 import { utilsService } from '../../../services/utils.service.js';
+import { eventBus } from '../../../services/event-bus.service.js';
 
 import emailFilter from '../cmps/email-filter.cmp.js'
 import emailFolders from '../cmps/email-folders.cmp.js'
@@ -19,7 +20,10 @@ export default {
                     <div class="desc-header flex space-between">
                         <h1 class="desc-subject"> {{ email.subject }} </h1>
                         <div class="desc-controls">
-                            <button @click.stop="deleteEmail(email.id)" title="Delete"> 
+                        <button @click.stop="replyToEmail" title="Replay"> 
+                            <i class="fas fa-reply"></i> 
+                        </button>
+                        <button @click.stop="deleteEmail(email.id)" title="Delete"> 
                                 <i class="fas fa-trash"></i> 
                             </button>
                         </div>
@@ -55,8 +59,19 @@ export default {
         },
         deleteEmail(emailIdx) {
             emailService.removeEmail(emailIdx);
+            var txt = (this.email.folder !== 'trash') ? 'The email was moved to trash' : 'The email is permenantly deleted!';
+            eventBus.$emit('show-msg', {
+                isVisible: true,
+                txt,   
+                type:'removed-email',
+                showFor: 2000
+            })
             this.back()
         },
+        replyToEmail() {
+            const mail = this.email;
+            this.$router.push(`/compose?from=${mail.fromEmail}&subject=${mail.subject}&body=${mail.body}`)
+        }
     },
     computed: {
         firstLetterFrom() {

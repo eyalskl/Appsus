@@ -12,6 +12,9 @@
     color: rgb(41, 38, 38);
 }
 
+.side-bar .side-home {
+    text-shadow: 3px 3px 1px rgb(153, 153, 153);
+}
 .side-bar .side-books {
     text-shadow: 3px 3px 1px rgb(119, 255, 137);
 }

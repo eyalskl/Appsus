@@ -30,8 +30,8 @@ function createDefaultEmails() {
             isSent: true,
             from: 'Wizz Air' ,
             fromEmail: 'wizzair@gmail.com',
-            subject: 'Say YES to a 30% discount', 
-            body: `Your friends, family and dreams are awaiting! Say yes to flying today, and plan ahead up until Summer 2021! Here’s 30% off of all flights (yes, all of them), only available today, June 24th. Call your parents. Text your friends. Ask your partner. Share this opportunity with them, or surprise them. Book your ticket now with WIZZ!`, 
+            subject: 'Say YES to a discount', 
+            body: `Your friends, family and dreams are awaiting! Say yes to flying today, and plan ahead up until Summer 2021! Here’s 30 off of all flights (yes, all of them), only available today, June 24th. Call your parents. Text your friends. Ask your partner. Share this opportunity with them, or surprise them. Book your ticket now with WIZZ!`, 
             isRead: true, 
             sentAt : 1592994373656,
             isPeeked: false
@@ -43,7 +43,7 @@ function createDefaultEmails() {
             isSent: false,
             from: 'eBay' ,
             fromEmail: 'ebay@gmail.com',
-            subject: 'Eyal, new discounts up to 56%!', 
+            subject: 'Eyal, new discounts!', 
             body: `Also today in deals: Original Samsung Fast Charging Charger USB Type C Cable Galaxy S10 S9 S8 Plus`, 
             isRead: false, 
             sentAt : 1593067934570,
@@ -57,9 +57,7 @@ function createDefaultEmails() {
             from: 'Udacity' ,
             fromEmail: 'udacity@walla.com',
             subject: 'Use AWS Elasticache for data storage', 
-            body: `Hi Eyal,
-
-            Given the explosive growth of the cloud computing industry in the past several ye‍ars, companies of all sizes are in desperate need of professionals with cloud computing skills to fill a variety of roles from Cloud Developer to Cloud Dev Ops Engineer or Cloud Architect. Now is the time to break into the cloud computing field with Udacity!`, 
+            body: `Hi Eyal, Given the explosive growth of the cloud computing industry in the past several ye‍ars, companies of all sizes are in desperate need of professionals with cloud computing skills to fill a variety of roles from Cloud Developer to Cloud Dev Ops Engineer or Cloud Architect. Now is the time to break into the cloud computing field with Udacity!`, 
             isRead: false, 
             sentAt : 1592994373656,
             isPeeked: false
@@ -71,7 +69,7 @@ function createDefaultEmails() {
             isSent: false,
             from: 'Shoesonline' ,
             fromEmail: 'shoesonline@gmail.com',
-            subject: 'Say YES to a 30% discount', 
+            subject: 'Say YES to a discount', 
             body: `הקיץ כבר כאן ☀ דגמים חדשים במבצע שאסור לפספס! | פרסומת ‎`, 
             isRead: false, 
             sentAt : 1593097934570,
@@ -117,7 +115,7 @@ function getById(emailId) {
 function removeEmail(emailId) {
     getById(emailId)
         .then(email => {
-            if (email.folder === 'inbox') email.folder = 'trash';
+            if (email.folder === 'inbox' || email.folder === 'drafts') email.folder = 'trash';
             else if (email.folder === 'trash') {
                 const emailIdx = gEmails.findIndex(email => email.id === emailId);
                 gEmails.splice(emailIdx, 1);
