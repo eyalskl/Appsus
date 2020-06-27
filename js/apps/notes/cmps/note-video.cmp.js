@@ -1,6 +1,6 @@
 export default {
-    name: 'noteVideo',
-    template: `
+  name: "noteVideo",
+  template: `
     <div>
         <div class="note-desc">
         <iframe width="240" :src="formattedUrl"/>
@@ -8,14 +8,15 @@ export default {
             <h2>{{info.title}}</h2>
             <i class="fab fa-youtube note-type"></i>
         </div>
-        </div>
+            
 </div>
           `,
-    props: ['info' , 'editMode'],
+    props: ['info'],
     data() {
         return {
-            url: this.info.url || '',
-            val: "",
+      url: this.info.url || "",
+      val: "",
+
         };
     },
     mounted() {
@@ -25,10 +26,6 @@ export default {
         formattedUrl(){
             return this.url.replace('watch?v=' , 'embed/')
         },
-        created(){
-            console.log(this.editMode)
-        }
-
     }
 
 };

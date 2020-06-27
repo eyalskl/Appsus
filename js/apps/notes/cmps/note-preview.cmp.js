@@ -8,7 +8,7 @@ export default {
     props: ['note'],
     template: `
     <div v-if="!editMode" class="prev-container" :style="noteBgc" ref="container" @mouseover="displayControls" @mouseout="hideControls" >
-        <component :is="note.type" :info="note.info" :editMode="editMode" :key="note.id"></component>
+        <component :is="note.type" :info="note.info" :key="note.id"></component>
         <div v-if="colorsMenu" class="colors-container">
             <span :style="{backgroundColor:'#fff'}" title="deafult" @click.stop="setBgc('#fff')"></span>
             <span :style="{backgroundColor:'#ff8888'}" title="red" @click.stop="setBgc('#ff8888')"></span>
