@@ -53,7 +53,6 @@ export default {
     created() {
         noteService.getNotes()
             .then(notes => this.notes = notes);
-            console.log(this.filterBy)
             
 
     },
