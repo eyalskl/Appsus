@@ -28,9 +28,6 @@ export default {
         };
     },
     computed: {
-        notesToShow() {
-
-        },
         pinnedNotesToShow() {
             if(!this.filterBy) return this.notes.filter(note => note.isPinned)
             var fiilterdNotes = this.notes.filter(note=> note.type === this.filterBy)
