@@ -1,9 +1,10 @@
 .input-container input {
     border: none;
     outline: 0;
-    color: #80868b;
+    color: #000000;
     font-weight: 600;
     min-width: 420px;
+    font-size: 1rem;
 }
 
 .input-container {

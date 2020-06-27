@@ -1,0 +1,25 @@
+.note-edit {
+
+}
+
+.note-edit input {
+    padding: .75rem;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 999px;
+}
+
+.note-edit button {
+    width: 100px;
+    padding: .5rem;
+    background-color: inherit;
+    border: 1px solid black;
+    border-radius: 999px;
+    margin-block-start: .5rem;
+    transition: .5s;
+}
+
+
+.note-edit button:hover {
+    box-shadow: 2px 2px 5px black;
+}

@@ -8,29 +8,33 @@ export default {
     props: ['note'],
     template: `
     <div class="prev-container" :style="noteColor" ref="container" @mouseover="displayControls" @mouseout="hideControls" >
+<<<<<<< HEAD
         <component :is="note.type" :info="note.info" :edit="editMode" @doneEditSrc="onDoneEditSrc" :key="note.id"></component>
+=======
+        <component :is="note.type" :info="note.info" :edit="editMode" @doneEditText="onDoneEditText" @doneEdit="onDoneEdit" :key="note.id"></component>
+>>>>>>> 275d57a1f3e99fef06358b42957b838ff05b51ed
         <div v-if="colorsMenu" class="colors-container">
-            <span :style="{backgroundColor:'#fffd88'}" title="deafult" @click.stop="setBgc('#fffd88')"></span>
-            <span :style="{backgroundColor:'#ff8888'}" title="red" @click.stop="setBgc('#ff8888')"></span>
-            <span :style="{backgroundColor:'#fff'}" title="white" @click.stop="setBgc('#fff')"></span>
-            <span :style="{backgroundColor:'#92ff88'}" title="green" @click.stop="setBgc('#92ff88')"></span>
-            <span :style="{backgroundColor:'#88ffe1'}" title="teal" @click.stop="setBgc('#88ffe1')"></span>
-            <span :style="{backgroundColor:'#88cfff'}" title="lightblue" @click.stop="setBgc('#88cfff')"></span>
-            <span :style="{backgroundColor:'#3452ff'}" title="darkblue" @click.stop="setBgc('#3452ff')"></span>
-            <span :style="{backgroundColor:'#fa75ff'}" title="purple" @click.stop="setBgc('#fa75ff')"></span>
-            <span :style="{backgroundColor:'#6d3cba'}" title="purple" @click.stop="setBgc('#6d3cba')"></span>
+            <span :style="{backgroundColor:'#fffd88'}" title="Deafult" @click.stop="setBgc('#fffd88')"></span>
+            <span :style="{backgroundColor:'#ff8888'}" title="Red" @click.stop="setBgc('#ff8888')"></span>
+            <span :style="{backgroundColor:'#fff'}" title="White" @click.stop="setBgc('#fff')"></span>
+            <span :style="{backgroundColor:'#92ff88'}" title="Green" @click.stop="setBgc('#92ff88')"></span>
+            <span :style="{backgroundColor:'#88ffe1'}" title="Teal" @click.stop="setBgc('#88ffe1')"></span>
+            <span :style="{backgroundColor:'#88cfff'}" title="Lightblue" @click.stop="setBgc('#88cfff')"></span>
+            <span :style="{backgroundColor:'#3452ff'}" title="Darkblue" @click.stop="setBgc('#3452ff')"></span>
+            <span :style="{backgroundColor:'#fa75ff'}" title="Pink" @click.stop="setBgc('#fa75ff')"></span>
+            <span :style="{backgroundColor:'#6d3cba'}" title="Purple" @click.stop="setBgc('#6d3cba')"></span>
         </div>
             <div v-show="controls"  class="note-controls">
-                <button @click.stop="togglePinned"> 
+                <button title="Pin/Unpin" @click.stop="togglePinned"> 
                     <i class="fas fa-thumbtack"></i>
                 </button> 
-                <button @click.stop="toggleColorsMenu"> 
+                <button title="Set Background Color" @click.stop="toggleColorsMenu"> 
                     <i class="fas fa-palette"></i>
                 </button> 
-                <button @click.stop="toggleEdit"> 
+                <button title="Edit Note" @click.stop="toggleEdit"> 
                     <i class="fas fa-edit"></i>
                 </button> 
-                <button @click.stop="deleteNote(note.id)"> 
+                <button title="Delete" @click.stop="deleteNote(note.id)"> 
                      <i class="fas fa-trash"></i>
                 </button> 
             </div>
@@ -64,6 +68,11 @@ export default {
         this.note.info.url = newUrl
         noteService.updateNoteProp(this.note.id,`[info][url]` , newUrl)
         },
+        onDoneEditText(done , txt){
+            this.editMode = done
+            this.note.info.txt = txt
+            noteService.updateNoteProp(this.note.id, '[info][txt]', txt)
+            },
         setBgc(color) {
             this.noteBgc.backgroundColor = color;
             this.colorsMenu = false;
