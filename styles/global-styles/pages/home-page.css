@@ -279,6 +279,7 @@
     transform: translateY(0vh) translateX(110vw) scale(0.45);
   }
 }
+<<<<<<< HEAD
 
 @media (max-width:680px){
   .bird-container--one {
@@ -306,3 +307,9 @@
   animation-delay: 5.25s;
 }
 }
+=======
+.home-page {
+    background-color: cornflowerblue;
+}
+
+>>>>>>> 0ce1c01b8cf1e680c3bbb2d516664ecbb227f20d
