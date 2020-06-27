@@ -8,11 +8,7 @@ export default {
     props: ['note'],
     template: `
     <div class="prev-container" :style="noteColor" ref="container" @mouseover="displayControls" @mouseout="hideControls" >
-<<<<<<< HEAD
-        <component :is="note.type" :info="note.info" :edit="editMode" @doneEditSrc="onDoneEditSrc" :key="note.id"></component>
-=======
-        <component :is="note.type" :info="note.info" :edit="editMode" @doneEditText="onDoneEditText" @doneEdit="onDoneEdit" :key="note.id"></component>
->>>>>>> 275d57a1f3e99fef06358b42957b838ff05b51ed
+        <component :is="note.type" :info="note.info" :edit="editMode" @doneEditText="onDoneEditText" @doneEditSrc="onDoneEditSrc" :key="note.id"></component>
         <div v-if="colorsMenu" class="colors-container">
             <span :style="{backgroundColor:'#fffd88'}" title="Deafult" @click.stop="setBgc('#fffd88')"></span>
             <span :style="{backgroundColor:'#ff8888'}" title="Red" @click.stop="setBgc('#ff8888')"></span>
