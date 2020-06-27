@@ -3,14 +3,14 @@ export default {
     props: ['info', 'edit'],
     template: `
         <div class="note-desc text-container">
-            <div v-if="!editMode">
-                <h3>{{info.txt}}</h3>
-                <i class="fas fa-font note-type"></i>
-            </div>
-            <div v-else class="note-edit">
-                <input v-model="txt" type="text" />
-                <button @click.stop="confirmEdit"> Confirm </button>
-            </div>
+                <div v-if="!edit">
+                    <h3>{{info.txt}}</h3>
+                    <i class="fas fa-font note-type"></i>
+                </div>
+                <div v-else class="note-edit flex column align-center">
+                    <input v-model="txt" type="text" />
+                    <button @click.stop="confirmEdit"> Confirm </button>
+                </div>
         </div>
           `,
     data() {
@@ -21,7 +21,7 @@ export default {
     },
     methods: {
         confirmEdit() {
-            this.$emit('doneEdit', done)
+            this.$emit('doneEditText', false, this.txt)
         }
     },
     computed: {

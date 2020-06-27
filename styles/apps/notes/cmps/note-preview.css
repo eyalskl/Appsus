@@ -23,7 +23,18 @@ iframe {
 .note-controls button {
     border: none;
     background: none;
-    font-size: 1rem;
+    color: #525252;
+    font-size: 1.1rem;
+    padding: .5rem;
+}
+.note-controls button:first-of-type {
+    padding: .5rem .65rem;
+}
+
+.note-controls button:hover {
+    border-radius: 50%;
+    background-color: rgb(212, 212, 212);
+    color: black;
 }
 
 .note-type {
