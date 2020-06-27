@@ -11,7 +11,7 @@ export default {
         </div>
 </div>
           `,
-    props: ['info'],
+    props: ['info' , 'editMode'],
     data() {
         return {
             url: this.info.url || '',
@@ -23,9 +23,11 @@ export default {
     },
     computed:{
         formattedUrl(){
-            console.log(this.info)
             return this.url.replace('watch?v=' , 'embed/')
         },
+        created(){
+            console.log(this.editMode)
+        }
 
     }
 
