@@ -17,6 +17,10 @@
     min-height: calc(100vh - 160px);
 }
 
+.notes-app-w {
+    width: calc(100vw - 4rem);
+}
+
 .main-footer {
     height: 80px;
 }
