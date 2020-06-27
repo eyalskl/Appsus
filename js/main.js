@@ -20,7 +20,6 @@ new Vue({
             <main class="app-main">
                 <router-view />
             </main>
-            <app-footer class="main-footer"> </app-footer>
         </div>
         `,
     data: {

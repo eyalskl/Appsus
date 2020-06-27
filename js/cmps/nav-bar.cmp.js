@@ -3,7 +3,7 @@
         template: `
         <nav class="app-header main-header flex align-center space-between">
             <div class="logo-container flex align-center">
-                 <h1 class="logo"> Appsus </h1>
+                 <h1 class="logo"> #APPSUS </h1>
             </div>
             <div class="main-nav flex">
                 <router-link to="/"> Home </router-link>

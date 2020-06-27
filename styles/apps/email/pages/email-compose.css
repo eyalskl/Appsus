@@ -2,7 +2,7 @@
   background-color: white;
   z-index: 1;
   position: fixed;
-  bottom: 80px;
+  bottom: 0;
   right: 3rem;
   width: 450px;
   height: 470px;
@@ -19,7 +19,7 @@
 }
 
 .email-compose.expanded {
-  height: calc(100vh - 160px);
+  height: calc(100vh - 80px);
   width: calc(100vw - 247px);
 }
 
