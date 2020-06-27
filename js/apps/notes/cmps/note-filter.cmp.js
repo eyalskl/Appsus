@@ -3,8 +3,8 @@ export default {
     template: `
         <nav class="notes-filter flex align-center">
             <div class="search-notes">
-                <button @click="searching" > <i class="fas fa-search"></i> </button>
-                <input type="search" @keyup.enter.prevent="searching" @change="searching" placeholder="Search Title" v-model="searchInput">
+                <button @click.stop="searching" > <i class="fas fa-search"></i> </button>
+                <input type="search" @keyup.enter.prevent="searching" @change.stop="searching" placeholder="Search Title" v-model="searchInput">
                 <select @change="setFilterBy">
                         <option value=""> Show all </option>
                         <option value="noteText"> Text </option>

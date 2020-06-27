@@ -111,8 +111,28 @@ function createDefaultNotes() {
       id: utilsService.getRandomId(),
       isPinned: true,
       info: {
-        url: "https://i.imgur.com/D25S0Fy.jpg",
-        title: "Me playing Mi",
+        url: "https://media1.giphy.com/media/l1J9u3TZfpmeDLkD6/giphy.gif",
+        title: "Me Starting to figure out MissNotes",
+      },  
+      backgroundColor: "#fffd88",
+    },
+    {
+      type: "noteImg",
+      id: utilsService.getRandomId(),
+      isPinned: true,
+      info: {
+        url: "https://media3.giphy.com/media/FjOsaw9z4BhrW/giphy.webp?cid=ecf05e47dc94fe535152c95c9d30b503fc5b326b4c0a7fcb&rid=giphy.webp",
+        title: "Notes Vs Nadav",
+      },  
+      backgroundColor: "#fffd88",
+    },
+    {
+      type: "noteImg",
+      id: utilsService.getRandomId(),
+      isPinned: true,
+      info: {
+        url: "https://media2.giphy.com/media/2Faz8AWeOgrfO4FHi/200.webp?cid=ecf05e473de4e2e1a25ef2468079d91c78fd371528eb32f1&rid=200.webp",
+        title: "Eyal doing CSS",
       },  
       backgroundColor: "#fffd88",
     },
@@ -133,7 +153,7 @@ function createDefaultNotes() {
       id: utilsService.getRandomId(),
       isPinned: false,
       info: {
-        url: "https://www.youtube.com/watch?v=jofNR_WkoCE",
+        url: "https://www.youtube.com/watch?v=WpmILPAcRQo",
         title: "new",
       },
     backgroundColor: "#fffd88",

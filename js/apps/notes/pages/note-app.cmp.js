@@ -10,7 +10,7 @@ export default {
     template: `
         <section v-if="notes" class="notes-app">
             <div class="filter-add-container flex">
-                <note-filter @setFilterBy="setFilter"/>  
+                <note-filter @searching="setSearchBy" @setFilterBy="setFilter"/>  
             </div>   
             <div class="flex">  
                 <div class="flex notes-app-w column">
@@ -26,17 +26,28 @@ export default {
         return {
             notes: null,
             filterBy: null,
+            searchBy: '',
             editMode:false
         };
     },
     computed: {
         pinnedNotesToShow() {
-            if(!this.filterBy) return this.notes.filter(note => note.isPinned)
+            if(!this.filterBy || !this.searchBy) return this.notes.filter(note => note.isPinned)
+            if (this.searchBy) return this.notes.filter(note => {
+                if (note.type === 'noteText') return note.info.txt.toLowerCase().contains(this.searchBy.toLowerCase());
+                if (note.type === 'noteImg' || note.type === 'noteVideo') return note.info.title.toLowerCase().contains(this.searchBy.toLowerCase());
+                if (note.type === 'noteTodos') return note.info.todos.forEach(todo => todo.txt.toLowerCase().contains(this.searchBy.toLowerCase()))
+            })
             var fiilterdNotes = this.notes.filter(note=> note.type === this.filterBy)
             return fiilterdNotes.filter(note => note.isPinned)
         },
         unpinnedNotesToShow() {
-            if(!this.filterBy) return this.notes.filter(note => !note.isPinned)
+            if(!this.filterBy || !this.searchBy) return this.notes.filter(note => !note.isPinned)
+            if (this.searchBy) return this.notes.filter(note => {
+                if (note.type === 'noteText') return note.info.txt.toLowerCase().contains(this.searchBy.toLowerCase());
+                if (note.type === 'noteImg' || note.type === 'noteVideo') return note.info.title.toLowerCase().contains(this.searchBy.toLowerCase());
+                if (note.type === 'noteTodos') return note.info.todos.forEach(todo => todo.txt.toLowerCase().contains(this.searchBy.toLowerCase()))
+            })
             var fiilterdNotes = this.notes.filter(note=> note.type === this.filterBy)
             return fiilterdNotes.filter(note => !note.isPinned)
         }
@@ -48,6 +59,10 @@ export default {
         },
         onEdit(yes){
             this.editMode = yes
+        },
+        setSearchBy(searchBy) {
+            console.log('searchBy:', searchBy)
+            this.searchBy = searchBy;
         }
     },
     created() {

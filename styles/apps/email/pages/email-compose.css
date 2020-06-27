@@ -15,7 +15,7 @@
   width: 275px;
 }
 .email-compose.expanded textarea {
-  height: 40em;
+  height: 50em;
 }
 
 .email-compose.expanded {
@@ -135,4 +135,66 @@
 
 .send-email-btn img {
   margin-inline-end: .75rem;
+}
+
+@media (max-width: 860px) {
+  .email-folders {
+    width: 150px;
+  }
+  .send-email-btn {
+    width: 125px;
+    font-size: 0.8rem;
+  }
+  .send-email-btn img {
+    margin-inline-end: .5rem;
+    height: 25px;
+  }
+}
+
+@media (max-width: 520px) {
+  .email-compose {
+    right: 0;
+    width: 100vw;
+  }
+
+  .email-compose.expanded {
+    width: 100vw;
+  }
+  .email-folders a.send-email-btn {
+    width: 27.5px;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 999;
+    font-size: 0rem;
+  }
+  .email-folders {
+    flex-direction: row;
+    border: none;
+  }
+  .email-folders > * {
+    font-size: .75rem;
+    margin: 0;
+    padding: 0;
+    padding-inline-end: .75rem;
+  }
+  .email-main .side-bar {
+    order: -1;
+    width: 100%;
+    border-bottom: 1px solid rgb(206, 206, 206);
+  }
+  .side-bar {
+    flex-direction: row;
+  }
+  .side-bar > * {
+    margin: 0;
+    margin-inline-end: 2rem;
+  }
+  .email-main {
+    flex-direction: column;
+  }
+  .send-email-btn img {
+    margin-inline-end: .5rem;
+    height: 25px;
+  }
 }

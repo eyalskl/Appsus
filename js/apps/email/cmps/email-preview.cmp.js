@@ -47,7 +47,7 @@ export default {
             if (this.email.isRead) return 'read';
             else return 'unread';
         },
-        emailBodyShortText() {return this.email.body.slice(0, 75);},
+        emailBodyShortText() {return this.email.body.slice(0, 50);},
         classByRead() {
             if (this.email.isRead) return 'fa-envelope'
             else return 'fa-envelope-open'

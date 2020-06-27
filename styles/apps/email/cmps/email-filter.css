@@ -86,3 +86,14 @@
         display: none;
     }
 }
+@media (max-width: 615px) {
+.search-email {
+    width: 250px;
+}
+.search-email select {
+    width: 1px;
+}
+.search-email input {
+    width: 75px;
+}
+}

@@ -5,13 +5,13 @@
     font-size: 1rem;
     font-family: 'Jura', sans-serif;
     position: fixed;
-    width: 25%;
-    min-width: 375px;
+    width: 300px;
+    /* min-width: 375px; */
     top: 15px;
     right: 15px;
     border-radius: 20px;
     border: 3px solid black;
-    z-index: 2;
+    z-index: 999999;
     cursor: default;
 }
 

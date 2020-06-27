@@ -4,9 +4,16 @@
 }
 
 .email-folders {
-  flex-basis: 200px;
+  width: 200px;
 }
 
 .email-list {
   flex: 1;
+}
+
+
+@media (max-width: 860px) {
+  .email-folders {
+    width: 150px;
+  }
 }
