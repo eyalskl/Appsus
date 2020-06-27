@@ -121,18 +121,9 @@ function createDefaultNotes() {
   if (notes) return notes;
   const defaultNotes = [
     {
-      type: "noteText",
-      id: utilsService.getRandomId(),
-      isPinned: true,
-      info: {
-        txt: "Fullstack Me Baby!",
-      },
-      backgroundColor: "#fffd88",
-    },
-    {
       type: "noteImg",
       id: utilsService.getRandomId(),
-      isPinned: true,
+      isPinned: false,
       info: {
         url: "https://media1.giphy.com/media/l1J9u3TZfpmeDLkD6/giphy.gif",
         title: "Me Starting to figure out MissNotes",
@@ -154,30 +145,71 @@ function createDefaultNotes() {
       id: utilsService.getRandomId(),
       isPinned: true,
       info: {
-        url: "https://media2.giphy.com/media/2Faz8AWeOgrfO4FHi/200.webp?cid=ecf05e473de4e2e1a25ef2468079d91c78fd371528eb32f1&rid=200.webp",
+        url: "https://media0.giphy.com/media/Dh9jqNm8YcGVG/200.webp?cid=ecf05e47b38ced560ea33660436c4bf7192f25a4703f787c&rid=200.webp",
         title: "Eyal doing CSS",
+      },  
+      backgroundColor: "#fffd88",
+    },
+    {
+      type: "noteImg",
+      id: utilsService.getRandomId(),
+      isPinned: false,
+      info: {
+        url: "https://media3.giphy.com/media/XJc8u3DexP3Bm5vJTY/200.webp?cid=ecf05e4765f62f020d741f82bf86e6bcd264b7ac1321c422&rid=200.webp",
+        title: "When I hear Aviv is teaching today",
+      },  
+      backgroundColor: "#fffd88",
+    },
+    {
+      type: "noteImg",
+      id: utilsService.getRandomId(),
+      isPinned: true,
+      info: {
+        url: "https://media1.giphy.com/media/ZrmS4umDX5bI4/giphy.webp?cid=ecf05e47b38ced560ea33660436c4bf7192f25a4703f787c&rid=giphy.webp",
+        title: "Nadav doing CSS",
+      },  
+      backgroundColor: "#fffd88",
+    },
+    {
+      type: "noteImg",
+      id: utilsService.getRandomId(),
+      isPinned: true,
+      info: {
+        url: "https://media1.giphy.com/media/ZrmS4umDX5bI4/giphy.webp?cid=ecf05e47b38ced560ea33660436c4bf7192f25a4703f787c&rid=giphy.webphttps://media1.giphy.com/media/KupdfnqWwV7J6/200.webp?cid=ecf05e474ff9dac04ece86bdaa8499b2d11ec5f7cb214fa1&rid=200.webp",
+        title: "When Yaron chooses me for Code Review",
+      },  
+      backgroundColor: "#fffd88",
+    },
+    {
+      type: "noteVideo",
+      id: utilsService.getRandomId(),
+      isPinned: true,
+      info: {
+        url: "https://www.youtube.com/watch?v=VFR6LtEKBVY",
+        title: "TRALALA"
       },  
       backgroundColor: "#fffd88",
     },
     {
       type: "noteTodos",
       id: utilsService.getRandomId(),
-      isPinned: false,
+      isPinned: true,
       info: {
         todos: [
-          { txt: "Do that", doneAt: null },
-          { txt: "Do this", doneAt: 187111111 },
+          { txt: "Eat", doneAt: true },
+          { txt: "Sleep", doneAt: false },
+          { txt: "Code", doneAt: true },
+          { txt: "Repeat", doneAt: true },
         ],
       },
-      backgroundColor: "#fffd88",
-    },
+    backgroundColor: "#fffd88",
+  },
     {
-      type: "noteVideo",
+      type: "noteText",
       id: utilsService.getRandomId(),
       isPinned: false,
       info: {
-        url: "https://www.youtube.com/watch?v=WpmILPAcRQo",
-        title: "new",
+     txt:"What's the meaning of life ? Drag me to find out :) "
       },
       backgroundColor: "#fffd88",
     },

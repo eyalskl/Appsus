@@ -183,10 +183,10 @@
     width: 100%;
     border-bottom: 1px solid rgb(206, 206, 206);
   }
-  .side-bar {
+  .email-main .side-bar {
     flex-direction: row;
   }
-  .side-bar > * {
+  .email-main .side-bar > * {
     margin: 0;
     margin-inline-end: 2rem;
   }
