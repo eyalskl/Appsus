@@ -2,7 +2,7 @@
 
 export default {
     template: `
-        <section class="book-filter animate__animated animate__lightSpeedInRight">
+        <section class="book-filter">
             <router-link to="/add-book"> <i class="fas fa-globe"></i> Browse Books online </router-link>
             <input type="text" placeholder="Search something..." v-model="filterBy.byName" @input="filter"/>
             <input type="number" placeholder="From Price..." v-model.number="filterBy.fromPrice" @input="filter"/>

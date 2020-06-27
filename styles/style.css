@@ -51,6 +51,7 @@
 @import './apps/notes/cmps/note-add.css';
 @import './apps/notes/cmps/note-todo.css';
 @import './apps/notes/cmps/note-preview.css';
+@import './apps/notes/cmps/note-filter.css';
 
 /* PAGES */
 

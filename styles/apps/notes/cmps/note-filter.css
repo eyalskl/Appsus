@@ -1,0 +1,50 @@
+.notes-filter {
+    font-size: 1.1rem;
+    padding-inline-start: 1rem;
+    height: 80px;
+}
+  
+  
+  .search-notes {
+      display: flex;
+      align-items: center;
+      background-color: rgba(233, 233, 233, 0.8);
+      padding: .75rem;
+      height: 50px;
+      border-radius: 7.5px;
+      min-width: 200px;
+      margin-inline-end: 1.5rem;
+      box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
+      0 1px 3px 1px rgba(60, 64, 67, 0.149);
+      transition: .3s;
+  }
+  
+  
+  .search-notes select {
+      margin-inline-start: .25rem;
+      padding: .4rem 1rem;
+      font-family: roboto;
+  }
+  
+  .search-notes option {
+      padding: .5rem;
+  }
+  
+  .search-notes:hover {
+      box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
+      0 4px 8px 3px rgba(60, 64, 67, 0.149);
+      background-color: #fff;
+  }
+  
+  .search-notes input {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    min-width: 150px;
+  }
+  
+
+  .search-notes button {
+      background-color: inherit;
+  }
