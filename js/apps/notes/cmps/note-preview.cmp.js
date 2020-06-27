@@ -8,7 +8,7 @@ export default {
     props: ['note'],
     template: `
     <div class="prev-container" :style="noteColor" ref="container" @mouseover="displayControls" @mouseout="hideControls" >
-        <component :is="note.type" :info="note.info" :edit="editMode" @doneEdit="onDoneEdit" :key="note.id"></component>
+        <component :is="note.type" :info="note.info" :edit="editMode" @doneEditSrc="onDoneEditSrc" :key="note.id"></component>
         <div v-if="colorsMenu" class="colors-container">
             <span :style="{backgroundColor:'#fffd88'}" title="deafult" @click.stop="setBgc('#fffd88')"></span>
             <span :style="{backgroundColor:'#ff8888'}" title="red" @click.stop="setBgc('#ff8888')"></span>
@@ -59,10 +59,10 @@ export default {
         toggleEdit(){
             this.editMode = !this.editMode;
         },
-        onDoneEdit(done , newUrl){
+        onDoneEditSrc(done , newUrl){
         this.editMode=done
         this.note.info.url = newUrl
-        console.log(newUrl)
+        noteService.updateNoteProp(this.note.id,`[info][url]` , newUrl)
         },
         setBgc(color) {
             this.noteBgc.backgroundColor = color;

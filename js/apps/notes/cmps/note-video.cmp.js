@@ -8,9 +8,9 @@ export default {
             <h2>{{info.title}}</h2>
             <i class="fab fa-youtube note-type"></i>
         </div>
-         <div v-else class="note-edit">
+         <div v-else class="note-edit flex column align-center">
              <input type="text" v-model="url">
-             <button @click="confrimEdit">confirm</button>
+             <button @click="confirmEdit">confirm</button>
          </div>
     </div>
           `,
@@ -21,8 +21,8 @@ export default {
         };
     },
     methods: {
-        confrimEdit(){
-           this.$emit('doneEdit' , false , this.url)
+        confirmEdit(){
+           this.$emit('doneEditSrc' , false , this.url)
         }
     },
     computed:{
@@ -30,8 +30,6 @@ export default {
             return this.url.replace('watch?v=' , 'embed/')
         },
     },
-created(){
-    console.log(this.edit)
-}
+
 
 };

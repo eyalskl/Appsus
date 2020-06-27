@@ -5,14 +5,14 @@ import noteTodos from "./note-todos.cmp.js";
 export default {
   template: `
     <div class="todos-container flex column">
-        <input
+        <input placeholder="Add Todo..."
         @keydown.once="inputAmount++" :key="idx" v-for="(input,idx) in inputAmount" @keyup.enter="addNote(todos)" ref="idx" type="text" v-model="todos[idx]"/>
     </div>
     
     `,
   data() {
     return {
-        inputAmount:2,
+        inputAmount:1,
         todos:[]
     }
   },
@@ -23,9 +23,6 @@ export default {
             noteService.addTodoNote(todos)
             
         },
-        log(event) {
-            console.log(event);       
-        }
 
     },
 
