@@ -1,7 +1,7 @@
-import noteImg from "./note-img.cmp.js";
-import noteText from "./note-text.cmp.js";
-import noteTodos from "./note-todos.cmp.js";
-import noteVideo from "./note-video.cmp.js";
+import noteImg from "./note-types/note-img.cmp.js";
+import noteText from "./note-types/note-text.cmp.js";
+import noteTodos from "./note-types/note-todos.cmp.js";
+import noteVideo from "./note-types/note-video.cmp.js";
 import todosEdit from "./todos-edit.cmp.js"
 import { noteService } from "../services/note-service.js";
 export default {

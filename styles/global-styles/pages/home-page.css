@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css?family=Arima+Madurai:300");
 *,
 *::before,
@@ -279,3 +280,9 @@
     transform: translateY(0vh) translateX(110vw) scale(0.45);
   }
 }
+=======
+.home-page {
+    background-color: cornflowerblue;
+}
+
+>>>>>>> bb1c9bab61de72bebe6da3b6f7f4a9ac7dd4e2a2
