@@ -82,10 +82,8 @@ export default {
             })   
             
         eventBus.$on('email-added', () => {
-                console.log('gothere');
                 emailService.getEmails()
                 .then(emails => {
-                    console.log('gothere also');
                     this.emails = emails
                     this.setSortBy('date')
                 }) 
