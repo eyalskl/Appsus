@@ -3,6 +3,7 @@ import noteList from "../cmps/note-list.cmp.js";
 import noteAdd from "../cmps/note-add.cmp.js"
 import noteFilter from "../cmps/note-filter.cmp.js";
 import sideBar from "../../../cmps/side-bar.cmp.js"
+import noteEdit from "../cmps/note-edit.cmp.js"
 
 export default {
     name: "note-app",
@@ -12,7 +13,10 @@ export default {
                 <note-filter @setFilterBy="setFilter"/>  
             </div>   
             <div class="flex">  
-                <div class="flex column">
+                <div>
+                    <note-edit v-if="!onEdit" @onEdit="editMode"/>
+                        </div>
+                            <div class="flex column">
                     <note-add :notes="notes" class="add-notes"/>
                     <note-list :notes="pinnedNotesToShow"/>  
                     <note-list :notes="unpinnedNotesToShow"/>  
@@ -25,6 +29,7 @@ export default {
         return {
             notes: null,
             filterBy: null,
+            editMode:false
         };
     },
     computed: {
@@ -44,6 +49,9 @@ export default {
             this.filterBy = filterBy;
            
         },
+        onEdit(yes){
+            this.editMode = yes
+        }
     },
     created() {
         noteService.getDefaultNotes()
@@ -56,6 +64,7 @@ export default {
         noteList,
         noteAdd,
         noteFilter,
-        sideBar
+        sideBar,
+        noteEdit
     },
 };

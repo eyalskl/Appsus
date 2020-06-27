@@ -7,7 +7,7 @@ import { noteService } from "../services/note-service.js";
 export default {
     props: ['note'],
     template: `
-    <div v-if="!editMode" class="prev-container" :style="noteBgc" ref="container" @mouseover="displayControls" @mouseout="hideControls" >
+    <div class="prev-container" :style="noteBgc" ref="container" @mouseover="displayControls" @mouseout="hideControls" >
         <component :is="note.type" :info="note.info" :key="note.id"></component>
         <div v-if="colorsMenu" class="colors-container">
             <span :style="{backgroundColor:'#fff'}" title="deafult" @click.stop="setBgc('#fff')"></span>
@@ -42,7 +42,6 @@ export default {
             controls: false,
             colorsMenu: false,
             noteBgc: { backgroundColor: '#fff' },
-            editMode:false
         }
     },
     methods: {
@@ -57,7 +56,7 @@ export default {
             this.colorsMenu = !this.colorsMenu
         },
         toggleEdit(){
-            this.editMode = !this.editMode
+            this.$emit('onEdit' , true)
 
         },
         setBgc(color) {
