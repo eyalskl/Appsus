@@ -28,7 +28,7 @@ function createDefaultEmails() {
             folder: 'inbox',
             isStarred: false,
             isSent: true,
-            from: 'Wizz Air' ,
+            from: 'Wizz Air',
             fromEmail: 'wizzair@gmail.com',
             subject: 'Say YES to a discount', 
             body: `Your friends, family and dreams are awaiting! Say yes to flying today, and plan ahead up until Summer 2021! Here’s 30 off of all flights (yes, all of them), only available today, June 24th. Call your parents. Text your friends. Ask your partner. Share this opportunity with them, or surprise them. Book your ticket now with WIZZ!`, 
@@ -52,7 +52,7 @@ function createDefaultEmails() {
         {
             id: utilsService.getRandomId(),
             folder: 'inbox',
-            isStarred: false,
+            isStarred: true,
             isSent: false,
             from: 'Udacity' ,
             fromEmail: 'udacity@walla.com',
@@ -91,7 +91,7 @@ function createDefaultEmails() {
         {
             id: utilsService.getRandomId(),
             folder: 'inbox',
-            isStarred: false,
+            isStarred: true,
             isSent: false,
             from: 'Pornhub' ,
             fromEmail: 'pornhub@porn.com',
@@ -99,6 +99,45 @@ function createDefaultEmails() {
             body: `Please renew, your are our top PORN WATHCER! we love you long time :)`, 
             isRead: true, 
             sentAt : 1593067134570,
+            isPeeked: false
+        },
+        {
+            id: utilsService.getRandomId(),
+            folder: 'inbox',
+            isStarred: true,
+            isSent: false,
+            from: 'Google ' ,
+            fromEmail: 'google@gmail.com',
+            subject: 'Security alert', 
+            body: `Your Google Account was just signed in to from a new Windows device. You're getting this email to make sure it was you. Check activity`, 
+            isRead: false, 
+            sentAt : 1592067134570,
+            isPeeked: false
+        },
+        {
+            id: utilsService.getRandomId(),
+            folder: 'inbox',
+            isStarred: false,
+            isSent: false,
+            from: 'TED' ,
+            fromEmail: 'google@gmail.com',
+            subject: 'Eyal, here’s why you should watch this talk...', 
+            body: `Your kids might live on Mars. Here's how they'll survive, TED is all about visionary dreamers, and no talk is more visionary than this one. It's our destiny to go to Mars, no matter what the naysayers tell us. We must venture forth, explore, and invent!`, 
+            isRead: false, 
+            sentAt : Date.now(),
+            isPeeked: false
+        },
+        {
+            id: utilsService.getRandomId(),
+            folder: 'inbox',
+            isStarred: true,
+            isSent: false,
+            from: 'Coding Academy' ,
+            fromEmail: 'codingacademy@gmail.com',
+            subject: 'Wow your app is so amazing!', 
+            body: `WOWWWWWW! This is such an amazing app, Nadav and Eyal are the best FULLSTACK! developers i know in the whole world, I'm having such a fun experience in your website!`, 
+            isRead: true, 
+            sentAt : 1591967134570,
             isPeeked: false
         },
 

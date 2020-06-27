@@ -5,20 +5,24 @@ export default {
             <div class="search-email">
                 <button @click="searching" > <i class="fas fa-search"></i> </button>
                 <input type="search" @keyup.enter.prevent="searching" @change="searching" placeholder="Search mail" v-model="searchInput">
+                <select id="sortByWhat" @change="setSortBy">
+                        <option value="date"> sort by Date </option>
+                        <option value="title"> sort by Title </option>
+                </select>
             </div>
             <div class="read-sort">
                 <label for="all"> All <input type="radio" name="setReadDis" @change="setReadFilter" ref="allRead" value="all" checked> </label>
                 <label for="read"> Read <input type="radio" name="setReadDis" @change="setReadFilter" value="read"> </label>
                 <label for="unread"> Unread <input type="radio" name="setReadDis" @change="setReadFilter" value="unread"> </label>
             </div>
-            <div class="date-title-sort">
-                <label for="sortByWhat"> Sort by
+            <!-- <div class="date-title-sort">
+                <label for="sortByWhat"> 
                     <select id="sortByWhat" @change="setSortBy">
-                        <option value="date"> Date </option>
-                        <option value="title"> Title </option>
+                        <option value="date"> Sort by Date </option>
+                        <option value="title"> Sort by Title </option>
                     </select>
                 </label>
-            </div>
+            </div> -->
         </nav>
     `,
     data() {
