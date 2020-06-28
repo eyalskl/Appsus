@@ -23,6 +23,11 @@
     color: black;
     transform: scale(1.1);
 }
+.main-header .btn-menu {
+    color: #fefefe;
+    text-shadow: 1px 1px 1px #000;
+    margin-bottom: .85rem;
+}
 
 @media (max-width: 680px) {
     .nav-bar .main-nav a {
