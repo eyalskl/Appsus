@@ -6,6 +6,7 @@ import emailDesc from "./apps/email/pages/email-desc.cmp.js";
 import bookApp from "./apps/books/pages/book-app.cmp.js"
 import addBook from "./apps/books/pages/add-book.cmp.js"
 import bookDetails from "./apps/books/pages/book-details.cmp.js"
+import aboutUs from "./pages/about-us.cmp.js"
 
 
 
@@ -44,6 +45,10 @@ const myRoutes = [
     {
         path: '/email/:emailId',
         component: emailDesc
+    },
+    {
+        path: '/about',
+        component: aboutUs
     },
 
 ];
