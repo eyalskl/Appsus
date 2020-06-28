@@ -10,7 +10,7 @@ export default {
     <div class="prev-container" :style="noteColor" ref="container" @mouseover="displayControls" @mouseout="hideControls" >
         <component :is="note.type" :info="note.info" :edit="editMode" @doneEditTodo="onDoneEditTodo" @doneEditText="onDoneEditText" @doneEditSrc="onDoneEditSrc" :key="note.id"></component>
         <div v-if="colorsMenu" class="colors-container">
-            <span v-for="(color) in colors" :style="{backgroundColor:color}" @click.stop="setBgc(color)">
+            <span v-for="(color) in colors" :style="{backgroundColor:color}" @click.stop="setBgc(color)"></span>
         </div>
               <div v-show="controls"  class="note-controls">
                   <button title="Pin/Unpin" @click.stop="togglePinned"> 
