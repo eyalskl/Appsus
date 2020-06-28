@@ -92,6 +92,7 @@ export default {
                     this.setSortBy('date')
                 }) 
         });
+        if (document.body.classList.contains('menu-open')) document.body.classList.remove('menu-open')
     },
     components: {
         emailFolders,
