@@ -67,7 +67,7 @@ function createDefaultEmails() {
             folder: 'inbox',
             isStarred: false,
             isSent: false,
-            from: 'Shoesonline' ,
+            from: 'Shoes' ,
             fromEmail: 'shoesonline@gmail.com',
             subject: 'Say YES to a discount', 
             body: `הקיץ כבר כאן ☀ דגמים חדשים במבצע שאסור לפספס! | פרסומת ‎`, 

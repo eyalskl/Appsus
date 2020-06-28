@@ -1,5 +1,6 @@
 .email-folders {
-  border-right: 1px solid rgb(204, 204, 204);
+  /* border-right: 1px solid rgb(204, 204, 204); */
+  height: 100%;
 }
 
 .email-folders > * {
@@ -37,6 +38,14 @@
   right: 1rem;
 }
 
+.menu-open .email-folders {
+  transform: translateX(0);
+  box-shadow: -6px 0px 14px rgba(0, 0, 0, 0.2);
+}
+.menu-open .screen {
+  visibility: visible;
+  opacity: 1;
+}
 
 .email-folders div.inbox-v, .email-folders div.inbox-v span {
   background-color: rgba(255, 96, 96, 0.151);

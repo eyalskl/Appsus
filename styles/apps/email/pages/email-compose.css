@@ -1,6 +1,6 @@
 .email-compose {
   background-color: white;
-  z-index: 1;
+  z-index: 6;
   position: fixed;
   bottom: 0;
   right: 3rem;
@@ -18,10 +18,6 @@
   height: 50em;
 }
 
-.email-compose.expanded {
-  height: calc(100vh - 80px);
-  width: calc(100vw - 247px);
-}
 
 
 .email-compose div.compose-header {
@@ -111,12 +107,14 @@
 
 
 .send-email-btn {
+  height: 2rem;
+  display: flex;
+  align-items: center;
   border: 1px solid rgb(187, 187, 187);
   color: rgb(59, 59, 59);
   font-weight: 600;
-  margin: 1rem;
-  border: none;
-  width: 150px;
+  margin: .75rem;
+  
   font-size: .9rem;
   padding: 1.5rem 1.5rem 1.5rem 1rem;
   border-radius: 999px;
@@ -153,30 +151,53 @@
 
 @media (max-width: 520px) {
   .email-compose {
-    right: 0;
-    width: 100vw;
+    right: 5px;
+    width: 90vw;
   }
 
   .email-compose.expanded {
-    width: 100vw;
+    width: calc(100vw - 3rem);
+    height: calc(100vh - 80px);
   }
-  .email-folders a.send-email-btn {
-    width: 27.5px;
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    z-index: 999;
-    font-size: 0rem;
+
+  .send-email-btn img {
+    margin-inline-start: 1rem;
+    height: 30px;
   }
   .email-folders {
-    flex-direction: row;
-    border: none;
+    flex-direction: column;
+    width: 12.5rem;
+    position: absolute;
+    z-index: 99999;
+    background-color: rgba(242, 242, 242, 0.95);
+    height: 100vh;
+    box-shadow: 4px 2px 8px black;
+    top: 0px;
+    padding: 1rem 0;
+    font-size: 0rem;
+    transform: translateX(-100%);
+    transition: transform .8s, box-shadow .8s;
   }
+
+  .email-folders-container .send-email-btn {
+    width: 3.5rem;
+    height: 3.5rem;
+    position: fixed;
+    bottom: 1rem;
+    background-color: #fff;
+    right: 1rem;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    font-size: 0rem;
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
+              0 4px 8px 3px rgba(60, 64, 67, 0.149);
+    }
+
   .email-folders > * {
-    font-size: .75rem;
-    margin: 0;
-    padding: 0;
-    padding-inline-end: .75rem;
+    font-size: 0.95rem;
+    padding-inline-end: .8rem;
+    margin-block-end: 1rem;
   }
   .email-main .side-bar {
     order: -1;
@@ -188,13 +209,10 @@
   }
   .email-main .side-bar > * {
     margin: 0;
-    margin-inline-end: 2rem;
+    margin-inline-end: 3rem;
   }
   .email-main {
     flex-direction: column;
   }
-  .send-email-btn img {
-    margin-inline-end: .5rem;
-    height: 25px;
-  }
+
 }

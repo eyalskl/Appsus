@@ -24,16 +24,20 @@
     transform: scale(1.1);
 }
 
-@media (max-width: 580px) {
+@media (max-width: 640px) {
     .nav-bar .main-nav a {
         font-size: 1.5rem;
     }
 }
-@media (max-width: 520px) {
+@media (max-width: 550px) {
     .main-nav {
         margin-top: 6rem;
         font-size: 2rem;
         flex-direction: column;
+    }
+    .home-page h1 {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
     }
     
 }

@@ -1,3 +1,4 @@
+import { utilsService } from '../../../services/utils.service.js';
 import { emailService } from '../services/email.service.js';
 import { eventBus } from '../../../services/event-bus.service.js'
 
@@ -9,6 +10,7 @@ export default {
     template: `
         <section class="email-preview">
             <li @click="openEmailPeek" @mouseover="displayControls" @mouseout="hideControls" class="email-preview flex space-between align-center" :class="isRead">
+                <div :style="{ backgroundColor : randomBgc }" class="user-logo"> {{ firstLetterFrom }} </div>
                 <div class="flex star"> 
                     <button @click.stop="toggleStarred"> 
                         <i :class="starClasses"></i> 
@@ -68,6 +70,12 @@ export default {
             if (!this.showPeek) return 'hide';
             else return '';
         },
+        firstLetterFrom() {
+            return this.email.from.slice(0,1)
+        },
+        randomBgc() {
+            return utilsService.getRandomColor()
+        }
     },
     methods: {
         toggleRead() {
