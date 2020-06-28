@@ -161,7 +161,8 @@
     width: 100vw;
   }
   .email-folders a.send-email-btn {
-    width: 27.5px;
+    width: 37.5px;
+    height: 40px;
     position: fixed;
     top: 1rem;
     right: 1rem;
@@ -171,12 +172,14 @@
   .email-folders {
     flex-direction: row;
     border: none;
+    border-bottom: 1px solid rgb(190, 190, 190);
+    width: 100%;
   }
   .email-folders > * {
     font-size: .75rem;
     margin: 0;
     padding: 0;
-    padding-inline-end: .75rem;
+    padding-inline-end: .8rem;
   }
   .email-main .side-bar {
     order: -1;
@@ -188,13 +191,17 @@
   }
   .email-main .side-bar > * {
     margin: 0;
-    margin-inline-end: 2rem;
+    margin-inline-end: 3rem;
+  }
+  .email-folders div.inbox {
+    /* width: 300px; */
   }
   .email-main {
     flex-direction: column;
   }
   .send-email-btn img {
     margin-inline-end: .5rem;
-    height: 25px;
+    height: 35px;
+    padding-right: 10px;
   }
 }
