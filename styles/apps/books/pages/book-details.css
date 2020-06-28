@@ -1,19 +1,29 @@
 .book-details-container {
-  padding: 0 2rem;
+  padding-inline-end: 3rem;
+  position: relative;
 }
 
 .book-details-container a {
   align-self: center;
   background-color: rgb(49, 45, 45);
   color: white;
-  padding: 1rem;
-  font-size: 1rem;
-  font-weight: 700;
+  padding: .75rem;
+  font-size: 1.25rem;
   border: 1px solid black;
-  border-radius: 15px;
-  text-transform: uppercase;
+  border-radius: .5rem;
   transition: .3s;
 }
+/* 
+.book-details-container a:first-of-type {
+  position: absolute;
+  top: 1rem;
+  left: 5rem;
+}
+.book-details-container a:last-of-type {
+  position: absolute;
+  top: 1rem;
+  right: 5rem;
+} */
 
 .book-details-container a:hover {
   background-color: rgb(29,29,29);
@@ -22,9 +32,8 @@
 .book-details {
   background-color: rgba(252, 252, 252, 0.83);
   padding: 1rem;
-  width: 40%;
-  min-width: 350px;
-  margin: 2rem auto;
+  width: 85%;
+  margin: 1rem auto;
   border-radius: 10px;
   text-align: center;
   display: flex;
@@ -61,7 +70,7 @@
 }
 
 .book-details img.thumbnail {
-  width: 35%;
+  width: 25%;
   align-self: center;
   margin-top: 1rem;
   border: 1px solid black;
@@ -104,4 +113,17 @@
 
 .cheap {
   color: rgb(0, 156, 0);
+}
+
+.book-details-outer-container .side-bar {
+  position: fixed;
+  right: 0;
+  z-index: 10;
+  height: 100vh;
+}
+
+@media (max-width: 750px) {
+  .book-details-container {
+    font-size: .875rem;
+  }
 }

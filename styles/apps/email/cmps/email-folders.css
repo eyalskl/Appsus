@@ -5,9 +5,10 @@
 
 .email-folders > * {
   width: 97.5%;
-  padding: 0 12px 0 26px;
+  padding: 10px 12px 10px 26px;
   height: 2rem;
   font-size: 0.875rem;
+  margin-block-end: .25rem;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -53,6 +54,6 @@
 }
 
 .email-folders div.sent-v, .email-folders div.starred-v, .email-folders div.trash-v, .email-folders div.drafts-v {
-  background-color: rgba(242, 245, 245, 0.8);
+  background-color: rgba(226, 228, 228, 0.8);
   font-weight: 700;
 }

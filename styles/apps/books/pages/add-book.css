@@ -1,7 +1,6 @@
 .add-book input {
-    width: 20%;
-    min-width: 350px;
-    border-radius: 999px;
+    width: 15rem;
+    border-radius: 10px;
     padding: 1rem;
     font-family: 'Jura', sans-serif;
     border: 1px solid rgb(0, 0, 0);
@@ -14,6 +13,7 @@
 }
 
 .add-search-bar {
+    text-align: center;
     margin-bottom: 1rem;
     padding: 1rem;
     border-bottom: 1px solid rgb(175, 175, 175);
@@ -84,15 +84,10 @@
     background-color: rgba(204, 204, 204, 0.829);
 }
 
-button.back-to-book-list {
-    background-color: rgb(71, 71, 71);
-    color: white;
-    text-align: center;
-    width: 15%;
-    min-width: 100px;
-    border: 1px solid #525252;
-    text-transform: capitalize;
-    padding: 1rem;
-    border-radius: 99px;
-    float: left;
+
+@media (max-width: 450px) {
+    .add-book input, .add-book button.search-book {
+        padding: 0.5rem;
+        font-size: .75rem;
+    }
 }

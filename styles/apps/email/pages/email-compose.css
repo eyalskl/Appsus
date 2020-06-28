@@ -18,8 +18,6 @@
   height: 50em;
 }
 
-
-
 .email-compose div.compose-header {
   padding-top: 0;
   padding-bottom: 0;
@@ -58,7 +56,6 @@
   border: none;
   padding: 1rem;
   font-family: roboto;
-
 }
 
 .email-compose input {
@@ -70,11 +67,10 @@
   padding-block-end: 0.75rem;
   width: 100%;
   font-family: roboto;
-
 }
 
 .compose-footer {
-  padding: .5rem;
+  padding: 0.5rem;
   background-color: #fff;
 }
 
@@ -105,7 +101,6 @@
   background-color: rgb(238, 238, 238);
 }
 
-
 .send-email-btn {
   height: 2rem;
   display: flex;
@@ -113,18 +108,18 @@
   border: 1px solid rgb(187, 187, 187);
   color: rgb(59, 59, 59);
   font-weight: 600;
-  margin: .75rem;
-  
-  font-size: .9rem;
+  margin: 0.75rem;
+
+  font-size: 0.9rem;
   padding: 1.5rem 1.5rem 1.5rem 1rem;
   border-radius: 999px;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
-              0 1px 3px 1px rgba(60, 64, 67, 0.149);
+    0 1px 3px 1px rgba(60, 64, 67, 0.149);
 }
 
 .send-email-btn:hover {
   box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
-              0 4px 8px 3px rgba(60, 64, 67, 0.149);
+    0 4px 8px 3px rgba(60, 64, 67, 0.149);
   background-color: #fafafb;
   border-radius: 999px;
   color: black;
@@ -132,7 +127,7 @@
 }
 
 .send-email-btn img {
-  margin-inline-end: .75rem;
+  margin-inline-end: 0.75rem;
 }
 
 @media (max-width: 860px) {
@@ -144,7 +139,7 @@
     font-size: 0.8rem;
   }
   .send-email-btn img {
-    margin-inline-end: .5rem;
+    margin-inline-end: 0.5rem;
     height: 25px;
   }
 }
@@ -162,9 +157,9 @@
     padding: 1rem 0;
     font-size: 0rem;
     transform: translateX(-100%);
-    transition: transform .8s, box-shadow .8s;
+    transition: transform 0.8s, box-shadow 0.8s;
   }
-  
+
   .email-folders-container .send-email-btn {
     width: 3.5rem;
     height: 3.5rem;
@@ -177,12 +172,19 @@
     z-index: 5;
     font-size: 0rem;
     box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
-              0 4px 8px 3px rgba(60, 64, 67, 0.149);
-    }
-    
+      0 4px 8px 3px rgba(60, 64, 67, 0.149);
+  }
+
   .send-email-btn img {
     margin-inline-start: 1rem;
     height: 30px;
+  }
+
+  .email-folders > * {
+    font-size: 0.95rem;
+    padding-inline-end: 0.8rem;
+    margin-block-end: 1rem;
+    padding: 1.5rem;
   }
 }
 
@@ -197,14 +199,6 @@
     height: calc(100vh - 80px);
   }
 
-
-
-
-  .email-folders > * {
-    font-size: 0.95rem;
-    padding-inline-end: .8rem;
-    margin-block-end: 1rem;
-  }
   .email-main .side-bar {
     order: -1;
     width: 100%;
@@ -220,5 +214,4 @@
   .email-main {
     flex-direction: column;
   }
-
 }

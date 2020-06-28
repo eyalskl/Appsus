@@ -70,7 +70,7 @@
   position: absolute;
   right: 0;
   z-index: 1;
-  margin-inline-end: .8rem;
+  margin-inline-end: 1.1rem;
 }
 
 .email-controls button, .peek-controls button, .peek-controls a {
@@ -81,6 +81,12 @@
 }
 .email-controls button {
   font-size: 1.2rem;
+}
+
+.email-controls button:hover {
+  color: #202520;
+  border-radius: 50%;
+  background-color: #eceaea;
 }
 
 .email-preview div.star button i.fa-trash:hover {
@@ -147,14 +153,16 @@
   margin-inline-start: 1rem;
   text-transform: uppercase;
 }
-
+@media (max-width: 1000px) {
+  .email-preview .body {
+    display: none;
+  } 
+}
 @media (max-width: 800px) {
   .email-preview li.email-preview {
     padding: 20px 0;
   }
-  .email-preview .body {
-    display: none;
-  }
+
   .email-preview .subject {
     font-size: .75rem;
   }
