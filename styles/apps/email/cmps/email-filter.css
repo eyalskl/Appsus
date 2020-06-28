@@ -87,7 +87,7 @@
 }
 
 
-@media (max-width: 615px) {
+@media (max-width: 620px) {
     .email-filter {
         font-size: 1rem;
         padding-inline-start: 1rem;
@@ -95,20 +95,18 @@
     .read-sort {
         display: none;
     }
-}
-@media (max-width: 615px) {
-.search-email {
-    width: 100vw;
-}
-.search-email select {
-    display: none;
-}
-.search-email input {
-    width: 75px;
-}
+    .search-email {
+        width: 100vw;
+    }
+    .search-email select {
+        display: none;
+    }
+    .search-email input {
+        width: 100%;
+    }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 620px) {
     .btn-menu {
         display: block;
     }

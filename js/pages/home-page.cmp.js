@@ -6,7 +6,8 @@ export default {
     <main>
       <section class="app-main home-page">
         <div class="container">
-              <nav-bar class="nav-bar"> </nav-bar>
+          <div class="screen" @click.stop="toggleMenu"> </div>
+          <nav-bar class="nav-bar"> </nav-bar>
               <h1> - A new way to connect and share. </h1>
               <div class="bird-container bird-container--one">
                 <div class="bird bird--one"></div>
@@ -29,6 +30,10 @@ export default {
       `,
       components: {
           navBar,
-
+      },
+      methods: {
+        toggleMenu() {
+          document.body.classList.toggle('menu-open'); 
+      }
       }
   }

@@ -155,7 +155,7 @@
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 620px) {
   .email-preview .user-logo {
     display: flex;
   }

@@ -5,7 +5,7 @@
 
 .main-notes-container {
     min-height: calc(50vh - 180px);
-    width: calc(100vw - 3rem);
+    width: calc(100vw - 4rem);
     margin-block-end: 7.5rem;
 }
 
