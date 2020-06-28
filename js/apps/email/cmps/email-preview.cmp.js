@@ -20,7 +20,6 @@ export default {
                 <div class="flex subject"> {{ email.subject }} </div>
                 <div class="flex body" style="font-weight: 300"> - {{ emailBodyShortText }}... </div>
                 <div class="flex sentAt"> {{ sentAt }} </div>
-
                 <div v-show="showControls" class="email-controls flex">
                     <button @click.stop="toggleRead" :title="setReadTitle"> <i class="fas" :class="classByRead"></i> </button>
                     <button @click.stop="deleteEmail(email.id)" title="Delete"> <i class="fas fa-trash"></i> </button>
