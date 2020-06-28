@@ -205,14 +205,30 @@ function createDefaultNotes() {
     backgroundColor: "#fffd88",
   },
     {
+      type: "noteTodos",
+      id: utilsService.getRandomId(),
+      isPinned: true,
+      info: {
+        todos: [
+          { txt: "Drag", doneAt: true },
+          { txt: "Drop", doneAt: true },
+          { txt: "Flex", doneAt: true },
+          { txt: "Box", doneAt: true },
+        ],
+      },
+    backgroundColor: "#fffd88",
+  },
+    {
       type: "noteText",
       id: utilsService.getRandomId(),
-      isPinned: false,
+      isPinned: true,
       info: {
-     txt:"What's the meaning of life ? Drag me to find out :) "
+     txt:"What's the meaning of life ? Drag us to find out :) "
       },
       backgroundColor: "#fffd88",
     },
+    
+
   ];
   utilsService.storeToStorage(NOTES_KEY, defaultNotes);
   return defaultNotes;

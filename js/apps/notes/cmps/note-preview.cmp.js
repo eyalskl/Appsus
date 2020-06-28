@@ -20,23 +20,23 @@ export default {
             <span :style="{backgroundColor:'#fa75ff'}" title="Pink" @click.stop="setBgc('#fa75ff')"></span>
             <span :style="{backgroundColor:'#6d3cba'}" title="Purple" @click.stop="setBgc('#6d3cba')"></span>
         </div>
-            <div v-show="controls"  class="note-controls">
-                <button title="Pin/Unpin" @click.stop="togglePinned"> 
-                    <i class="fas fa-thumbtack"></i>
-                </button> 
-                <button title="Set Background Color" @click.stop="toggleColorsMenu"> 
-                    <i class="fas fa-palette"></i>
-                </button> 
-                <button title="Copy note" @click.stop="copyNote"> 
-                    <i class="fas fa-clone"></i>
-                </button> 
-                <button title="Edit Note" @click.stop="toggleEdit"> 
-                    <i class="fas fa-edit"></i>
-                </button> 
-                <button title="Delete" @click.stop="deleteNote(note.id)"> 
-                     <i class="fas fa-trash"></i>
-                </button> 
-            </div>
+              <div v-show="controls"  class="note-controls">
+                  <button title="Pin/Unpin" @click.stop="togglePinned"> 
+                      <i class="fas fa-thumbtack"></i>
+                  </button> 
+                  <button title="Set Background Color" @click.stop="toggleColorsMenu"> 
+                      <i class="fas fa-palette"></i>
+                  </button> 
+                  <button title="Copy note" @click.stop="copyNote"> 
+                      <i class="fas fa-clone"></i>
+                  </button> 
+                  <button title="Edit Note" @click.stop="toggleEdit"> 
+                      <i class="fas fa-edit"></i>
+                  </button> 
+                  <button title="Delete" @click.stop="deleteNote(note.id)"> 
+                      <i class="fas fa-trash"></i>
+                  </button> 
+              </div>
             
     </div>
 `,
