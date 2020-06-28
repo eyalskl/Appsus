@@ -12,6 +12,7 @@ export default {
     name: 'email-app',
     template: `
     <section v-if="emails" class="email-app flex column">
+        <div class="screen" @click.stop="toggleMenu"> </div>
         <div class="email-nav">
             <email-filter @searching="setSearch" @readFilter="setReadFilter" @setSortBy="setSortBy" />
         </div>
@@ -72,6 +73,9 @@ export default {
                     this.emails.sort(mySort('sentAt', 'desc'))
                     break;
             }
+        },
+        toggleMenu() {
+            document.body.classList.toggle('menu-open'); 
         }
     },
     created() {

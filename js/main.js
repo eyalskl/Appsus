@@ -18,7 +18,7 @@ new Vue({
         <div>
             <user-msg :msgData="userMsgData" />
             <main class="app-main">
-                <router-view />
+            <router-view />
             </main>
         </div>
         `,

@@ -10,7 +10,6 @@ export default {
                 <p> New Message </p> 
                 <div class="header-controls flex">
                     <button @click.stop="minimize" title="Minimize"> <i class="far" :class="minimizedIcon"></i> </button>
-                    <button @click.stop="expand" title="Full-Screen"> <i class="fas fa-expand-alt"></i> </button>
                     <button @click.stop="saveAsDraft" title="Save and close"> <i class="fas fa-times"></i> </button>
                 </div>
             </div>

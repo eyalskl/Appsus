@@ -2,12 +2,13 @@ export default {
     name: 'email-filter',
     template: `
         <nav class="email-filter flex align-center">
+        <button class="btn-menu" @click="toggleMenu"> ☰ </button>
             <div class="search-email">
                 <button @click="searching" > <i class="fas fa-search"></i> </button>
                 <input type="search" @keyup.enter.prevent="searching" @change="searching" placeholder="Search mail" v-model="searchInput">
                 <select id="sortByWhat" @change="setSortBy">
-                        <option value="date"> sort by Date </option>
-                        <option value="title"> sort by Title </option>
+                        <option value="date">Sort by Date </option>
+                        <option value="title">Sort by Title </option>
                 </select>
             </div>
             <div class="read-sort">
@@ -31,6 +32,9 @@ export default {
         },
         setSortBy(event) {
             this.$emit('setSortBy', event.target.value) 
+        },
+        toggleMenu() {
+            document.body.classList.toggle('menu-open'); 
         }
     },
 }

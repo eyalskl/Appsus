@@ -14,14 +14,14 @@
 
 @import './global-styles/helpers.css';
 
+/* PAGES */
+
+@import './global-styles/pages/home-page.css';
+
 /* CMPS */
 @import './global-styles/cmps/app-footer.css';
 @import './global-styles/cmps/nav-bar.css';
 @import './global-styles/cmps/side-bar.css';
-
-/* PAGES */
-
-@import './global-styles/pages/home-page.css';
 
 /*-------------------- APPS STYLING--------------------- */
 

@@ -37,9 +37,6 @@
     font-family: roboto;
 }
 
-.search-email option {
-    padding: .5rem;
-}
 
 .search-email:hover {
     box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
@@ -68,6 +65,19 @@
     margin-inline-end: 1rem;
 }
 
+.btn-menu {
+    display: inline-block;
+    color: rgb(255, 88, 88);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    margin-inline-end: 1.25rem;
+    transition: color .3s;
+    display: none;
+}
+
+
 
 @media (max-width: 800px) {
     .email-filter {
@@ -88,12 +98,18 @@
 }
 @media (max-width: 615px) {
 .search-email {
-    width: 250px;
+    width: 100vw;
 }
 .search-email select {
-    width: 1px;
+    display: none;
 }
 .search-email input {
     width: 75px;
 }
+}
+
+@media (max-width: 520px) {
+    .btn-menu {
+        display: block;
+    }
 }

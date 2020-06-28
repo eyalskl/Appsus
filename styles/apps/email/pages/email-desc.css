@@ -68,6 +68,7 @@
     margin-inline-end: 1rem;
 }
 
+
 @media (max-width: 520px) {
     .email-desc {
         position: absolute;

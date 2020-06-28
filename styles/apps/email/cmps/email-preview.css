@@ -13,6 +13,8 @@
   font-size: .875rem;
   position: relative;
 }
+
+
 .email-preview li.email-peek {
   border-bottom: 1px solid rgb(199, 199, 199);
 }
@@ -122,3 +124,39 @@
   color: #e4bb24;
 }
 
+
+.email-preview .user-logo {
+  width: 1.2rem;
+  height: 1.2rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 999px;
+  padding: 1.2rem;
+  font-size: 1rem;
+  margin-inline-start: 1rem;
+  text-transform: uppercase;
+}
+
+@media (max-width: 800px) {
+  .email-preview li.email-preview {
+    padding: 20px 0;
+  }
+  .email-preview .body {
+    display: none;
+  }
+  .email-preview .subject {
+    font-size: .75rem;
+  }
+  .email-preview .star {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .email-preview .user-logo {
+    display: flex;
+  }
+}
