@@ -3,7 +3,6 @@ import { utilsService } from '../../../services/utils.service.js'
 const EMAILS_KEY = 'emails'
 
 export const emailService = {
-    createDefaultEmails,
     getEmails,
     removeEmail,
     updateEmailProp,
