@@ -1,5 +1,5 @@
 import navBar from '../cmps/nav-bar.cmp.js';
-import appFooter from '../cmps/app-footer.cmp.js';
+
 
 export default {
     template: `
@@ -20,15 +20,15 @@ export default {
               <div class="bird-container bird-container--four">
                 <div class="bird bird--four"></div>
               </div>
-              <app-footer class="main-footer"> </app-footer>
+              <footer class="app-footer flex justify-center align-center">
+              <p>  <i class="far fa-copyright"></i>  Coffeerights 2020, Created By /Eyal Barkai/ & /Nadav Frank/ </p>
+              </footer>
             </div>  
         </section>
       </main>
       `,
       components: {
           navBar,
-          appFooter
+
       }
   }
-  
-  

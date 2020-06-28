@@ -40,3 +40,6 @@
     text-transform: capitalize;
     border: 1px solid black;
 }
+.note-edit , .todo-edit{
+    padding: 3rem;
+}

@@ -7,10 +7,12 @@ export default {
     template: `
         <div class="main-notes-container flex wrap" v-if="notes">
             <h3 :class="notesHeader"> {{ notesHeader }} </h3>
-            <draggable class="drag-zone" :notes="notes"  @start="drag=true" @end="drag=false">
-                    <div class="note-container" v-for="note in notes">
+            <draggable v-bind="dragOptions" class="drag-zone" tag="div" :notes="notes"  @start="drag=true" @end="drag=false">
+                    <transition-group class="transition-container flex wrap" type="transition"  :name="!drag ? 'flip-list' : null">
+                    <div class="note-container" v-for="(note,idx) in notes" :key="idx">
                         <note-preview :note="note"/>            
                     </div>
+                    </transition-group>
             </draggable>    
         </div>
     `,
@@ -31,6 +33,14 @@ note:this.notes
             else if (!this.notes[0].isPinned) return 'others';
             else return ''
         },
+        dragOptions() {
+            return {
+              animation: 300,
+              group: "description",
+              disabled: false,
+              ghostClass: "ghost"
+            }
+        },
     
-}
+    }
 };

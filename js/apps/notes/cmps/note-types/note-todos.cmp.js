@@ -10,7 +10,7 @@ export default {
               </li>
               <i class="fas fa-list note-type"></i> 
             </ul>
-            <div v-else class="flex column flex-start todo-edit">
+            <div v-else class="todo-edit flex column align-center">
               <input v-for="(todo,idx) in todos" type="text" v-model="todos[idx]">
               <button @click="addTodo">Add Todo</button>
               <button @click="confirmEdit" @keyup.enter="confirmEdit">confirm</button>

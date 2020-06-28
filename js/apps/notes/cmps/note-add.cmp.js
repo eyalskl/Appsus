@@ -10,18 +10,20 @@ export default {
             <div class="input-container flex wrap">
                 <input v-show="(noteType!=='noteTodos')" :placeholder="PLACE_HOLDERS[noteType] || 'Take a note...' " @keyup.enter.prevent="addNote(newNote)"  v-model="newNote.info.txt"/>
                 <todosEdit v-if="(noteType==='noteTodos')"></todosEdit>
-                <button title="Text" @click="setType('noteText')">
-                    <i class="fas fa-font"></i>
-                </button>
-                <button title="Image" @click="setType('noteImg')"> 
-                    <i class="far fa-image"></i>
-                </button>
-                <button title="Video" @click="setType('noteVideo')">
-                  <i class="fab fa-youtube"></i>
-                </button>
-                <button title="List" @click="noteType='noteTodos'">
-                    <i class="fas fa-list"></i>
-                </button>
+                <div class="btn-setters">
+                    <button title="Text" @click="setType('noteText')">
+                        <i class="fas fa-font"></i>
+                    </button>
+                    <button title="Image" @click="setType('noteImg')"> 
+                        <i class="far fa-image"></i>
+                    </button>
+                    <button title="Video" @click="setType('noteVideo')">
+                    <i class="fab fa-youtube"></i>
+                    </button>
+                    <button title="List" @click="noteType='noteTodos'">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
             </div>
             
         </section>

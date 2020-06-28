@@ -5,7 +5,7 @@ import { eventBus } from './services/event-bus.service.js';
 import { myRouter } from "./routes.js";
 // COMPONENTS
 import navBar from './cmps/nav-bar.cmp.js';
-import appFooter from './cmps/app-footer.cmp.js';
+
 import userMsg from './cmps/user-msg.cmp.js';
 
 
@@ -42,7 +42,7 @@ new Vue({
     },
     components: {
         navBar,
-        appFooter,
+
         userMsg
     },
 })

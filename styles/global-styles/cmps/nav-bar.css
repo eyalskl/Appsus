@@ -17,7 +17,11 @@
     margin-inline-end: 1rem;
     font-weight: bold;
     text-transform: uppercase;
-    transition: background-color .6s;
+    transition: background-color .6s, color .3s , transform .4s;
+}
+.nav-bar .main-nav a:hover{
+    color: black;
+    transform: scale(1.1);
 }
 
 @media (max-width: 580px) {
