@@ -24,25 +24,3 @@
 .main-footer {
     height: 80px;
 }
-.member-img{
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    margin-block-start: 1rem;
-    
-}
-.about-container{
-    height: 100vh;
-    background: url(https://images.unsplash.com/photo-1518481612222-68bbe828ecd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)no-repeat center center fixed;
-    background-size: cover;
-
-}
-.about-description{
-    line-height: 1.7;
-    padding: 30px;
-}
-.team-member{
-    align-self: center;
-    width: 500px;
-    background-color: #ffffff99;
-}

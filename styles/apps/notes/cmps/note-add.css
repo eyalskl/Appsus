@@ -43,6 +43,18 @@
 .add-notes{
       align-self: center;
 }
+.focused{
+    color: black;
+}
+.focused1{
+    color: black;
+}
+.focused2{
+    color: black;
+}
+.focused3{
+    color: black;
+}
 
 
 @media (max-width:720px){

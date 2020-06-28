@@ -1,29 +1,31 @@
+import navBar from '../cmps/nav-bar.cmp.js';
 
 export default {
     template: `
     <main class="about-container flex justify-center">  
+        <nav-bar class="nav-bar"> </nav-bar>
         <div class="members-container">
             <div class="team-member flex column align-center">
                 <img class="member-img" src="imgs/nadav.jpg" alt="profile-pic">
                 <div class="about-description">
                     <h2>Meet Nadav</h2>
                     <p>
-                    Nadav Frank is 24 years old.
-                    He lives in Tel-Aviv ever since He was a child . He is currenly learning how to be a code , and he is looking
+                    Nadav Frank is from Tel-Aviv , 24 years old.
+                    He is currenly learning how to code , and he is looking
                     forward to work in the Hi-Tech industry.
-                    In his spare time , he is a gamer , playing a competitive game called League Of Legends - one of the most
-                    popular games in the world , and he plays for the Israeli national team.
-                    My dream is to become a programmer at a good gaming company , or taking a share in a good gaming startup.
+                    In his spare time , he is a gamer , playing a competitive game called League Of Legends - and he plays for the Israeli national team.
+                    His dream is to take a share in a good gaming startup
                     </p>
                 </div>
             </div>
             <div class="team-member flex column align-center">
                 <img class="member-img" src="imgs/eyal.jpg" alt="profile-pic">
                 <div class="about-description">
+                    <h2>Meet Eyal</h2>
                     <p>
                     Eyal Barkai is from Rishon Le Zion, 29 years old.
-                    I studied Software Engineering in High School and since then i didn't really touch any code, in early 2020 i searched for a new direction so i explored the coding world a bit again and fell in love!
-                    I started a Coding Bootcamp in May 2020 on Coding Academy
+                    He studied Software Engineering in High School and since then he didn't really touch any code, in early 2020 he searched for a new direction so he explored the coding world a bit again and fell in love!
+                    he started a Coding Bootcamp in May 2020 at Coding Academy
                     </p>
                 </div>
             </div>
@@ -31,5 +33,7 @@ export default {
 
       </main>
       `,
-
+components:{
+    navBar
+}
   }

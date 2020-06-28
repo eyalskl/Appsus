@@ -5,7 +5,7 @@ export default {
         <div v-if="!edit" class="note-desc">
             <img :src="info.url" class="note-img"/>
             <div class="content-container">
-                <h2>{{info.title}}</h2>
+                <h3>{{info.title}}</h3>
                 <i class="far fa-image note-type"></i>
             </div>
         </div>
