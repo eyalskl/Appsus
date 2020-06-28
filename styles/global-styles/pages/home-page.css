@@ -19,7 +19,7 @@
   letter-spacing: -3px;
   text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.6);
   position: relative;
-  z-index: 3;
+  z-index: -1;
 }
 
 .container {
@@ -305,4 +305,14 @@
   -webkit-animation-delay: 5.25s;
   animation-delay: 5.25s;
 }
+}
+
+@media (max-width: 620px) {
+  .bird-container > * {
+    margin-top: 5rem;
+  }
+}
+
+.menu-open .bird-container > * {
+  opacity: 0.4;
 }
