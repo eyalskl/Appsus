@@ -1,11 +1,10 @@
-.reviews h3 {
-    color: rgb(255, 255, 255);
+.reviews h4 {
+    color: rgb(15, 15, 15);
     font-size: 1.3rem;
-    background-color: rgb(83, 83, 83);
+    background-color: rgba(83, 83, 83, 0.192);
     padding: 1rem;
-    width: 50%;
+    width: 10rem;
     margin: 1rem auto;
-    border-radius: 50px;
     cursor: default;
 }
 
@@ -36,14 +35,15 @@
 
 .review-add .add-btn, .form-review button {
     margin: 1rem 0;
-    width: 100%;
-    padding: .5rem;
+    width: 10rem;
+    padding: 0.75rem;
     text-transform: uppercase;
     color: white;
     font-family: 'Jura', sans-serif;
     border: none;
     background-color: rgb(49, 49, 49);
 }
+
 
 .form-review {
     align-items: center;

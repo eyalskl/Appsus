@@ -2,15 +2,16 @@
 
 import { bookService } from "../services/book.service.js";
 import { eventBus } from '../../../services/event-bus.service.js';
+import sideBar from '../../../cmps/side-bar.cmp.js';
 
 export default {
     name: 'add-books',
     template: `
-        <main class="book-app add-book">
+        <main class="flex book-app add-book">
+            <div class="flex column">
             <div class="add-search-bar">
-                <button @click.stop="backToBooks" class="back-to-book-list"> BACK </button>
                 <input ref="searchInput" @keyup.enter="searchBooks" type="text" placeholder="Search for a book online...">
-                <button class="search-book" @click="searchBooks"> Search </button>
+                <button class="search-book" @click="searchBooks"> <i class="fas fa-search"></i> </button>
             </div>
             <section>
                 <ul class="clean-list flex wrap justify-center">
@@ -21,6 +22,9 @@ export default {
                     </li>
                 </ul>
             </section>
+            </div>
+            <side-bar> </side-bar>        
+
         </main>
         `,
     data() {
@@ -65,6 +69,6 @@ export default {
           })
     },
     components: {
-
+        sideBar
     },
 };

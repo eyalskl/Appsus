@@ -3,30 +3,39 @@ import { utilsService } from '../../../services/utils.service.js';
 import { bookService } from '../services/book.service.js';
 import textWrapper from '../cmps/text-wrapper.cpm.js';
 import reviewAdd from '../cmps/review-add.cmp.js';
+import sideBar from '../../../cmps/side-bar.cmp.js';
 
 export default {
   template: `
-  <section class="flex book-details-container">
-    <router-link :to="'/book/' + prevBookId"><i class="fas fa-long-arrow-alt-left"></i> Previous Book </router-link>
-    <div class="book-details" v-if="book">
-        <div> <h2> {{ book.title }} </h2> 
-            <span class="price" :class="priceTag"> {{ formattedPrice }} </span> 
-            <img class="sale" v-if="this.book.listPrice.isOnSale" :src="onSaleImgUrl" /> 
-        </div>
+  <div class="book-details-outer-container">
+
+    <side-bar> </side-bar>
+    <section class="book-details-container">
+      <div class="book-details" v-if="book">
         <div> 
-            <span class="category" v-for="category in book.categories"> {{ category }} </span>
-        </div>
-        <img class="thumbnail" :src="book.thumbnail" />
-        <p v-for="author in book.authors"> by {{ author }} </p>
-        <p> Published at: {{ book.publishedDate }} {{ publishText }} </p>
-        <h5> {{ book.subtitle }} </h5>
-        <text-wrapper :desc="book.description" />
-        <p> Page Count: {{book.pageCount}} {{ pageCountText }} </p>
-        <review-add :book="book"> </review-add>
-        <button class='close' @click="close"> Go back </button>
-     </div>
-    <router-link :to="'/book/' + nextBookId"> Next Book <i class="fas fa-long-arrow-alt-right"></i> </router-link>
+          
+          <h2> {{ book.title }} </h2> 
+              <span class="price" :class="priceTag"> {{ formattedPrice }} </span> 
+              <img class="sale" v-if="this.book.listPrice.isOnSale" :src="onSaleImgUrl" /> 
+          </div>
+          <div> 
+              <span class="category" v-for="category in book.categories"> {{ category }} </span>
+          </div>
+          <img class="thumbnail" :src="book.thumbnail" />
+          <p v-for="author in book.authors"> by {{ author }} </p>
+          <p> Published at: {{ book.publishedDate }} {{ publishText }} </p>
+          <h5> {{ book.subtitle }} </h5>
+          <text-wrapper :desc="book.description" />
+          <p> Page Count: {{book.pageCount}} {{ pageCountText }} </p>
+          <review-add :book="book"> </review-add>
+          <div class="flex space-between">
+          <router-link title="Previous Book" :to="'/book/' + prevBookId"><i class="fas fa-long-arrow-alt-left"></i> </router-link>
+          <router-link title="Next Book" :to="'/book/' + nextBookId"> <i class="fas fa-long-arrow-alt-right"></i> </router-link>
+          </div>
+       </div>
     </section>
+
+  </div>
     `,
   data() {
     return {
@@ -37,7 +46,8 @@ export default {
   },
   components: {
     textWrapper,
-    reviewAdd
+    reviewAdd,
+    sideBar
   },
   methods: {
     close() {

@@ -1,6 +1,7 @@
+
 .book-filter input {
     width: 20%;
-    border-radius: 999px;
+    border-radius: .25rem;
     padding: 1rem;
     font-family: 'Jura', sans-serif;
     border: 1px solid rgb(0, 0, 0);
@@ -19,8 +20,8 @@
     background-color: #fff;
 }
 .book-filter input[type="text"] {
-    min-width: 150px;
-    margin-inline-start: 1rem;
+    min-width: 7.5rem;
+    margin-inline-start: .5rem;
 }
 
 .book-filter input::placeholder {
@@ -35,7 +36,6 @@
 }
 
 .book-filter button {
-    border-radius: 999px;
     padding: 1rem;
     font-family: 'Jura', sans-serif;
     border: 1px solid black;
@@ -54,11 +54,58 @@
     background-color: rgb(71, 71, 71);
     color: white;
     text-align: center;
-    width: 15%;
+    width: 15rem;
     min-width: 100px;
     border: 1px solid #525252;
     text-transform: capitalize;
     padding: 1rem;
-    border-radius: 99px;
-    float: left;
+    border-radius: .5rem;
+}
+
+@media (max-width: 630px) {
+    .book-filter input {
+        padding: .55rem;
+        font-size: .85rem;
+    }
+    .book-filter input[type="number"] {
+        width: 3rem;
+    }
+    .book-filter a {
+        padding: .55rem;
+        font-size: .85rem;
+    }
+    .book-filter button {
+        padding: .55rem;
+    }
+}
+@media (max-width: 550px) {
+    .book-filter input {
+        padding: .5rem;
+        font-size: .75rem;
+    }
+    .book-filter input[type="number"] {
+        width: 3rem;
+    }
+    .book-filter a {
+        padding: .5rem;
+        font-size: .75rem;
+    }
+    .book-filter button {
+        padding: .5rem;
+    }
+}
+@media (max-width: 420px) {
+    .book-filter input[type="text"] {
+        width: 2.5rem;
+    }
+    .book-filter input[type="number"] {
+        width: 3rem;
+    }
+    .book-filter a {
+        padding: .5rem .25rem;
+        font-size: .55rem;
+    }
+    .book-filter button {
+        display: none;
+    }
 }

@@ -10,7 +10,7 @@ export default {
         <section class="review-add" v-if="book">
             <div class="reviews">
                 <ul class="clean-list">
-                    <h3> <i class="fas fa-comment-dots"></i>Reviews</h3>
+                    <h4> Reviews </h4>
                     <li v-for="(review, idx) in book.reviews">
                         <button @click="deleteReview(idx)" title="Delete Review!">
                             <i class="fas fa-trash-alt"></i>

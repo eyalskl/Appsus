@@ -3,11 +3,11 @@
 export default {
     template: `
         <section class="book-filter">
-            <router-link to="/add-book"> <i class="fas fa-globe"></i> Browse Books online </router-link>
+            <router-link to="/add-book"> Add Books </router-link>
             <input type="text" placeholder="Search something..." v-model="filterBy.byName" @input="filter"/>
             <input type="number" placeholder="From Price..." v-model.number="filterBy.fromPrice" @input="filter"/>
             <input type="number" placeholder="To Price..." v-model.number="filterBy.toPrice" @input="filter"/>
-            <button @click="clearFilters"> Clear </button>
+            <button title="Clear" @click="clearFilters"> <i class="fas fa-ban"></i> </button>
         </section>
     `,
     data() {

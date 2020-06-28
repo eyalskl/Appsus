@@ -16,3 +16,10 @@
     transition: background-color .6s;
     height: 80px;
 }
+
+
+@media (max-width: 620px) {
+    .app-footer {
+        font-size: .775rem;
+    }
+}
