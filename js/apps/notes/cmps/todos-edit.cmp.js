@@ -5,7 +5,8 @@ export default {
   template: `
     <div class="todos-input-container flex column">
         <input placeholder="Add Todo..."
-        @keydown.once="inputAmount++" :key="idx" v-for="(input,idx) in inputAmount" @keyup.enter="addNote(todos)" ref="idx" type="text" v-model="todos[idx]"/>
+        @keyup.enter="nextTodo" :key="idx" v-for="(input,idx) in inputAmount" ref="todo" type="text" v-model="todos[idx]"/>
+        <button class="save-todo-btn" @click="addNote(todos)">Save</button>
     </div>
     
     `,
@@ -21,6 +22,10 @@ export default {
       this.todos = [];
       this.inputAmount = 1;
     },
+    nextTodo(){
+      this.inputAmount++
+      setTimeout(()=>{this.$refs.todo[(this.todos.length)].focus()},1)///added timeout because Async with the v-for
+    }
   },
 
   components: {

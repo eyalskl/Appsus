@@ -14,7 +14,7 @@ export default {
             </div>   
             <div class="flex">  
                 <div class="flex notes-app-w column">
-                        <note-add :notes="notes" class="add-notes"/>
+                        <note-add class="add-notes"/>
                         <note-list :notes="pinnedNotesToShow"/>  
                         <note-list :notes="unpinnedNotesToShow"/>  
                 </div>
