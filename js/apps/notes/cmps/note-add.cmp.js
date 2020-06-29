@@ -11,16 +11,16 @@ export default {
                 <input v-show="(noteType!=='noteTodos')" :placeholder="PLACE_HOLDERS[noteType] || 'Take a note...' " @keyup.enter.prevent="addNote(newNote)"  v-model="newNote.info.txt"/>
                 <todosEdit v-if="(noteType==='noteTodos')"></todosEdit>
                 <div class="btn-setters">
-                    <button title="Text" @click="setType('noteText')">
+                    <button title="Text" @click="setType('noteText')" :class="highlightText">
                         <i class="fas fa-font"></i>
                     </button>
-                    <button title="Image" @click="setType('noteImg')"> 
+                    <button title="Image" @click="setType('noteImg')" :class="highlightImg"> 
                         <i class="far fa-image"></i>
                     </button>
-                    <button title="Video" @click="setType('noteVideo')">
+                    <button  title="Video" @click="setType('noteVideo')" :class="highlightVideo">
                     <i class="fab fa-youtube"></i>
                     </button>
-                    <button title="List" @click="noteType='noteTodos'">
+                    <button  title="List" @click="noteType='noteTodos'" :class="highlightTodos">
                         <i class="fas fa-list"></i>
                     </button>
                 </div>
@@ -50,6 +50,22 @@ export default {
             noteService.addNewNote(newNote);
             this.newNote = noteService.getEmptyNoteByType(this.noteType);
         },
+        highlightText(){
+            if (this.noteType === 'noteText') return 'focused1'
+            else return ''
+        },
+        highlightImg(){
+            if (this.noteType === 'noteImg') return 'focused2'
+            else return ''
+        },
+        highlightVideo(){
+            if (this.noteType === 'noteVideo') return 'focused3'
+            else return ''
+        },
+        highlightTodos(){
+            if (this.noteType === 'noteTodos') return 'focused'
+            else return ''
+        }
 
     },
 

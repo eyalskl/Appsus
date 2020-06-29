@@ -17,6 +17,7 @@
 /* PAGES */
 
 @import './global-styles/pages/home-page.css';
+@import './global-styles/pages/about-page.css';
 
 /* CMPS */
 @import './global-styles/cmps/app-footer.css';

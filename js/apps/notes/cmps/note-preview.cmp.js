@@ -10,15 +10,7 @@ export default {
     <div class="prev-container" :style="noteColor" ref="container" @mouseover="displayControls" @mouseout="hideControls" >
         <component :is="note.type" :info="note.info" :edit="editMode" @doneEditTodo="onDoneEditTodo" @doneEditText="onDoneEditText" @doneEditSrc="onDoneEditSrc" :key="note.id"></component>
         <div v-if="colorsMenu" class="colors-container">
-            <span :style="{backgroundColor:'#fffd88'}" title="Deafult" @click.stop="setBgc('#fffd88')"></span>
-            <span :style="{backgroundColor:'#ff8888'}" title="Red" @click.stop="setBgc('#ff8888')"></span>
-            <span :style="{backgroundColor:'#fff'}" title="White" @click.stop="setBgc('#fff')"></span>
-            <span :style="{backgroundColor:'#92ff88'}" title="Green" @click.stop="setBgc('#92ff88')"></span>
-            <span :style="{backgroundColor:'#88ffe1'}" title="Teal" @click.stop="setBgc('#88ffe1')"></span>
-            <span :style="{backgroundColor:'#88cfff'}" title="Lightblue" @click.stop="setBgc('#88cfff')"></span>
-            <span :style="{backgroundColor:'#3452ff'}" title="Darkblue" @click.stop="setBgc('#3452ff')"></span>
-            <span :style="{backgroundColor:'#fa75ff'}" title="Pink" @click.stop="setBgc('#fa75ff')"></span>
-            <span :style="{backgroundColor:'#6d3cba'}" title="Purple" @click.stop="setBgc('#6d3cba')"></span>
+            <span v-for="(color) in colors" :style="{backgroundColor:color}" @click.stop="setBgc(color)"></span>
         </div>
               <div v-show="controls"  class="note-controls">
                   <button title="Share via E-Mail" @click.stop="sendToMail"> 
@@ -49,6 +41,7 @@ export default {
       colorsMenu: false,
       noteBgc: { backgroundColor: "#fffd88" },
       editMode: false,
+      colors:['#fffd88','#ff8888','#fff','#92ff88','#88ffe1','#88cfff','#3452ff','#fa75ff','#6d3cba']
     };
   },
   methods: {

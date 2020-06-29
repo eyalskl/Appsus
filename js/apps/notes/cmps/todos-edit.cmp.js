@@ -4,7 +4,7 @@ import noteTodos from "./note-types/note-todos.cmp.js";
 export default {
   template: `
     <div class="todos-input-container flex column">
-        <input placeholder="Add Todo..."
+        <input placeholder="Add Todo , Press 'Enter'..."
         @keyup.enter="nextTodo" :key="idx" v-for="(input,idx) in inputAmount" ref="todo" type="text" v-model="todos[idx]"/>
         <button class="save-todo-btn" @click="addNote(todos)">Save</button>
     </div>
