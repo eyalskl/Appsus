@@ -108,7 +108,7 @@ export default {
                 this.email.isRead = true;
                 emailService.updateEmailProp(this.email.id, 'isRead', this.email.isRead);
             } else {
-                const mail = this.email
+                const mail = this.email;
                 this.$router.push(`compose?to=${mail.to}&subject=${mail.subject}&body=${mail.body}`)
             }
         }

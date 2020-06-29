@@ -21,6 +21,9 @@ export default {
             <span :style="{backgroundColor:'#6d3cba'}" title="Purple" @click.stop="setBgc('#6d3cba')"></span>
         </div>
               <div v-show="controls"  class="note-controls">
+                  <button title="Share via E-Mail" @click.stop="sendToMail"> 
+                      <i class="fas fa-paper-plane"></i>
+                  </button> 
                   <button title="Pin/Unpin" @click.stop="togglePinned"> 
                       <i class="fas fa-thumbtack"></i>
                   </button> 
@@ -49,6 +52,15 @@ export default {
     };
   },
   methods: {
+    sendToMail() {
+      const noteType = this.note.type;
+      console.log('noteType:', noteType)
+      let subject = this.note.info.title;
+      if (!subject) subject = 'Forwarded from note app'
+      let body = 'Hey Check out my note from this cool note app - \n'
+      body += (noteType === 'noteText') ? this.note.info.txt : (noteType === 'noteImg' || noteType === 'noteVideo') ? this.note.info.url : 'Todos List - \n' + this.note.info.todos.map( (todo,idx) => `Todo Task ${idx + 1} - ${todo.txt} \n`)
+      this.$router.push(`compose?subject=${subject}&body=${body}`);
+    },
     displayControls() {
       this.controls = true;
     },

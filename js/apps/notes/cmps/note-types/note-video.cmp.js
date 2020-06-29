@@ -6,7 +6,7 @@ export default {
             <iframe width="240" :src="formattedUrl" />
             </iframe>
             <div class="content-container">
-                <h2>{{info.title}}</h2>
+                <h3>{{info.title}}</h3>
                 <i class="fab fa-youtube note-type"></i>
             </div>
         </div>

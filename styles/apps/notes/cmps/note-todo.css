@@ -9,6 +9,12 @@
     width: 200px;
     align-items: center;
 }
+.todo-task p {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding-inline-start: .5rem;
+}
 .todos-input-container input{
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
     margin-inline-end: 2rem;

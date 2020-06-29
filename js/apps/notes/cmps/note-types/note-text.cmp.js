@@ -3,8 +3,8 @@ export default {
     props: ['info', 'edit'],
     template: `
         <div class="note-desc text-container">
-                <div class="another-container" v-if="!edit">
-                    <h3>{{info.txt}}</h3>
+                <div class="another-container note-text" v-if="!edit">
+                    <h4>{{info.txt}}</h4>
                     <i class="fas fa-font note-type"></i>
                 </div>
                 <div v-else class="note-edit flex column align-center">

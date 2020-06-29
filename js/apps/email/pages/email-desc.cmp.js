@@ -1,4 +1,5 @@
 import { emailService } from '../services/email.service.js';
+import { noteService } from '../../notes/services/note-service.js';
 import { utilsService } from '../../../services/utils.service.js';
 import { eventBus } from '../../../services/event-bus.service.js';
 
@@ -23,9 +24,12 @@ export default {
                         <button @click.stop="replyToEmail" title="Replay"> 
                             <i class="fas fa-reply"></i> 
                         </button>
+                        <button @click.stop="saveAsNote" title="Save as a Note"> 
+                            <i class="fas fa-paper-plane"></i> 
+                        </button>
                         <button @click.stop="deleteEmail(email.id)" title="Delete"> 
                                 <i class="fas fa-trash"></i> 
-                            </button>
+                        </button>
                         </div>
                     </div>
                     <div class="from-container flex align-center">
@@ -47,6 +51,12 @@ export default {
         }
     },
     methods: {
+        saveAsNote() {
+            let newNote = noteService.getEmptyNoteByType('noteText')
+            newNote.info.txt = `E-Mail Subject - ${this.email.subject}` + '\n\n' + `${this.email.from} Wrote: "${this.email.body}"`
+            noteService.addNewNote(newNote);  
+            this.$router.push('/notes');
+        },
         loadEmail() {
             const { emailId } = this.$route.params;
             emailService.getById(emailId)

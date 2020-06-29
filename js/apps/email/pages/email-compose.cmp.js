@@ -21,7 +21,7 @@ export default {
                     <input type="text" name="composeSubject" v-model="emailToSend.subject" placeholder="Subject">    
                 </div>
                 <div class="compose-body"> 
-                    <textarea rows="15" type="text" v-model="emailToSend.body" name="composeSubject"/>    
+                    <textarea rows="15" type="text" v-model="emailToSend.body" ref="bodyInput" name="composeSubject" placeholder="Compose email" />    
                 </div>
                 <div class="compose-footer flex space-between align-center"> 
                     <button :disabled="!isValid" title="Send" @click.stop="sendMail"> Send </button>
@@ -99,12 +99,16 @@ export default {
         const body = get('body');
         const from = get('from');
         if (!to && !subject && !body && !from) return
+        else if (!from && !to) {
+            this.emailToSend.body = body;
+        }
         else if (!from) { 
             this.emailToSend.to = to;
             this.emailToSend.body = body;
         } else { 
             this.emailToSend.to = from;
             this.emailToSend.body = `On Fri, Jun 26, 2020 at 8:42 PM <${from}> wrote: "${body}"`;
+            this.$refs.bodyInput.focus();
         }
             this.emailToSend.subject = subject;
     }
