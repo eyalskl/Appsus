@@ -68,15 +68,11 @@
 .colors-container span:hover{
     border: 1px solid #000000;
 }
-<<<<<<< HEAD
 .note-text {
     line-height: 1.5;
 }
-iframe{
-=======
 
 .note-desc iframe{
->>>>>>> e62dd5f1ba872b2e6b1a48ac5a85fef1a2d37661
     height: 200px;
     margin-block-start: -2px;
     border-radius: 8px 8px 1px 1px;
