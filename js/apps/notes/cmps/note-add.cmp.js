@@ -9,7 +9,7 @@ export default {
     template: `
         <section class="flex">
             <div class="input-container flex wrap">
-                <input v-show="(noteType!=='noteTodos')" :placeholder="PLACE_HOLDERS[noteType] || 'Take a note...' " @keyup.enter.prevent="addNote(newNote)"  v-model="newNote.info.txt"/>
+                <input ref="addNoteInput" v-show="(noteType!=='noteTodos')" :placeholder="PLACE_HOLDERS[noteType] || 'Take a note...' " @keyup.enter.prevent="addNote(newNote)"  v-model="newNote.info.txt"/>
                 <todosEdit v-if="(noteType==='noteTodos')"></todosEdit>
                 <div class="btn-setters">
                     <button title="Text" @click.stop="setType('noteText')">
@@ -77,7 +77,9 @@ export default {
         noteVideo,
         todosEdit
     },
-
+    mounted() {
+        this.$refs.addNoteInput.focus()
+    },
     created() {
         this.newNote = noteService.getEmptyNoteByType("noteText");
         
