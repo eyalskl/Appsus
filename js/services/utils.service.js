@@ -5,7 +5,6 @@ export const utilsService = {
     loadFromStorage,
     getRandomInt,
     getRandomId,
-    formatCurrency,
     compareValues,
     getRandomColor,
     getParameterByName
@@ -14,6 +13,7 @@ export const utilsService = {
 function storeToStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value) || null);
 }
+
 function loadFromStorage(key) {
     let data = localStorage.getItem(key);
     return (data) ? JSON.parse(data) : undefined;
@@ -28,17 +28,11 @@ function getRandomId() {
 }
 
 function getRandomInt(num1, num2) {
-    var max = (num1 >= num2)? num1+1 : num2+1;
-    var min = (num1 <= num2)? num1 : num2;
-    return (Math.floor(Math.random()*(max - min)) + min);
+    var max = (num1 >= num2) ? num1 + 1 : num2 + 1;
+    var min = (num1 <= num2) ? num1 : num2;
+    return (Math.floor(Math.random() * (max - min)) + min);
 }
 
-function formatCurrency(lang, currencyCode, price) {
-    return new Intl.NumberFormat(lang, {
-        style: 'currency',
-        currency: currencyCode,
-      }).format(price);
-}
 
 function compareValues(key, order = 'asc') {
     return function innerSort(a, b) {
@@ -57,12 +51,12 @@ function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
     for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
+        color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
-  }
+}
 
-  function getParameterByName(name, url) {
+function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),

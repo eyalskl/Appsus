@@ -36,10 +36,9 @@ export default {
     computed: {
         sentAt() {
             if (new Date(Date.now()).toDateString().slice(4, 10) === new Date(this.email.sentAt).toDateString().slice(4, 10)) {
-                return new Date(this.email.sentAt).toLocaleTimeString('en-US', 
-                { 
-                    hour12: true, 
-                    hour: "numeric", 
+                return new Date(this.email.sentAt).toLocaleTimeString('en-US', {
+                    hour12: true,
+                    hour: "numeric",
                     minute: "numeric"
                 });;
             } else return new Date(this.email.sentAt).toDateString().slice(4, 10)
@@ -48,7 +47,9 @@ export default {
             if (this.email.isRead) return 'read';
             else return 'unread';
         },
-        emailBodyShortText() {return this.email.body.slice(0, 50);},
+        emailBodyShortText() {
+            return this.email.body.slice(0, 50);
+        },
         classByRead() {
             if (this.email.isRead) return 'fa-envelope'
             else return 'fa-envelope-open'
@@ -70,7 +71,7 @@ export default {
             else return '';
         },
         firstLetterFrom() {
-            return this.email.from.slice(0,1)
+            return this.email.from.slice(0, 1)
         },
         randomBgc() {
             return utilsService.getRandomColor()
@@ -92,8 +93,8 @@ export default {
             var txt = (this.email.folder !== 'trash') ? 'The email was moved to trash' : 'The email is permenantly deleted!';
             eventBus.$emit('show-msg', {
                 isVisible: true,
-                txt,   
-                type:'removed-email',
+                txt,
+                type: 'removed-email',
                 showFor: 2000
             })
         },

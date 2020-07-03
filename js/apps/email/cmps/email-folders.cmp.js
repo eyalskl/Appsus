@@ -66,6 +66,6 @@ export default {
         setFolder(folder) {
             this.folderToDisplay = folder;
             this.$emit('folderUpdate', folder);
-        }
+        },
     }
 }

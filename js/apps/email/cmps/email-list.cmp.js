@@ -9,9 +9,6 @@ export default {
         </ul>
     `,
     components: {
-      emailPreview,
-    },
+        emailPreview,
+    }
 };
-
-
-// @click.native="openemailDesc(email.id)"

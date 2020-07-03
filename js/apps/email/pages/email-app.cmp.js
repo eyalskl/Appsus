@@ -17,7 +17,7 @@ export default {
             <email-filter @searching="setSearch" @readFilter="setReadFilter" @setSortBy="setSortBy" />
         </div>
         <div class="email-main flex">
-            <email-folders @folderUpdate="setFolderDisplay"> </email-folders>
+            <email-folders @emailsent="loadEmails" @folderUpdate="setFolderDisplay"> </email-folders>
             <email-list :emails="emailsToShow"> </email-list>
             <side-bar> </side-bar>
             <router-view />
@@ -36,20 +36,22 @@ export default {
     },
     computed: {
         emailsToShow() {
-            if (this.searchBy) return this.emails.filter(email => email.subject.toLowerCase().includes(this.searchBy.toLowerCase()) || email.body.toLowerCase().includes(this.searchBy.toLowerCase()) || email.from.toLowerCase().includes(this.searchBy.toLowerCase()));
-            if (this.readFilter === 'all') this.emails = this.emails
-            else return this.emails.filter(email => {
-                if (this.readFilter === 'read') return email.isRead && email.folder !== 'trash' && email.folder !== 'drafts'
-                else return !email.isRead && email.folder !== 'trash' && email.folder !== 'drafts'
-            })
-            if (this.folderToShow === 'starred') return this.emails.filter(email => email.isStarred === true && email.folder !== 'trash');
-            if (this.folderToShow === 'sent') return this.emails.filter(email => email.isSent === true && email.folder !== 'trash');
-            return this.emails.filter(email => email.folder === this.folderToShow);
+            let filteredEmails = this.emails;
+            if (this.searchBy) filteredEmails = filteredEmails.filter(email => email.subject.toLowerCase().includes(this.searchBy.toLowerCase()) || email.body.toLowerCase().includes(this.searchBy.toLowerCase()) || email.from.toLowerCase().includes(this.searchBy.toLowerCase()));
+            if (this.readFilter !== 'all') {
+                filteredEmails = filteredEmails.filter(email => {
+                    if (this.readFilter === 'read') return email.isRead && email.folder !== 'trash' && email.folder !== 'drafts'
+                    else return !email.isRead && email.folder !== 'trash' && email.folder !== 'drafts'
+                })
+            }
+            if (this.folderToShow === 'starred') filteredEmails = filteredEmails.filter(email => email.isStarred && email.folder !== 'trash');
+            else if (this.folderToShow === 'sent') filteredEmails = filteredEmails.filter(email => email.isSent && email.folder !== 'trash');
+            else filteredEmails = filteredEmails.filter(email => email.folder === this.folderToShow);
+            return filteredEmails;
         }
     },
     methods: {
         setFolderDisplay(folder) {
-            console.log('folder:', folder)
             this.searchBy = '';
             this.readFilter = 'all';
             if (this.elRadioAllRead) this.elRadioAllRead.checked = true;
@@ -75,23 +77,21 @@ export default {
             }
         },
         toggleMenu() {
-            document.body.classList.toggle('menu-open'); 
-        }
-    },
-    created() {
-        emailService.getEmails()
-            .then(emails => {
-                this.emails = emails
-                this.setSortBy('date')
-            })   
-            
-        eventBus.$on('email-added', () => {
-                emailService.getEmails()
+            document.body.classList.toggle('menu-open');
+        },
+        loadEmails() {
+            emailService.getEmails()
                 .then(emails => {
                     this.emails = emails
                     this.setSortBy('date')
-                }) 
+                })
+        }
+    },
+    created() {
+        eventBus.$on('email-sent', (data) => {
+            this.loadEmails()
         });
+        this.loadEmails()
         if (document.body.classList.contains('menu-open')) document.body.classList.remove('menu-open')
     },
     components: {

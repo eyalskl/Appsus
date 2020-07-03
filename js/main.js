@@ -5,10 +5,7 @@ import { eventBus } from './services/event-bus.service.js';
 import { myRouter } from "./routes.js";
 // COMPONENTS
 import navBar from './cmps/nav-bar.cmp.js';
-
 import userMsg from './cmps/user-msg.cmp.js';
-
-
 
 new Vue({
     name: 'appsus',
@@ -18,7 +15,7 @@ new Vue({
         <div>
             <user-msg :msgData="userMsgData" />
             <main class="app-main">
-            <router-view />
+                <router-view />
             </main>
         </div>
         `,
@@ -29,12 +26,6 @@ new Vue({
             type:'' 
         }
     },
-    computed: {
-    
-    },
-    methods: {
-    
-    },
     created() {
         eventBus.$on('show-msg', (data) => {
             this.userMsgData = data;
@@ -42,7 +33,6 @@ new Vue({
     },
     components: {
         navBar,
-
         userMsg
     },
 })

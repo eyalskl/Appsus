@@ -49,10 +49,13 @@ export default {
         saveAsDraft() {
             if (!this.emailToSend.to && !this.emailToSend.subject && !this.emailToSend.body) return this.$router.push('/email')
             emailService.sendNewMail(this.emailToSend, 'drafts')
+                .then(email => {
+                    eventBus.$emit('email-sent', true)
+                })
             eventBus.$emit('show-msg', {
                 isVisible: true,
-                txt: 'The email was saved to drafs!',   
-                type:'email-sent',
+                txt: 'The email was saved to drafs!',
+                type: 'email-sent',
                 showFor: 3000
             })
             this.$router.push('/email');
@@ -60,18 +63,17 @@ export default {
         minimize() {
             this.minimizedMode = !this.minimizedMode;
         },
-        expand() {
-            this.expandedMode = !this.expandedMode;
-        },
         sendMail() {
             emailService.sendNewMail(this.emailToSend, 'inbox')
+                .then(email => {
+                    eventBus.$emit('email-sent', true)
+                })
             eventBus.$emit('show-msg', {
                 isVisible: true,
-                txt: 'The email was sent successfully!',   
-                type:'email-sent',
+                txt: 'The email was sent successfully!',
+                type: 'email-sent',
                 showFor: 3000
             })
-            eventBus.$emit('email-added', true)
             this.$router.push('/email');
         }
     },
@@ -101,15 +103,14 @@ export default {
         if (!to && !subject && !body && !from) return
         else if (!from && !to) {
             this.emailToSend.body = body;
-        }
-        else if (!from) { 
+        } else if (!from) {
             this.emailToSend.to = to;
             this.emailToSend.body = body;
-        } else { 
+        } else {
             this.emailToSend.to = from;
             this.emailToSend.body = `On Fri, Jun 26, 2020 at 8:42 PM <${from}> wrote: "${body}"`;
             this.$refs.bodyInput.focus();
         }
-            this.emailToSend.subject = subject;
+        this.emailToSend.subject = subject;
     }
 }
