@@ -10,9 +10,12 @@
     height: 80px;
 }
 
-.email-app, .notes-app, .book-app  {
+.email-app,
+.notes-app,
+.book-app {
     min-height: calc(100vh - 80px);
 }
+
 .email-main {
     min-height: calc(100vh - 80px);
 }

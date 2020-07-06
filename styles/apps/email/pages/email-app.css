@@ -1,12 +1,12 @@
 .email-app {
-  background-color: rgb(255, 255, 255);
-  position: relative;
+    background-color: rgb(255, 255, 255);
+    position: relative;
 }
 
 .email-folders {
-  width: 200px;
+    width: 200px;
 }
 
 .email-list {
-  flex: 1;
+    flex: 1;
 }

@@ -1,25 +1,4 @@
-.email-list .drag-zone {
+/* .email-list {
     min-height: calc(100vh - 80px);
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.flip-list-move {
-    transition: transform 0.5s;
-}
-
-.no-move {
-    transition: transform 0s;
-}
-
-.email-list .transition-container {
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-}
-
-.ghost {
-    opacity: 0;
-    background: #c8ebfb;
-}
+    width: calc(100vw - 200px - 4rem);
+} */
