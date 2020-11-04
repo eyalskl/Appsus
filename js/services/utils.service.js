@@ -7,7 +7,8 @@ export const utilsService = {
     getRandomId,
     compareValues,
     getRandomColor,
-    getParameterByName
+    getParameterByName,
+    formatCurrency
 }
 
 function storeToStorage(key, value) {
@@ -64,4 +65,13 @@ function getParameterByName(name, url) {
     if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+
+
+function formatCurrency(lang, currencyCode, price) {
+    return new Intl.NumberFormat(lang, {
+        style: 'currency',
+        currency: currencyCode,
+      }).format(price);
 }
