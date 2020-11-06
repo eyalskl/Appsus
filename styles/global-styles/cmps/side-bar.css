@@ -16,3 +16,10 @@
 .side-bar>*:hover{
 color: black   ;
 }
+
+.book-app .side-bar {
+    border-top: none;
+    position: fixed;
+    height: 100%;
+    right: 0;
+}

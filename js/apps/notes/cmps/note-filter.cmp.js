@@ -3,10 +3,10 @@ export default {
     template: `
         <nav class="notes-filter flex align-center">
             <div class="search-notes">
-                <button @click.stop="searching" > <i class="fas fa-search"></i> </button>
-                <input type="search" @keyup.enter.prevent="searching" @change.stop="searching" placeholder="Search Title" v-model="searchInput">
-                <select @change="setFilterBy">
-                        <option value=""> Show all </option>
+                <button @click.stop="setFilterBy" > <i class="fas fa-search"></i> </button>
+                <input type="search" @keyup.enter.prevent="setFilterBy" @input.stop="setFilterBy" placeholder="Search note" v-model="filterBy.term">
+                <select @change="setFilterBy" v-model="filterBy.type">
+                        <option value="all"> Show all </option>
                         <option value="noteText"> Text </option>
                         <option value="noteTodos"> Todos </option>
                         <option value="noteImg"> Images </option>
@@ -17,15 +17,15 @@ export default {
     `,
     data() {
         return {
-            searchInput: ''
+            filterBy: {
+                term: '',
+                type: 'all'
+            }
         };
     },
     methods: {
-        searching() {
-            this.$emit('searching', this.searchInput);
-        },
-        setFilterBy(event) {
-            this.$emit('setFilterBy', event.target.value) 
+        setFilterBy() {
+            this.$emit('filtering', {...this.filterBy}) 
         }
     },
 }

@@ -150,7 +150,7 @@ function getById(emailId) {
 }
 
 function removeEmail(emailId) {
-    getById(emailId)
+    return getById(emailId)
         .then(email => {
             if (email.folder === 'inbox' || email.folder === 'drafts') email.folder = 'trash';
             else if (email.folder === 'trash') {
@@ -158,6 +158,7 @@ function removeEmail(emailId) {
                 gEmails.splice(emailIdx, 1);
             }
             utilsService.storeToStorage(EMAILS_KEY, gEmails);
+            return Promise.resolve();
         })
 }
 

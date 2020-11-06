@@ -8,7 +8,22 @@
     justify-content: space-between;
     width: 200px;
     align-items: center;
+    position: relative;
 }
+
+.todo-task .del-task {
+    display: none;
+}
+.todo-task:hover .del-task {
+    display: inline;
+    position: absolute;
+    left: -11.5px;
+    font-size: .65rem;
+    font-weight: bold;
+    color: red;
+    background-color: inherit;
+}
+
 .todo-task p {
     font-size: 1rem;
     letter-spacing: 1px;
@@ -29,7 +44,6 @@
     border-radius: 100px;
     box-shadow: 0px 0px 1px 1px black;
 }
-
 
 @media(max-width:720px){
     .btn-setters{

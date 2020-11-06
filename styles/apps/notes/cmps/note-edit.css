@@ -24,11 +24,15 @@
 }
 
 .todo-edit input { 
-    margin: .5rem;
-    padding: .5rem;
-    border-radius: 999px;
-    outline: none;
-    border: 1px solid black;
+    border-radius: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 1rem;
+    padding-bottom: .5rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 700;
 }
 
 .todo-edit button {
@@ -38,7 +42,7 @@
     border-radius: 10px;
     margin: .5rem;
     text-transform: capitalize;
-    border: 1px solid black;
+    border: 1px solid #bbb;
 }
 .note-edit , .todo-edit{
     padding: 3rem;

@@ -89,13 +89,15 @@ export default {
             this.showControls = false;
         },
         deleteEmail(emailIdx) {
-            emailService.removeEmail(emailIdx);
-            var txt = (this.email.folder !== 'trash') ? 'The email was moved to trash' : 'The email is permenantly deleted!';
-            eventBus.$emit('show-msg', {
-                isVisible: true,
-                txt,
-                type: 'removed-email',
-                showFor: 2000
+            emailService.removeEmail(emailIdx)
+            .then(() => {
+                var txt = (this.email.folder !== 'trash') ? 'The email was moved to trash' : 'The email is permenantly deleted!';
+                eventBus.$emit('show-msg', {
+                    isVisible: true,
+                    txt,
+                    type: 'removed-email',
+                    showFor: 2000
+                })
             })
         },
         toggleStarred() {

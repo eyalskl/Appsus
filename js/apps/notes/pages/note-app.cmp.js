@@ -10,13 +10,15 @@ export default {
     template: `
         <section v-if="notes" class="notes-app">
             <div class="filter-add-container flex">
-                <note-filter @searching="setSearchBy" @setFilterBy="setFilter"/>  
-            </div>   
+                <note-filter @filtering="setFilter"/>  
+            </div>  
             <div class="flex">  
                 <div class="flex notes-app-w column">
                         <note-add class="add-notes"/>
-                        <note-list :notes="pinnedNotesToShow"/>  
-                        <note-list :notes="unpinnedNotesToShow"/>  
+                        <template v-if="notes">
+                            <note-list :notes="pinnedNotes" header="Pinned" />  
+                            <note-list :notes="unpinnedNotes" header="Others"/>                                  
+                        </template>
                 </div>
                 <side-bar> </side-bar>
             </div>
@@ -26,50 +28,45 @@ export default {
         return {
             notes: null,
             filterBy: null,
-            searchBy: '',
-            editMode:false
+            editMode: false
         };
     },
     computed: {
-        pinnedNotesToShow() {
-            if(!this.filterBy || !this.searchBy) return this.notes.filter(note => note.isPinned)
-            if (this.searchBy) return this.notes.filter(note => {
-                if (note.type === 'noteText') return note.info.txt.toLowerCase().contains(this.searchBy.toLowerCase());
-                if (note.type === 'noteImg' || note.type === 'noteVideo') return note.info.title.toLowerCase().contains(this.searchBy.toLowerCase());
-                if (note.type === 'noteTodos') return note.info.todos.forEach(todo => todo.txt.toLowerCase().contains(this.searchBy.toLowerCase()))
-            })
-            var fiilterdNotes = this.notes.filter(note=> note.type === this.filterBy)
-            return fiilterdNotes.filter(note => note.isPinned)
+        pinnedNotes() {
+            return this.notesToShow.filter(note => note.isPinned)
         },
-        unpinnedNotesToShow() {
-            if(!this.filterBy || !this.searchBy) return this.notes.filter(note => !note.isPinned)
-            if (this.searchBy) return this.notes.filter(note => {
-                if (note.type === 'noteText') return note.info.txt.toLowerCase().contains(this.searchBy.toLowerCase());
-                if (note.type === 'noteImg' || note.type === 'noteVideo') return note.info.title.toLowerCase().contains(this.searchBy.toLowerCase());
-                if (note.type === 'noteTodos') return note.info.todos.forEach(todo => todo.txt.toLowerCase().contains(this.searchBy.toLowerCase()))
-            })
-            var fiilterdNotes = this.notes.filter(note=> note.type === this.filterBy)
-            return fiilterdNotes.filter(note => !note.isPinned)
+        unpinnedNotes() {
+            return this.notesToShow.filter(note => !note.isPinned)
+        },
+        notesToShow() {
+            var { notes, filterBy } = this
+            if (!filterBy) return notes;
+            var { term, type } = filterBy;
+            term = term.toLowerCase();
+            if (term) {
+                notes = notes.filter(note => {
+                    if (note.type === 'noteText') return note.info.txt.toLowerCase().includes(term);
+                    if (note.type === 'noteImg' || note.type === 'noteVideo') return note.info.title.toLowerCase().includes(term)
+                    if (note.type === 'noteTodos') return note.info.todos.forEach(todo => todo.txt.toLowerCase().includes(term))
+                })
+            }
+            return (type === 'all') ? notes : notes.filter(note => note.type === type)
         }
     },
     methods: {
         setFilter(filterBy) {
+            console.log('filterBy:', filterBy)
             this.filterBy = filterBy;
-           
         },
-        onEdit(yes){
+        onEdit(yes) {
             this.editMode = yes
         },
-        setSearchBy(searchBy) {
-            console.log('searchBy:', searchBy)
-            this.searchBy = searchBy;
+        async loadNotes() {
+            this.notes = await noteService.getNotes()
         }
     },
     created() {
-        noteService.getNotes()
-            .then(notes => this.notes = notes);
-            
-
+        this.loadNotes();
     },
     components: {
         noteList,

@@ -109,7 +109,6 @@ export default {
         } else {
             this.emailToSend.to = from;
             this.emailToSend.body = `On Fri, Jun 26, 2020 at 8:42 PM <${from}> wrote: "${body}"`;
-            this.$refs.bodyInput.focus();
         }
         this.emailToSend.subject = subject;
     }
